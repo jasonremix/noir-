@@ -79,9 +79,9 @@ confirmed. The four retailer logos are in, cropped to their alpha box at
 plate they sit on is drawn by the page, as a CSS background on the DOM chip
 and on a canvas for the wall, so one transparent file serves both.
 
-All four partners are still `confirmed: false`, which is a commercial fact
-and not ours to set: until it flips, they appear nowhere a customer could
-read them as a promise. Flipping one entry is all it takes.
+All four partners are confirmed, so they appear in the copy and as lit signs
+on the corridor wall. None of them has a target link yet — the ledger says
+so, and the chips stay plain text until a URL is filled in.
 
 One deliberate deviation from the brief: §4 hangs the logo wall on the right
 and §9 puts act VI's copy on the right too, so the marks ended up behind the

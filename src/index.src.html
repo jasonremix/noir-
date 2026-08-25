@@ -689,10 +689,10 @@ var CFG = {
   },
   commerce: { checkoutUrl: '', newsletterEndpoint: '', newsletterProvider: null },
   retail: [
-    { key: 'parfumfabrik', name: 'Parfum Fabrik', role: 'maker', logo: '__A_LOGOPF__', url: '', confirmed: false, w: 2.0 },
-    { key: 'dm',           name: 'dm',            role: 'shop',  logo: '__A_LOGODM__', url: '', confirmed: false, mark: true, w: 1.1 },
-    { key: 'rossmann',     name: 'Rossmann',      role: 'shop',  logo: '__A_LOGORO__', url: '', confirmed: false, w: 2.0 },
-    { key: 'mueller',      name: 'Müller',        role: 'shop',  logo: '__A_LOGOMU__', url: '', confirmed: false, w: 2.2 }
+    { key: 'parfumfabrik', name: 'Parfum Fabrik', role: 'maker', logo: '__A_LOGOPF__', url: '', confirmed: true, w: 2.0 },
+    { key: 'dm',           name: 'dm',            role: 'shop',  logo: '__A_LOGODM__', url: '', confirmed: true, mark: true, w: 1.1 },
+    { key: 'rossmann',     name: 'Rossmann',      role: 'shop',  logo: '__A_LOGORO__', url: '', confirmed: true, w: 2.0 },
+    { key: 'mueller',      name: 'Müller',        role: 'shop',  logo: '__A_LOGOMU__', url: '', confirmed: true, w: 2.2 }
   ],
   legal: {
     company: null, rep: null, street: null, zip: null, city: null, country: 'Deutschland',
@@ -1086,6 +1086,9 @@ function openPoints(){
   add(!has(l.hosting),            'Datenschutz: Hosting-Dienstleister nicht benannt');
   add(true,                       'Datenschutz und Widerruf sind Gerüste — anwaltlich prüfen lassen');
   add(CFG.retail.some(function(r){ return !r.confirmed; }), 'Händler nicht bestätigt — Freigabe für Nennung und Logo einholen');
+  var linkless = CFG.retail.filter(function(r){ return r.confirmed && !has(r.url); });
+  add(linkless.length > 0, 'Kein Ziel-Link für ' + linkless.map(function(r){ return r.name; }).join(', ') +
+                           ' — die Logos sind dadurch nicht anklickbar');
   add(CFG.retail.every(function(r){ return !has(r.logo); }), 'Händlerlogos liegen nicht vor — in Originalfarben einbinden, nicht weiß einfärben');
   add(true,                       'Duftnoten sind ein Entwurf — von der Parfumeurin bestätigen lassen');
   add(true,                       'Eckdaten (' + [p.volume, p.concentration, p.wear, p.edition].join(' · ') + ') bestätigen lassen');
