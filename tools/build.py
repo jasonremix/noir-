@@ -183,10 +183,9 @@ def build_artifact(src, mf):
 
     head = html[html.index('<head>') + 6:html.index('</head>')]
     body = html[html.index('<body>') + 6:html.rindex('</body>')]
-    keep = []
-    title = re.search(r'<title>.*?</title>', head, re.S)
-    if title:
-        keep.append(title.group(0))
+    # The shared copy is named for the room, not the product: it sits in a
+    # gallery beside other pages, where "Eau de Parfum" identifies nothing.
+    keep = ['<title>NOIRÉ Le Couloir</title>']
     for m in re.finditer(r'<link rel="stylesheet"[^>]*>', head):
         keep.append(m.group(0))
     for m in re.finditer(r'<link rel="preconnect"[^>]*>', head):
