@@ -1,0 +1,2917 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>NOIRÉ — Eau de Parfum</title>
+<meta name="description" content="NOIRÉ Eau de Parfum. Ein Duft für die Stunden nach Mitternacht. Erste Edition, 15.11.">
+<meta name="theme-color" content="#050203">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="__A_CANONICAL__">
+<meta property="og:type" content="product">
+<meta property="og:site_name" content="NOIRÉ">
+<meta property="og:title" content="NOIRÉ — Eau de Parfum">
+<meta property="og:description" content="Ein Duft für die Stunden nach Mitternacht. Erste Edition, 15.11.">
+<meta property="og:image" content="__A_OGURL__">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Schwarzer Flakon NOIRÉ vor rotem Licht">
+<meta property="og:locale" content="de_DE">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NOIRÉ — Eau de Parfum">
+<meta name="twitter:description" content="Ein Duft für die Stunden nach Mitternacht.">
+<meta name="twitter:image" content="__A_OGURL__">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23050203'/%3E%3Crect x='15.1' y='5' width='1.8' height='22' fill='%23d6111c'/%3E%3Crect x='15.5' y='5' width='1' height='22' fill='%23ff9a9a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap">
+<style>
+:root{
+  --void:#050203; --blood:#6f0810; --ember:#d6111c; --flare:#ff4b4b;
+  --ash:#8d7f81;  --bone:#ece4e2;
+  --display:'Cormorant Garamond',Didot,'Bodoni 72','Playfair Display',Georgia,serif;
+  --utility:'Jost',Futura,'Avenir Next','Helvetica Neue',Arial,sans-serif;
+  --gut:clamp(1.4rem,5vw,5rem);
+  --line:1px solid rgba(236,228,226,.10);
+  --bar:6.5vh;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{background:var(--void);-webkit-text-size-adjust:100%}
+body{
+  background:var(--void); color:var(--bone);
+  font-family:var(--display); font-weight:300;
+  font-size:clamp(1rem,.92rem + .35vw,1.16rem); line-height:1.62;
+  overflow-x:hidden; overscroll-behavior-y:none;
+  -webkit-font-smoothing:antialiased;
+}
+body.lock{overflow:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+:focus-visible{outline:1px solid var(--ember);outline-offset:4px}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:1px solid var(--ember);outline-offset:4px}
+
+/* ---------- typography atoms ---------- */
+.lbl{
+  font-family:var(--utility); font-weight:400; text-transform:uppercase;
+  letter-spacing:.42em; font-size:clamp(.5rem,.46rem + .18vw,.62rem);
+  color:var(--ash); margin:0 0 1.5em;
+}
+.lbl--em{color:var(--ember)}
+.h1{
+  font-family:var(--display); font-weight:300; line-height:.94;
+  font-size:clamp(3.4rem,1.4rem + 11vw,11rem); margin:0;
+  letter-spacing:-.012em;
+}
+.h2{
+  font-family:var(--display); font-weight:300; line-height:1.02;
+  font-size:clamp(2.1rem,1.1rem + 4.6vw,4.6rem); margin:0 0 .55em;
+  letter-spacing:-.008em;
+}
+.h3{
+  font-family:var(--display); font-weight:300; line-height:1.1;
+  font-size:clamp(1.5rem,1.05rem + 1.9vw,2.5rem); margin:0;
+}
+.bd{font-size:clamp(1rem,.94rem + .34vw,1.24rem); color:rgba(236,228,226,.78); margin:0 0 1.1em; max-width:34ch}
+.bd em{font-style:italic; color:var(--bone)}
+.mut{color:var(--ash)}
+.tny{
+  font-family:var(--utility); text-transform:uppercase; letter-spacing:.34em;
+  font-size:clamp(.5rem,.47rem + .12vw,.6rem); color:var(--ash);
+}
+
+/* ---------- persistent chrome ---------- */
+.skip{
+  position:fixed; left:0; top:0; z-index:99; transform:translateY(-120%);
+  background:var(--void); color:var(--bone); padding:.9rem 1.2rem;
+  border:var(--line); font-family:var(--utility); font-size:.62rem;
+  letter-spacing:.3em; text-transform:uppercase; text-decoration:none;
+}
+.skip:focus{transform:none}
+
+#gl{position:fixed; inset:0; width:100%; height:100%; z-index:0; display:block; background:var(--void)}
+html:not(.gl) #gl{display:none}
+
+.grain{
+  position:fixed; inset:0; z-index:1; pointer-events:none; opacity:.5;
+  background:radial-gradient(120% 90% at 50% 55%,rgba(111,8,16,.10),transparent 62%);
+}
+html.gl .grain{opacity:.28}
+
+.hdr{
+  position:fixed; inset:0 0 auto 0; z-index:40; display:flex; align-items:center;
+  justify-content:space-between; gap:1rem;
+  padding:clamp(.9rem,2.2vh,1.5rem) var(--gut);
+  pointer-events:none;
+}
+.hdr>*{pointer-events:auto}
+.brand{display:flex; align-items:baseline; gap:.85rem; text-decoration:none}
+.brand b{
+  font-family:var(--display); font-weight:400; font-size:clamp(.95rem,1.9vw,1.3rem);
+  letter-spacing:.36em; text-indent:.36em;
+}
+.brand span{
+  font-family:var(--utility); text-transform:uppercase; letter-spacing:.34em;
+  font-size:.5rem; color:var(--ash);
+}
+@media (max-width:620px){.brand span{display:none}}
+.tools{display:flex; align-items:center; gap:.4rem}
+.tb{
+  appearance:none; background:none; border:var(--line); color:var(--ash);
+  font-family:var(--utility); text-transform:uppercase; letter-spacing:.3em;
+  font-size:.5rem; padding:.55em .9em .5em 1.2em; cursor:pointer;
+  transition:color .3s,border-color .3s,background .3s;
+}
+.tb:hover{color:var(--bone); border-color:rgba(236,228,226,.26)}
+.tb[aria-pressed="true"]{color:var(--flare); border-color:rgba(214,17,28,.5); background:rgba(111,8,16,.14)}
+.langs{display:flex; border:var(--line)}
+.langs .tb{border:0; border-left:var(--line); padding:.55em .7em .5em .9em}
+.langs .tb:first-child{border-left:0}
+@media (max-width:520px){.tb--m{display:none}}
+
+.bars{position:fixed; inset:0; z-index:35; pointer-events:none}
+.bars i{
+  position:absolute; left:0; right:0; height:var(--bar); background:#000;
+  transform:scaleY(var(--scope,0)); will-change:transform;
+}
+.bars i:first-child{top:0; transform-origin:top}
+.bars i:last-child{bottom:0; transform-origin:bottom}
+
+.hud{
+  position:fixed; left:var(--gut); bottom:clamp(1rem,3vh,2rem); z-index:40;
+  display:flex; align-items:center; gap:.75rem; pointer-events:none;
+  opacity:0; transition:opacity .6s;
+}
+html.gl .hud{opacity:1}
+.hud .rail{width:clamp(52px,9vw,120px); height:1px; background:rgba(236,228,226,.14); position:relative}
+.hud .rail i{position:absolute; inset:0 auto 0 0; width:calc(var(--depth,0) * 100%); background:var(--ember)}
+.hud b{font-family:var(--utility); font-weight:400; font-size:.5rem; letter-spacing:.3em; color:var(--ash); text-transform:uppercase}
+.hud u{font-family:var(--utility); font-weight:400; font-size:.5rem; letter-spacing:.24em; color:var(--flare); text-decoration:none; font-variant-numeric:tabular-nums}
+
+.rail-ch{
+  position:fixed; right:var(--gut); top:50%; transform:translateY(-50%); z-index:40;
+  display:flex; flex-direction:column; gap:.85rem; align-items:flex-end;
+}
+@media (max-width:900px){.rail-ch{display:none}}
+.rail-ch button{
+  appearance:none; background:none; border:0; padding:.2rem 0 .2rem .6rem; cursor:pointer;
+  display:flex; align-items:center; gap:.7rem; color:var(--ash);
+  font-family:var(--utility); text-transform:uppercase; letter-spacing:.3em; font-size:.5rem;
+  transition:color .35s;
+}
+.rail-ch button i{display:block; width:14px; height:1px; background:currentColor; opacity:.45; transition:width .35s,opacity .35s}
+.rail-ch button em{font-style:normal; opacity:.75}
+@media (max-width:1339px){.rail-ch button em{display:none}}
+.rail-ch button[aria-current="true"]{color:var(--flare)}
+.rail-ch button[aria-current="true"] i{width:26px; opacity:1}
+.rail-ch button:hover{color:var(--bone)}
+
+.jump{
+  position:fixed; right:var(--gut); bottom:clamp(1rem,3vh,2rem); z-index:41;
+  font-family:var(--utility); text-transform:uppercase; letter-spacing:.3em; font-size:.5rem;
+  color:var(--bone); background:rgba(5,2,3,.55); border:var(--line);
+  padding:.85em 1.3em .8em 1.6em; cursor:pointer; text-decoration:none;
+  opacity:0; transform:translateY(8px); pointer-events:none;
+  transition:opacity .5s,transform .5s,border-color .3s,color .3s;
+  -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
+}
+.jump.on{opacity:1; transform:none; pointer-events:auto}
+.jump:hover{color:var(--flare); border-color:rgba(214,17,28,.45)}
+@media (max-width:900px){
+  .jump{right:auto; left:50%; bottom:calc(clamp(1rem,3vh,2rem) + 2.8rem); transform:translateX(-50%) translateY(8px)}
+  .jump.on{transform:translateX(-50%)}
+}
+
+/* ---------- acts ---------- */
+main{position:relative; z-index:2}
+.act{position:relative; height:300vh}
+.stage{
+  position:sticky; top:0; height:100svh; height:100vh;
+  display:flex; align-items:center; overflow:hidden;
+}
+@supports (height:100svh){.stage{height:100svh}}
+.wrap{
+  position:relative; width:100%; height:100%;
+  padding:calc(var(--bar) + 4.5rem) var(--gut) calc(var(--bar) + 4.5rem);
+  display:flex; align-items:center;
+}
+.blk{position:relative; z-index:2; width:min(38rem,100%)}
+.blk--l{margin-right:auto}
+.blk--r{margin-left:auto; text-align:right}
+.blk--r .bd,.blk--r .lbl{margin-left:auto}
+.blk--c{margin:0 auto; text-align:center}
+@media (min-width:901px){ .blk--r{padding-right:clamp(9rem,12vw,13rem)} }
+.blk--c .bd{margin-left:auto;margin-right:auto}
+@media (max-width:760px){
+  .blk{width:100%}
+  .blk--r{text-align:left}
+  .blk--r .bd,.blk--r .lbl{margin-left:0}
+}
+.veil{position:absolute; inset:0; z-index:1; pointer-events:none}
+.veil--l{background:linear-gradient(100deg,rgba(5,2,3,.94) 0%,rgba(5,2,3,.78) 26%,rgba(5,2,3,.30) 52%,transparent 72%)}
+.veil--r{background:linear-gradient(260deg,rgba(5,2,3,.94) 0%,rgba(5,2,3,.78) 26%,rgba(5,2,3,.30) 52%,transparent 72%)}
+.veil--c{background:radial-gradient(78% 62% at 50% 50%,rgba(5,2,3,.90) 0%,rgba(5,2,3,.68) 44%,transparent 78%)}
+.ch{display:inline-block; will-change:transform,opacity}
+.w{display:inline-block; white-space:nowrap}
+</style>
+<style>
+/* ---------- act I ---------- */
+#a1 .cue{
+  position:absolute; left:50%; bottom:clamp(4.5rem,11vh,7rem); transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:.9rem; z-index:2;
+  opacity:calc(1 - clamp(0,var(--p,0) * 3.4,1));
+}
+#a1 .cue i{display:block; width:1px; height:clamp(30px,6vh,54px); background:linear-gradient(180deg,var(--ember),transparent)}
+#a1 .h1{opacity:clamp(0,calc((var(--p,0) - .04) * 5),1)}
+
+/* ---------- act III : countdown ---------- */
+.mark{width:min(30rem,72vw); margin:0 auto clamp(1.6rem,4vh,2.8rem); opacity:.96}
+html.gl .mark{opacity:calc(1 - clamp(0,calc((var(--p,0) - .10) * 4),1))}
+.cd{display:flex; justify-content:center; gap:clamp(1.1rem,4vw,2.6rem)}
+.cd div{display:flex; flex-direction:column; align-items:center; gap:.6rem; min-width:3.2em}
+.cd b{
+  font-family:var(--display); font-weight:300; font-variant-numeric:tabular-nums;
+  font-size:clamp(2rem,1.1rem + 4vw,3.9rem); line-height:1; color:var(--bone);
+}
+.cd span{font-family:var(--utility); text-transform:uppercase; letter-spacing:.3em; font-size:.5rem; color:var(--ash)}
+.date{
+  margin-top:clamp(1.4rem,3.5vh,2.4rem); font-family:var(--display); font-weight:300;
+  font-size:clamp(1.6rem,1rem + 2.4vw,2.6rem); letter-spacing:.3em; text-indent:.3em; color:var(--ember);
+}
+
+/* ---------- act IV : notes ---------- */
+.notes{display:flex; flex-direction:column; gap:clamp(1.3rem,3.2vh,2.4rem)}
+.note{border-top:var(--line); padding-top:clamp(.8rem,1.8vh,1.2rem); opacity:.34; transition:opacity .7s}
+.note.on{opacity:1}
+.note .tny{margin:0 0 .5em; color:var(--flare)}
+.note h3{margin:0 0 .4em}
+.note p{margin:0; font-size:clamp(.95rem,.9rem + .3vw,1.12rem); color:rgba(236,228,226,.72)}
+.note p em{font-style:italic; color:var(--bone)}
+
+/* ---------- act V : gallery fallback grid ---------- */
+.pl{display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(.6rem,1.6vw,1.4rem); margin-top:clamp(1.2rem,3vh,2rem)}
+.pl figure{margin:0; display:flex; flex-direction:column; justify-content:space-between; height:100%}
+.pl{align-items:stretch}
+.pl img{width:100%; mix-blend-mode:screen; border:var(--line)}
+html.gl .nogl-only{display:none}
+.pl figcaption{margin-top:.8em}
+
+/* ---------- act VI : retail ---------- */
+.shops{display:flex; flex-wrap:wrap; gap:.7rem; margin-top:.4rem}
+.blk--r .shops{justify-content:flex-end}
+.shop{
+  display:flex; align-items:center; gap:.6rem; background:#efeae8; color:#161012;
+  border-radius:2px; padding:.5rem .85rem; font-family:var(--utility);
+  font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; text-decoration:none;
+}
+.shop img{height:22px; width:auto}
+.shop.un{background:rgba(236,228,226,.07); color:var(--ash); border:var(--line)}
+.shop.un s{text-decoration:none; opacity:.6}
+.shop em{font-style:normal; font-size:.5rem; letter-spacing:.24em; color:var(--ember)}
+
+/* ---------- act VII : specs ---------- */
+.specs{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1px; background:rgba(236,228,226,.10); border:var(--line); margin:clamp(1.2rem,3vh,2rem) 0 1.2rem}
+.specs div{background:var(--void); padding:clamp(.85rem,2vh,1.15rem) clamp(.9rem,2vw,1.2rem)}
+.specs dt{font-family:var(--utility); text-transform:uppercase; letter-spacing:.3em; font-size:.5rem; color:var(--ash); margin:0 0 .7em}
+.specs dd{margin:0; font-family:var(--display); font-size:clamp(1.05rem,1rem + .5vw,1.4rem)}
+.lnk{
+  appearance:none; background:none; border:0; padding:0; cursor:pointer;
+  font-family:var(--utility); text-transform:uppercase; letter-spacing:.3em; font-size:.5rem;
+  color:var(--ash); border-bottom:1px solid rgba(236,228,226,.22); padding-bottom:.4em;
+  transition:color .3s,border-color .3s;
+}
+.lnk:hover{color:var(--flare); border-color:rgba(214,17,28,.5)}
+
+/* ---------- act VIII : purchase ---------- */
+.deal{
+  display:inline-block; font-family:var(--utility); text-transform:uppercase;
+  letter-spacing:.3em; font-size:.5rem; color:var(--flare);
+  border:1px solid rgba(214,17,28,.42); padding:.6em 1em .55em 1.3em; margin-bottom:1.4rem;
+}
+.price{display:flex; align-items:baseline; justify-content:center; gap:.8rem; flex-wrap:wrap}
+.price b{font-family:var(--display); font-weight:300; font-size:clamp(2.6rem,1.4rem + 5vw,5rem); line-height:1}
+.price s{font-family:var(--display); font-size:clamp(1.1rem,1rem + 1vw,1.7rem); color:var(--ash); text-decoration-thickness:1px}
+.price i{font-style:normal; font-family:var(--utility); font-size:.6rem; letter-spacing:.3em; text-transform:uppercase; color:var(--ash)}
+.fine{margin:.9rem 0 0; font-family:var(--utility); font-size:.56rem; letter-spacing:.2em; text-transform:uppercase; color:var(--ash); line-height:2}
+.buy{
+  appearance:none; display:inline-block; margin:clamp(1.6rem,4vh,2.6rem) 0 0;
+  background:var(--ember); color:#fff; border:1px solid var(--ember);
+  font-family:var(--utility); text-transform:uppercase; letter-spacing:.34em; font-size:.62rem;
+  padding:1.15em 2.4em 1.1em 2.74em; cursor:pointer; text-decoration:none;
+  transition:background .3s,color .3s,opacity .3s;
+}
+.buy:hover{background:transparent; color:var(--flare)}
+.buy[disabled],.buy[aria-disabled="true"]{background:transparent; color:var(--ash); border-color:rgba(236,228,226,.18); cursor:not-allowed}
+.nl{margin:clamp(2rem,5vh,3.2rem) auto 0; max-width:26rem}
+.nlrow{display:flex; border:var(--line)}
+.nl input{
+  flex:1 1 auto; min-width:0; appearance:none; background:transparent; border:0; color:var(--bone);
+  font-family:var(--utility); font-size:.72rem; letter-spacing:.14em; padding:1em 1.1em;
+}
+.nl input::placeholder{color:var(--ash); letter-spacing:.2em; text-transform:uppercase; font-size:.6rem}
+.nl button{
+  appearance:none; background:rgba(236,228,226,.05); border:0; border-left:var(--line); color:var(--bone);
+  font-family:var(--utility); text-transform:uppercase; letter-spacing:.3em; font-size:.54rem;
+  padding:1em 1.4em 1em 1.7em; cursor:pointer; white-space:nowrap; transition:background .3s,color .3s;
+}
+.nl button:hover{background:rgba(214,17,28,.16); color:var(--flare)}
+.nlmsg{min-height:1.4em; margin:.9rem 0 0; font-family:var(--utility); font-size:.58rem; letter-spacing:.16em; line-height:1.9; color:var(--ash)}
+.nlmsg.err{color:var(--flare)}
+.nlmsg.ok{color:var(--bone)}
+.consent{margin:1rem 0 0; font-family:var(--utility); font-size:.52rem; letter-spacing:.14em; line-height:2; color:rgba(141,127,129,.85)}
+.consent button{
+  appearance:none;background:none;border:0;padding:0;cursor:pointer;color:var(--ash);
+  font:inherit;border-bottom:1px solid rgba(236,228,226,.24)
+}
+
+/* ---------- footer ---------- */
+.ftr{
+  position:relative; z-index:2; background:var(--void); border-top:var(--line);
+  padding:clamp(2.4rem,7vh,4.5rem) var(--gut) clamp(3rem,8vh,5rem);
+  display:flex; flex-wrap:wrap; gap:1.4rem 2.4rem; align-items:baseline; justify-content:space-between;
+}
+.ftr nav{display:flex; flex-wrap:wrap; gap:1.4rem}
+.ftr button{
+  appearance:none;background:none;border:0;padding:0;cursor:pointer;
+  font-family:var(--utility); text-transform:uppercase; letter-spacing:.3em; font-size:.5rem; color:var(--ash);
+  transition:color .3s;
+}
+.ftr button:hover{color:var(--bone)}
+
+/* ---------- draft mode ---------- */
+.draft{position:fixed; left:var(--gut); top:calc(clamp(.9rem,2.2vh,1.5rem) + 3.4rem); z-index:45; max-width:min(30rem,84vw)}
+.draft>button{
+  appearance:none; cursor:pointer; background:rgba(5,2,3,.7); border:1px solid rgba(214,17,28,.4);
+  color:var(--flare); font-family:var(--utility); text-transform:uppercase; letter-spacing:.3em;
+  font-size:.5rem; padding:.55em 1em .5em 1.3em;
+  -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
+}
+.draft ol{
+  display:none; margin:.6rem 0 0; padding:1rem 1.2rem 1.1rem 2.4rem; list-style:decimal;
+  background:rgba(5,2,3,.94); border:var(--line); max-height:52vh; overflow:auto;
+  font-family:var(--utility); font-size:.58rem; letter-spacing:.08em; line-height:2; color:var(--ash);
+}
+.draft.open ol{display:block}
+.draft li::marker{color:rgba(214,17,28,.6)}
+[data-claim]{text-decoration:underline dotted rgba(214,17,28,.75); text-underline-offset:.28em; cursor:help}
+.todo{color:var(--flare); font-family:var(--utility); font-size:.86em; letter-spacing:.16em}
+
+/* ---------- legal overlay ---------- */
+.ov{position:fixed; inset:0; z-index:80; display:none}
+.ov.open{display:block}
+.ov .sc{position:absolute; inset:0; background:rgba(3,1,2,.86); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px)}
+.ov .pan{
+  position:absolute; inset:clamp(.6rem,4vh,3rem) clamp(.6rem,4vw,3rem); background:var(--void);
+  border:var(--line); display:flex; flex-direction:column; overflow:hidden;
+}
+.ov header{display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:clamp(1rem,2.4vh,1.5rem) clamp(1rem,3vw,2rem); border-bottom:var(--line)}
+.ov .tabs{display:flex; flex-wrap:wrap; gap:.2rem}
+.ov .tabs button{
+  appearance:none; background:none; border:0; cursor:pointer; padding:.6em .9em;
+  font-family:var(--utility); text-transform:uppercase; letter-spacing:.26em; font-size:.5rem; color:var(--ash);
+  border-bottom:1px solid transparent; transition:color .3s,border-color .3s;
+}
+.ov .tabs button[aria-selected="true"]{color:var(--flare); border-color:var(--ember)}
+.ov .x{
+  appearance:none; background:none; border:var(--line); color:var(--bone); cursor:pointer;
+  font-family:var(--utility); font-size:.6rem; letter-spacing:.2em; padding:.5em .8em; line-height:1;
+}
+.ov .bd2{padding:clamp(1.2rem,3vh,2rem) clamp(1rem,3vw,2rem) clamp(2rem,5vh,3rem); overflow:auto; flex:1 1 auto}
+.ov .bd2 h3{font-family:var(--display); font-weight:300; font-size:clamp(1.3rem,1.1rem + 1vw,1.8rem); margin:2rem 0 .6rem}
+.ov .bd2 h3:first-of-type{margin-top:0}
+.ov .bd2 p,.ov .bd2 li{font-size:.95rem; color:rgba(236,228,226,.76); line-height:1.75; max-width:64ch}
+.ov .bd2 ul{padding-left:1.2rem}
+.ov .warn{border:1px solid rgba(214,17,28,.34); background:rgba(111,8,16,.10); padding:1rem 1.2rem; margin:0 0 1.8rem}
+.ov .warn p{margin:0; color:var(--bone); font-family:var(--utility); font-size:.6rem; letter-spacing:.14em; line-height:2}
+
+/* ---------- no-webgl fallback ---------- */
+.nogl{position:relative; z-index:2}
+html.gl .nogl{display:none}
+.beam{
+  position:absolute; left:50%; top:12%; bottom:24%; width:2px; transform:translateX(-50%);
+  background:linear-gradient(180deg,transparent,var(--ember) 18%,var(--flare) 50%,var(--ember) 82%,transparent);
+  box-shadow:0 0 34px 8px rgba(214,17,28,.42); filter:blur(.3px); z-index:1;
+}
+.flac{display:flex; gap:clamp(.5rem,2vw,1.2rem); align-items:flex-end; justify-content:center; margin:0}
+.flac img{mix-blend-mode:screen; margin:0; max-height:46vh; width:auto}
+.nogl-note{
+  margin:0 auto; max-width:44ch; text-align:center; padding:0 var(--gut) clamp(3rem,8vh,5rem);
+  font-family:var(--utility); font-size:.56rem; letter-spacing:.2em; text-transform:uppercase; color:var(--ash); line-height:2.2;
+}
+
+/* ---------- loader (injected by script) ---------- */
+.load{position:fixed; inset:0; z-index:90; background:var(--void); display:flex; align-items:center; justify-content:center; transition:opacity .8s}
+.load.done{opacity:0; pointer-events:none}
+.load i{display:block; width:1px; height:36vh; background:linear-gradient(180deg,transparent,var(--ember),transparent); transform:scaleY(var(--l,.05)); transform-origin:center; transition:transform .5s}
+.load span{position:absolute; bottom:14vh; font-family:var(--utility); text-transform:uppercase; letter-spacing:.42em; font-size:.5rem; color:var(--ash)}
+
+/* ---------- motion off ---------- */
+html.still .bars i{transform:none!important; --scope:0}
+html.still .ch{opacity:1!important; transform:none!important; filter:none!important}
+@media (prefers-reduced-motion:reduce){
+  html:not(.motion) .bars{display:none}
+  .load{transition:none}
+  *{scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main" data-t="skip">Zum Inhalt springen</a>
+
+<header class="hdr">
+  <a class="brand" href="#a1"><b>NOIRÉ</b><span data-t="brand.line">Eau de Parfum</span></a>
+  <div class="tools">
+    <button class="tb" id="tSound" type="button" aria-pressed="false" data-t="tool.sound">Ton</button>
+    <button class="tb tb--m" id="tMotion" type="button" aria-pressed="true" data-t="tool.motion">Bewegung</button>
+    <div class="langs" role="group" aria-label="Sprache">
+      <button class="tb" type="button" data-lang="de" aria-pressed="true">DE</button>
+      <button class="tb" type="button" data-lang="en" aria-pressed="false">EN</button>
+      <button class="tb" type="button" data-lang="fr" aria-pressed="false">FR</button>
+    </div>
+  </div>
+</header>
+
+<canvas id="gl" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+<div class="bars" id="bars" aria-hidden="true"><i></i><i></i></div>
+
+<div class="draft" id="draft" hidden>
+  <button type="button" id="draftT" aria-expanded="false" aria-controls="draftL"></button>
+  <ol id="draftL"></ol>
+</div>
+
+<main id="main">
+
+<!-- I ................................................. Der Eingang -->
+<section class="act" id="a1" data-ch="1" aria-labelledby="a1h">
+  <div class="stage">
+    <div class="veil veil--c" aria-hidden="true"></div>
+    <i class="beam nogl-only" aria-hidden="true"></i>
+    <div class="wrap">
+      <div class="blk blk--c">
+        <p class="lbl up" data-t="a1.label"></p>
+        <h1 class="h1 rv" id="a1h" data-t="a1.h1"></h1>
+      </div>
+    </div>
+    <div class="cue">
+      <span class="tny" data-t="a1.cue"></span>
+      <i aria-hidden="true"></i>
+    </div>
+  </div>
+</section>
+
+<!-- II ................................................... Der Duft -->
+<section class="act" id="a2" data-ch="2" aria-labelledby="a2h">
+  <div class="stage">
+    <div class="veil veil--l" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="blk blk--l">
+        <p class="h3 up" data-t="a2.whisper"></p>
+        <h2 class="h2 rv" id="a2h" data-t="a2.ask" style="margin-top:1.2em"></h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- III .................................................. Der Name -->
+<section class="act" id="a3" data-ch="3" aria-labelledby="a3h">
+  <div class="stage">
+    <div class="veil veil--c" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="blk blk--c">
+        <img class="mark" src="__A_MARK__" alt="NOIRÉ Eau de Parfum" width="1100" height="366" loading="lazy" decoding="async">
+        <h2 class="h3 up" id="a3h" data-t="a3.promise"></h2>
+        <div class="cd up" id="cd" role="timer" aria-live="off">
+          <div><b data-cd="d">—</b><span data-t="a3.d"></span></div>
+          <div><b data-cd="h">—</b><span data-t="a3.h"></span></div>
+          <div><b data-cd="m">—</b><span data-t="a3.m"></span></div>
+          <div><b data-cd="s">—</b><span data-t="a3.s"></span></div>
+        </div>
+        <p class="date up">15.11.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IV ............................................... Die Pyramide -->
+<section class="act" id="a4" data-ch="4" aria-labelledby="a4h">
+  <div class="stage">
+    <div class="veil veil--r" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="blk blk--r">
+        <p class="lbl up" data-t="a4.sub"></p>
+        <h2 class="h2 rv" id="a4h" data-t="a4.h2"></h2>
+        <div class="notes">
+          <div class="note" data-note="1">
+            <p class="tny" data-t="a4.w1"></p>
+            <h3 class="h3" data-t="a4.n1"></h3>
+            <p data-th="a4.p1"></p>
+          </div>
+          <div class="note" data-note="2">
+            <p class="tny" data-t="a4.w2"></p>
+            <h3 class="h3" data-t="a4.n2"></h3>
+            <p data-th="a4.p2"></p>
+          </div>
+          <div class="note" data-note="3">
+            <p class="tny" data-t="a4.w3"></p>
+            <h3 class="h3" data-t="a4.n3"></h3>
+            <p data-th="a4.p3"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- V ................................................. Die Galerie -->
+<section class="act" id="a5" data-ch="5" aria-labelledby="a5h">
+  <div class="stage">
+    <div class="veil veil--l" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="blk blk--l" style="width:min(46rem,100%)">
+        <p class="lbl up" data-t="a5.label"></p>
+        <h2 class="h2 rv" id="a5h" data-th="a5.h2"></h2>
+        <p class="tny up" data-t="a5.wall"></p>
+        <div class="pl nogl-only">
+          <figure><img src="__A_WALL1__" alt="" width="460" height="724" loading="lazy" decoding="async"><figcaption class="tny" data-t="a5.p1"></figcaption></figure>
+          <figure><img src="__A_WALL2__" alt="" width="460" height="712" loading="lazy" decoding="async"><figcaption class="tny" data-t="a5.p2"></figcaption></figure>
+          <figure><img src="__A_WALL3__" alt="" width="460" height="730" loading="lazy" decoding="async"><figcaption class="tny" data-t="a5.p3"></figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VI ................................................ Die Händler -->
+<section class="act" id="a6" data-ch="6" aria-labelledby="a6h">
+  <div class="stage">
+    <div class="veil veil--r" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="blk blk--r">
+        <p class="lbl up" data-t="a6.label"></p>
+        <h2 class="h2 rv" id="a6h" data-th="a6.h2"></h2>
+        <div class="up">
+          <p class="tny" data-t="a6.maker" style="margin-bottom:.8em"></p>
+          <div class="shops" id="makers"></div>
+        </div>
+        <div class="up" style="margin-top:2rem">
+          <p class="tny" data-t="a6.sold" style="margin-bottom:.8em"></p>
+          <div class="shops" id="shops"></div>
+          <p class="bd mut" id="shopsNone" style="margin-top:1rem" data-t="a6.none"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VII ................................................. Die Halle -->
+<section class="act" id="a7" data-ch="7" aria-labelledby="a7h">
+  <div class="stage">
+    <div class="veil veil--l" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="blk blk--l">
+        <p class="lbl up" data-t="a7.label"></p>
+        <h2 class="h2 rv" id="a7h" data-th="a7.h2"></h2>
+        <p class="bd up" data-t="a7.p"></p>
+        <dl class="specs up">
+          <div><dt data-t="a7.s1"></dt><dd id="sVol"></dd></div>
+          <div><dt data-t="a7.s2"></dt><dd id="sCon"></dd></div>
+          <div><dt data-t="a7.s3"></dt><dd id="sWear"></dd></div>
+          <div><dt data-t="a7.s4"></dt><dd id="sEd"></dd></div>
+        </dl>
+        <button class="lnk up" type="button" data-legal="product" data-t="a7.more"></button>
+      </div>
+      <div class="nogl-only" style="position:absolute;inset:0 0 0 auto;width:min(48%,34rem);display:flex;align-items:center;pointer-events:none">
+        <figure class="flac">
+          <img src="__A_FLACONA__" alt="" width="380" loading="lazy" decoding="async">
+          <img src="__A_FLACONB__" alt="" width="410" loading="lazy" decoding="async">
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIII ................................................. Der Kauf -->
+<section class="act" id="a8" data-ch="8" aria-labelledby="a8h">
+  <div class="stage">
+    <div class="veil veil--c" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="blk blk--c">
+        <p class="lbl up" data-t="a8.label"></p>
+        <h2 class="h2 rv" id="a8h" data-th="a8.h2"></h2>
+        <p class="deal up" id="deal" hidden></p>
+        <div class="price up">
+          <b id="pNow">—</b>
+          <s id="pWas" hidden></s>
+          <i data-t="a8.vol"></i>
+        </div>
+        <p class="fine up" id="pFine"></p>
+        <p class="up"><a class="buy" id="buy" href="#" role="button"></a></p>
+        <div class="nl up">
+          <div class="nlrow">
+            <input id="nlMail" type="email" inputmode="email" autocomplete="email" spellcheck="false" data-tp="a8.ph" aria-describedby="nlMsg">
+            <button type="button" id="nlGo" data-t="a8.btn"></button>
+          </div>
+          <p class="nlmsg" id="nlMsg" role="status" aria-live="polite"></p>
+          <p class="consent" id="consent"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="nogl">
+  <p class="nogl-note" data-t="fb.note"></p>
+</div>
+
+<footer class="ftr">
+  <p class="tny" style="margin:0">NOIRÉ · <span data-t="brand.line"></span></p>
+  <nav aria-label="Rechtliches">
+    <button type="button" data-legal="imprint" data-t="lg.imprint"></button>
+    <button type="button" data-legal="privacy" data-t="lg.privacy"></button>
+    <button type="button" data-legal="revoke" data-t="lg.revoke"></button>
+    <button type="button" data-legal="product" data-t="lg.product"></button>
+  </nav>
+</footer>
+
+<div class="hud" id="hud" aria-hidden="true">
+  <b data-t="hud"></b>
+  <span class="rail"><i></i></span>
+  <u id="hudN">0 M</u>
+</div>
+
+<nav class="rail-ch" id="rail" aria-label="Kapitel"></nav>
+<a class="jump" id="jump" href="#a8" data-t="jump"></a>
+
+<div class="ov" id="ov" role="dialog" aria-modal="true" aria-labelledby="ovT" hidden>
+  <div class="sc" data-close></div>
+  <div class="pan">
+    <header>
+      <div class="tabs" id="ovTabs" role="tablist" aria-label="Rechtliches"></div>
+      <button class="x" type="button" id="ovX" aria-label="Schließen">ESC ✕</button>
+    </header>
+    <div class="bd2" id="ovBody" tabindex="-1"><h3 id="ovT"></h3></div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+/* ==========================================================================
+   NOIRÉ — Le Couloir
+   One file: markup, style, scene, shaders. No build step at runtime.
+   ========================================================================== */
+'use strict';
+
+/* --------------------------------------------------------------------------
+   1 · CONFIGURATION
+   The page shows nothing that is not held here. Every empty field degrades
+   into a visible gap instead of an invented claim.
+   -------------------------------------------------------------------------- */
+var CFG = {
+  draft: true,
+  release: '2026-11-15T00:00:00',
+  product: {
+    name: 'NOIRÉ', line: 'Eau de Parfum',
+    price: 39.99, priceRetail: 39.99,
+    launch: { percent: 50, price: 19.99, from: '2026-11-15T00:00:00', until: '2027-02-15T23:59:59' },
+    currency: 'EUR', taxIncluded: true, shippingNote: null,
+    volume: '50 ml', concentration: '18 %', wear: '8–12 h', edition: 500,
+    gtin: null, sku: null,
+    inci: [], allergens: [], batch: null, pao: null, warnings: [],
+    responsible: { name: null, street: null, zip: null, city: null, country: null }
+  },
+  commerce: { checkoutUrl: '', newsletterEndpoint: '', newsletterProvider: null },
+  retail: [
+    { key: 'parfumfabrik', name: 'Parfum Fabrik', role: 'maker', logo: null, url: '', confirmed: false, w: 2.0 },
+    { key: 'dm',           name: 'dm',            role: 'shop',  logo: null, url: '', confirmed: false, mark: true, w: 1.1 },
+    { key: 'rossmann',     name: 'Rossmann',      role: 'shop',  logo: null, url: '', confirmed: false, w: 2.0 },
+    { key: 'mueller',      name: 'Müller',        role: 'shop',  logo: null, url: '', confirmed: false, w: 2.2 }
+  ],
+  legal: {
+    company: null, rep: null, street: null, zip: null, city: null, country: 'Deutschland',
+    email: null, phone: null, vat: null, register: null, court: null,
+    privacyOfficer: null, hosting: null, returnAddress: null
+  },
+  site: { canonical: '__A_CANONICAL__', ogImage: '__A_OGURL__' }
+};
+
+/* --------------------------------------------------------------------------
+   2 · COPY — de (default) / en / fr
+   -------------------------------------------------------------------------- */
+var DICT = {
+de: {
+  'brand.line':'Eau de Parfum', 'skip':'Zum Inhalt springen', 'gate':'Eintritt in die Dunkelheit',
+  'hud':'Tiefe', 'tool.sound':'Ton', 'tool.motion':'Bewegung', 'jump':'Direkt zum Kauf',
+  'a1.label':'Ein Duft für die Stunden nach Mitternacht', 'a1.h1':'Es kommt.', 'a1.cue':'Ins Dunkel fliegen',
+  'a2.whisper':'Manche Düfte kündigen dich an der Tür an. Dieser wartet, bis du den Raum längst verlassen hast.',
+  'a2.ask':'Riechst du die Nacht?',
+  'a3.promise':'Die Nacht gehört dir. Fast.', 'a3.d':'Tage', 'a3.h':'Stunden', 'a3.m':'Min.', 'a3.s':'Sek.',
+  'a4.h2':'Duftpyramide', 'a4.sub':'Auf der Haut getragen',
+  'a4.w1':'Erste 15 Minuten', 'a4.n1':'Kopfnote',
+  'a4.p1':'Blutorange, aufgebrochen mit <em>rosa Pfeffer</em>, dahinter die grüne Bitterkeit von Absinth.',
+  'a4.w2':'Zweite Stunde', 'a4.n2':'Herznote',
+  'a4.p2':'Bulgarische Rose, verdunkelt von <em>Safran</em> und schwarzer Pflaume.',
+  'a4.w3':'Bis zum Morgen', 'a4.n3':'Basisnote',
+  'a4.p3':'Oud, getragenes Leder, <em>schwarze Vanille</em>, Ambra.',
+  'a5.label':'Der Teaser, in drei Teilen', 'a5.h2':'Drei Plakate,<br>eine Ankündigung.',
+  'a5.wall':'An den Wänden links und rechts', 'a5.p1':'Das Licht', 'a5.p2':'Die Form', 'a5.p3':'Der Name',
+  'a6.label':'Hergestellt und erhältlich', 'a6.h2':'Wo die Nacht<br>zu haben ist.',
+  'a6.maker':'Manufaktur', 'a6.sold':'Erhältlich bei',
+  'a6.none':'Verkaufsstellen werden vor dem Start bekannt gegeben.', 'a6.unconfirmed':'nicht bestätigt',
+  'a7.label':'Das Objekt', 'a7.h2':'Schweres Glas,<br>eine rote Kante.',
+  'a7.p':'Schwarz lackierter Flakon, facettierter Stopfen, der Name ins Glas geschnitten statt aufgedruckt.',
+  'a7.s1':'Volumen', 'a7.s2':'Konzentration', 'a7.s3':'Auf der Haut', 'a7.s4':'Erste Edition',
+  'a7.more':'Pflichtangaben und Inhaltsstoffe',
+  'a8.label':'Erste Edition', 'a8.h2':'Sei da,<br>um Mitternacht.', 'a8.soon':'Preis folgt', 'a8.vol':'Eau de Parfum',
+  'a8.launch':'−{v} % zum Start · nur im Onlineshop', 'a8.ends':'Aktion bis {d}', 'a8.was':'statt {p}',
+  'a8.uvp':'Im Handel UVP {p}', 'a8.tax':'inkl. MwSt.',
+  'a8.cta':'Vorbestellen', 'a8.ctaoff':'Verkauf startet am 15.11.',
+  'a8.ph':'Deine E-Mail', 'a8.btn':'Auf die Liste',
+  'a8.err':'Dieser Adresse fehlt etwas. Bitte prüfen und noch einmal versuchen.',
+  'a8.ok':'Du stehst auf der Liste. Achte am 14.11. auf dein Postfach.',
+  'a8.local':'Hinweis: Es ist noch kein Versanddienst angebunden — die Adresse wird nicht gespeichert.',
+  'a8.sending':'Wird gesendet …', 'a8.fail':'Das hat nicht geklappt. Bitte später erneut versuchen.',
+  'a8.consent':'Mit dem Eintrag willigst du in den Versand der Ankündigung ein. Abmeldung jederzeit. Mehr in der {p}.',
+  'lg.imprint':'Impressum', 'lg.privacy':'Datenschutz', 'lg.revoke':'Widerruf', 'lg.product':'Produktangaben',
+  'lg.todo':'noch zu ergänzen',
+  'lg.review':'Dieser Bereich ist ein Gerüst mit den gesetzlich geforderten Punkten. Inhalte ergänzen und vor dem Livegang anwaltlich prüfen lassen.',
+  'imp.provider':'Anbieter', 'imp.address':'Anschrift', 'imp.rep':'Vertretungsberechtigt',
+  'imp.contact':'Kontakt', 'imp.register':'Registereintrag', 'imp.vat':'Umsatzsteuer-Identifikationsnummer',
+  'imp.odr':'EU-Streitschlichtung',
+  'imp.odrtext':'Plattform der EU-Kommission zur Online-Streitbeilegung: ec.europa.eu/consumers/odr. Zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle ist noch zu erklären, ob eine Bereitschaft besteht.',
+  'prv.controller':'Verantwortlicher', 'prv.tech':'Was diese Seite technisch tut',
+  'prv.tech1':'Die Seite setzt keine Cookies und legt nichts im Local Storage ab. Es sind keine Analyse- oder Tracking-Skripte eingebunden.',
+  'prv.tech2':'Schriften werden von Google Fonts geladen, die Programmbibliotheken von cdnjs.cloudflare.com. Dabei wird deine IP-Adresse an diese Anbieter übertragen.',
+  'prv.tech3':'Empfehlung vor dem Livegang: Schriften und Bibliotheken selbst hosten, dann entfällt diese Übertragung.',
+  'prv.nl':'Newsletter', 'prv.nltext':'Rechtsgrundlage der Anmeldung ist die Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO. Ohne hinterlegten Versanddienst wird derzeit keine Adresse gespeichert.',
+  'prv.rights':'Deine Rechte', 'prv.rightstext':'Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit, Widerspruch, Widerruf der Einwilligung, Beschwerde bei einer Aufsichtsbehörde.',
+  'prv.keep':'Speicherdauer', 'prv.keeptext':'Anmeldedaten bis zum Widerruf der Einwilligung. Konkrete Fristen sind mit dem Versanddienst festzulegen.',
+  'prv.host':'Hosting',
+  'rev.period':'Widerrufsfrist', 'rev.how':'Ausübung des Widerrufs', 'rev.effect':'Folgen des Widerrufs',
+  'rev.end':'Vorzeitiges Erlöschen', 'rev.address':'Rücksendeanschrift',
+  'rev.endtext':'Bei versiegelten Waren, die aus Gründen des Gesundheitsschutzes oder der Hygiene nicht zur Rückgabe geeignet sind, erlischt das Widerrufsrecht, wenn die Versiegelung nach der Lieferung entfernt wurde.',
+  'prd.inci':'INCI-Liste', 'prd.allerg':'Deklarationspflichtige Duftstoffe', 'prd.batch':'Chargennummer',
+  'prd.pao':'Haltbarkeit nach Öffnung', 'prd.resp':'Verantwortliche Person in der EU', 'prd.warn':'Warnhinweise',
+  'prd.note':'Angaben nach Verordnung (EG) Nr. 1223/2009 über kosmetische Mittel.',
+  'ch.1':'Der Eingang', 'ch.2':'Der Duft', 'ch.3':'Der Name', 'ch.4':'Die Pyramide',
+  'ch.5':'Die Galerie', 'ch.6':'Die Händler', 'ch.7':'Die Halle', 'ch.8':'Der Kauf',
+  'fb.note':'Ohne WebGL wird die Kampagne als Bildstrecke gezeigt. Alle Inhalte sind vollständig lesbar.',
+  'draft.n':'Entwurf · {n} offene Punkte'
+},
+en: {
+  'brand.line':'Eau de Parfum', 'skip':'Skip to content', 'gate':'Entering the dark',
+  'hud':'Depth', 'tool.sound':'Sound', 'tool.motion':'Motion', 'jump':'Straight to purchase',
+  'a1.label':'A fragrance for the hours after midnight', 'a1.h1':'It’s coming.', 'a1.cue':'Fly into the dark',
+  'a2.whisper':'Some scents announce you at the door. This one waits until you have already left the room.',
+  'a2.ask':'Can you smell the night?',
+  'a3.promise':'The night is almost yours.', 'a3.d':'Days', 'a3.h':'Hours', 'a3.m':'Min', 'a3.s':'Sec',
+  'a4.h2':'Fragrance pyramid', 'a4.sub':'Worn on skin',
+  'a4.w1':'First 15 min', 'a4.n1':'Top note',
+  'a4.p1':'Blood orange split open with <em>pink pepper</em>, a green bitterness of absinthe behind it.',
+  'a4.w2':'Hour two', 'a4.n2':'Heart note',
+  'a4.p2':'Bulgarian rose turned dark by <em>saffron</em> and black plum.',
+  'a4.w3':'Till morning', 'a4.n3':'Base note',
+  'a4.p3':'Oud, worn leather, <em>black vanilla</em>, ambergris.',
+  'a5.label':'The teaser, in three parts', 'a5.h2':'Three posters,<br>one announcement.',
+  'a5.wall':'On the walls, left and right', 'a5.p1':'The light', 'a5.p2':'The shape', 'a5.p3':'The name',
+  'a6.label':'Made and available', 'a6.h2':'Where the night<br>can be had.',
+  'a6.maker':'Manufacture', 'a6.sold':'Available at',
+  'a6.none':'Stockists will be announced before launch.', 'a6.unconfirmed':'not confirmed',
+  'a7.label':'The object', 'a7.h2':'Heavy glass,<br>one red edge.',
+  'a7.p':'Black lacquered flacon, faceted stopper, the name cut into the glass rather than printed on it.',
+  'a7.s1':'Volume', 'a7.s2':'Concentration', 'a7.s3':'On skin', 'a7.s4':'First edition',
+  'a7.more':'Mandatory information and ingredients',
+  'a8.label':'First edition', 'a8.h2':'Be there<br>at midnight.', 'a8.soon':'Price to follow', 'a8.vol':'eau de parfum',
+  'a8.launch':'−{v} % at launch · online only', 'a8.ends':'Offer ends {d}', 'a8.was':'instead of {p}',
+  'a8.uvp':'In stores RRP {p}', 'a8.tax':'incl. VAT',
+  'a8.cta':'Pre-order', 'a8.ctaoff':'Sales open 15.11.',
+  'a8.ph':'Your email', 'a8.btn':'Join the list',
+  'a8.err':'That address is missing something. Check it and try again.',
+  'a8.ok':'You are on the list. Watch your inbox on 14.11.',
+  'a8.local':'Note: no mail service is connected yet — the address is not stored.',
+  'a8.sending':'Sending …', 'a8.fail':'That did not work. Please try again later.',
+  'a8.consent':'By joining you consent to receiving the announcement. Unsubscribe anytime. More in the {p}.',
+  'lg.imprint':'Imprint', 'lg.privacy':'Privacy', 'lg.revoke':'Right of withdrawal', 'lg.product':'Product information',
+  'lg.todo':'still to be added',
+  'lg.review':'This section is a scaffold holding the legally required points. Fill in the content and have it reviewed by a lawyer before going live.',
+  'imp.provider':'Provider', 'imp.address':'Address', 'imp.rep':'Authorised representative',
+  'imp.contact':'Contact', 'imp.register':'Register entry', 'imp.vat':'VAT identification number',
+  'imp.odr':'EU dispute resolution',
+  'imp.odrtext':'European Commission platform for online dispute resolution: ec.europa.eu/consumers/odr. Whether the provider is willing to take part in dispute resolution proceedings before a consumer arbitration board still has to be declared.',
+  'prv.controller':'Controller', 'prv.tech':'What this page technically does',
+  'prv.tech1':'The page sets no cookies and stores nothing in local storage. No analytics or tracking scripts are embedded.',
+  'prv.tech2':'Fonts are loaded from Google Fonts, the libraries from cdnjs.cloudflare.com. Your IP address is transmitted to these providers in the process.',
+  'prv.tech3':'Recommendation before going live: self-host fonts and libraries, then this transmission no longer happens.',
+  'prv.nl':'Newsletter', 'prv.nltext':'The legal basis for signing up is consent under Art. 6(1)(a) GDPR. With no mail service connected, no address is currently stored.',
+  'prv.rights':'Your rights', 'prv.rightstext':'Access, rectification, erasure, restriction, data portability, objection, withdrawal of consent, complaint to a supervisory authority.',
+  'prv.keep':'Storage period', 'prv.keeptext':'Sign-up data until consent is withdrawn. Concrete periods are to be set with the mail service.',
+  'prv.host':'Hosting',
+  'rev.period':'Withdrawal period', 'rev.how':'Exercising the right', 'rev.effect':'Consequences of withdrawal',
+  'rev.end':'Early expiry', 'rev.address':'Return address',
+  'rev.endtext':'For sealed goods that are not suitable for return for reasons of health protection or hygiene, the right of withdrawal expires once the seal has been removed after delivery.',
+  'prd.inci':'INCI list', 'prd.allerg':'Fragrance allergens subject to declaration', 'prd.batch':'Batch number',
+  'prd.pao':'Period after opening', 'prd.resp':'Responsible person in the EU', 'prd.warn':'Warnings',
+  'prd.note':'Information under Regulation (EC) No 1223/2009 on cosmetic products.',
+  'ch.1':'The Entrance', 'ch.2':'The Scent', 'ch.3':'The Name', 'ch.4':'The Pyramid',
+  'ch.5':'The Gallery', 'ch.6':'Stockists', 'ch.7':'The Hall', 'ch.8':'The Purchase',
+  'fb.note':'Without WebGL the campaign is shown as a sequence of stills. All content remains fully readable.',
+  'draft.n':'Draft · {n} open points'
+},
+fr: {
+  'brand.line':'Eau de Parfum', 'skip':'Aller au contenu', 'gate':'Entrée dans la nuit',
+  'hud':'Profondeur', 'tool.sound':'Son', 'tool.motion':'Mouvement', 'jump':'Directement à l’achat',
+  'a1.label':'Un parfum pour les heures après minuit', 'a1.h1':'Ça arrive.', 'a1.cue':'Envolez-vous dans le noir',
+  'a2.whisper':'Certains parfums vous annoncent à la porte. Celui-ci attend que vous ayez déjà quitté la pièce.',
+  'a2.ask':'Sentez-vous la nuit ?',
+  'a3.promise':'La nuit est presque à vous.', 'a3.d':'Jours', 'a3.h':'Heures', 'a3.m':'Min', 'a3.s':'Sec',
+  'a4.h2':'Pyramide olfactive', 'a4.sub':'Portée sur la peau',
+  'a4.w1':'15 premières minutes', 'a4.n1':'Note de tête',
+  'a4.p1':'Orange sanguine ouverte au <em>poivre rose</em>, une amertume verte d’absinthe derrière.',
+  'a4.w2':'La deuxième heure', 'a4.n2':'Note de cœur',
+  'a4.p2':'Rose de Bulgarie assombrie par le <em>safran</em> et la prune noire.',
+  'a4.w3':'Jusqu’au matin', 'a4.n3':'Note de fond',
+  'a4.p3':'Oud, cuir usé, <em>vanille noire</em>, ambre gris.',
+  'a5.label':'Le teaser, en trois temps', 'a5.h2':'Trois affiches,<br>une annonce.',
+  'a5.wall':'Sur les murs, à gauche et à droite', 'a5.p1':'La lumière', 'a5.p2':'La forme', 'a5.p3':'Le nom',
+  'a6.label':'Fabriqué et disponible', 'a6.h2':'Où trouver<br>la nuit.',
+  'a6.maker':'Fabrication', 'a6.sold':'Disponible chez',
+  'a6.none':'Les points de vente seront annoncés avant le lancement.', 'a6.unconfirmed':'non confirmé',
+  'a7.label':'L’objet', 'a7.h2':'Verre lourd,<br>une arête rouge.',
+  'a7.p':'Flacon laqué noir, bouchon à facettes, le nom taillé dans le verre plutôt qu’imprimé.',
+  'a7.s1':'Volume', 'a7.s2':'Concentration', 'a7.s3':'Sur la peau', 'a7.s4':'Première édition',
+  'a7.more':'Mentions obligatoires et ingrédients',
+  'a8.label':'Première édition', 'a8.h2':'Soyez là,<br>à minuit.', 'a8.soon':'Prix à venir', 'a8.vol':'eau de parfum',
+  'a8.launch':'−{v} % au lancement · en ligne uniquement', 'a8.ends':'Offre jusqu’au {d}', 'a8.was':'au lieu de {p}',
+  'a8.uvp':'En magasin PVC {p}', 'a8.tax':'TVA incluse',
+  'a8.cta':'Précommander', 'a8.ctaoff':'Vente le 15.11.',
+  'a8.ph':'Votre e-mail', 'a8.btn':'Rejoindre la liste',
+  'a8.err':'Cette adresse a quelque chose qui cloche. Vérifiez et réessayez.',
+  'a8.ok':'Vous êtes sur la liste. Surveillez votre boîte le 14.11.',
+  'a8.local':'Remarque : aucun service d’envoi n’est connecté — l’adresse n’est pas enregistrée.',
+  'a8.sending':'Envoi en cours …', 'a8.fail':'Cela n’a pas fonctionné. Réessayez plus tard.',
+  'a8.consent':'En vous inscrivant, vous consentez à recevoir l’annonce. Désinscription à tout moment. Plus d’infos dans la {p}.',
+  'lg.imprint':'Mentions légales', 'lg.privacy':'Confidentialité', 'lg.revoke':'Droit de rétractation', 'lg.product':'Informations produit',
+  'lg.todo':'reste à compléter',
+  'lg.review':'Cette section est une trame reprenant les points exigés par la loi. Complétez les contenus et faites-les vérifier par un avocat avant la mise en ligne.',
+  'imp.provider':'Éditeur', 'imp.address':'Adresse', 'imp.rep':'Représentant légal',
+  'imp.contact':'Contact', 'imp.register':'Immatriculation', 'imp.vat':'Numéro de TVA intracommunautaire',
+  'imp.odr':'Règlement des litiges UE',
+  'imp.odrtext':'Plateforme de règlement en ligne des litiges de la Commission européenne : ec.europa.eu/consumers/odr. Il reste à déclarer si l’éditeur est disposé à participer à une procédure de médiation devant un organisme de médiation de la consommation.',
+  'prv.controller':'Responsable du traitement', 'prv.tech':'Ce que fait techniquement ce site',
+  'prv.tech1':'Le site ne dépose aucun cookie et n’enregistre rien dans le stockage local. Aucun script de mesure ou de suivi n’est intégré.',
+  'prv.tech2':'Les polices proviennent de Google Fonts, les bibliothèques de cdnjs.cloudflare.com. Votre adresse IP est transmise à ces prestataires à cette occasion.',
+  'prv.tech3':'Recommandation avant la mise en ligne : héberger vous-même les polices et les bibliothèques, cette transmission disparaît alors.',
+  'prv.nl':'Newsletter', 'prv.nltext':'La base légale de l’inscription est le consentement au sens de l’art. 6, § 1, a) du RGPD. Aucun service d’envoi n’étant connecté, aucune adresse n’est actuellement enregistrée.',
+  'prv.rights':'Vos droits', 'prv.rightstext':'Accès, rectification, effacement, limitation, portabilité, opposition, retrait du consentement, réclamation auprès d’une autorité de contrôle.',
+  'prv.keep':'Durée de conservation', 'prv.keeptext':'Données d’inscription jusqu’au retrait du consentement. Les durées précises sont à fixer avec le service d’envoi.',
+  'prv.host':'Hébergement',
+  'rev.period':'Délai de rétractation', 'rev.how':'Exercice du droit', 'rev.effect':'Effets de la rétractation',
+  'rev.end':'Extinction anticipée', 'rev.address':'Adresse de retour',
+  'rev.endtext':'Pour les biens scellés qui ne peuvent être renvoyés pour des raisons de protection de la santé ou d’hygiène, le droit de rétractation s’éteint dès lors que le scellé a été retiré après la livraison.',
+  'prd.inci':'Liste INCI', 'prd.allerg':'Allergènes à déclaration obligatoire', 'prd.batch':'Numéro de lot',
+  'prd.pao':'Durée après ouverture', 'prd.resp':'Personne responsable dans l’UE', 'prd.warn':'Avertissements',
+  'prd.note':'Mentions au titre du règlement (CE) n° 1223/2009 relatif aux produits cosmétiques.',
+  'ch.1':'L’Entrée', 'ch.2':'Le Parfum', 'ch.3':'Le Nom', 'ch.4':'La Pyramide',
+  'ch.5':'La Galerie', 'ch.6':'Points de vente', 'ch.7':'La Salle', 'ch.8':'L’Achat',
+  'fb.note':'Sans WebGL, la campagne est présentée sous forme d’images fixes. Tous les contenus restent lisibles.',
+  'draft.n':'Brouillon · {n} points ouverts'
+}
+};
+var LOCALE = { de:'de-DE', en:'en-GB', fr:'fr-FR' };
+var LANG = 'de';
+function T(k){ var d = DICT[LANG] || DICT.de; return (k in d) ? d[k] : (DICT.de[k] !== undefined ? DICT.de[k] : k); }
+
+/* --------------------------------------------------------------------------
+   3 · SMALL HELPERS
+   -------------------------------------------------------------------------- */
+var $  = function(s,r){ return (r||document).querySelector(s); };
+var $$ = function(s,r){ return Array.prototype.slice.call((r||document).querySelectorAll(s)); };
+var HTML = document.documentElement;
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]; }); }
+function clamp(v,a,b){ return v < a ? a : (v > b ? b : v); }
+function has(v){ return v !== null && v !== undefined && v !== '' && !(Array.isArray(v) && v.length === 0); }
+function money(v){
+  if (!has(v) && v !== 0) return null;
+  try {
+    return new Intl.NumberFormat(LOCALE[LANG] || 'de-DE',
+      { style:'currency', currency: CFG.product.currency || 'EUR' }).format(v);
+  } catch (e) { return v.toFixed(2) + ' ' + (CFG.product.currency || 'EUR'); }
+}
+function shortDate(ts){
+  try { return new Date(ts).toLocaleDateString(LOCALE[LANG] || 'de-DE',
+    { day:'2-digit', month:'2-digit', year:'numeric' }); }
+  catch (e) { return new Date(ts).toISOString().slice(0,10); }
+}
+function fill(str, map){
+  return String(str).replace(/\{(\w+)\}/g, function(m,k){ return (k in map) ? map[k] : m; });
+}
+/* A gap the page refuses to paper over. */
+function gapHTML(why){
+  var w = esc(why || '');
+  return '<span class="todo" data-claim="' + w + '" title="' + w + '">[' + esc(T('lg.todo')) + ']</span>';
+}
+/* A value that is present but nobody has signed off on yet. */
+function claim(v, why){
+  if (!has(v)) return gapHTML(why);
+  if (!CFG.draft) return esc(v);
+  var w = esc(why || '');
+  return '<span data-claim="' + w + '" title="' + w + '">' + esc(v) + '</span>';
+}
+function valOr(v, why){ return has(v) ? esc(v) : gapHTML(why); }
+
+/* --------------------------------------------------------------------------
+   4 · PRICE LOGIC
+   Regular price online and in retail. A launch discount that switches itself
+   off when its window closes — no code change, no forgotten banner.
+   -------------------------------------------------------------------------- */
+function priceState(now){
+  var p = CFG.product, L = p.launch || null;
+  var st = { regular:p.price, retail:p.priceRetail, price:p.price,
+             active:false, percent:0, from:null, until:null, saleOpen:false };
+  var rel = CFG.release ? new Date(CFG.release).getTime() : null;
+  st.saleOpen = (rel === null || now >= rel);
+  if (!has(p.price) && p.price !== 0) { st.price = null; return st; }
+  if (L && (has(L.price) || L.price === 0)) {
+    var from  = L.from  ? new Date(L.from).getTime()  : -Infinity;
+    var until = L.until ? new Date(L.until).getTime() :  Infinity;
+    st.from = from; st.until = until;
+    if (now >= from && now <= until) {
+      st.active = true; st.price = L.price; st.percent = L.percent || 0;
+    }
+  }
+  return st;
+}
+
+function paintPrice(){
+  var st = priceState(Date.now());
+  var now  = $('#pNow'), was = $('#pWas'), deal = $('#deal'),
+      fine = $('#pFine'), buy = $('#buy');
+
+  if (st.price === null){
+    now.textContent = T('a8.soon');
+    now.style.fontSize = 'clamp(1.6rem,1rem + 2.4vw,2.6rem)';
+    was.hidden = true; deal.hidden = true;
+  } else {
+    now.textContent = money(st.price);
+    now.style.fontSize = '';
+    if (st.active && has(st.regular) && st.regular > st.price){
+      was.hidden = false;
+      was.textContent = fill(T('a8.was'), { p: money(st.regular) });
+    } else { was.hidden = true; }
+    if (st.active){
+      deal.hidden = false;
+      deal.textContent = fill(T('a8.launch'), { v: st.percent })
+        + (isFinite(st.until) ? ' · ' + fill(T('a8.ends'), { d: shortDate(st.until) }) : '');
+    } else { deal.hidden = true; }
+  }
+
+  var bits = [];
+  if (CFG.product.taxIncluded) bits.push(T('a8.tax'));
+  if (has(CFG.product.priceRetail)) bits.push(fill(T('a8.uvp'), { p: money(CFG.product.priceRetail) }));
+  if (has(CFG.product.shippingNote)) bits.push(CFG.product.shippingNote);
+  fine.innerHTML = bits.join(' · ') + (has(CFG.product.shippingNote) ? '' :
+    ' · ' + gapHTML('Versandkosten und Lieferzeit sind nicht hinterlegt (PAngV)'));
+
+  var sellable = st.price !== null && st.saleOpen && has(CFG.commerce.checkoutUrl);
+  buy.textContent = st.saleOpen ? T('a8.cta') : T('a8.ctaoff');
+  if (sellable){
+    buy.setAttribute('href', CFG.commerce.checkoutUrl);
+    buy.removeAttribute('aria-disabled');
+  } else {
+    buy.setAttribute('href', '#a8');
+    buy.setAttribute('aria-disabled', 'true');
+  }
+  return st;
+}
+
+/* --------------------------------------------------------------------------
+   5 · STRUCTURED DATA — an offer only when there really is a price
+   -------------------------------------------------------------------------- */
+function paintJSONLD(){
+  var st = priceState(Date.now()), p = CFG.product;
+  var node = {
+    '@context':'https://schema.org', '@type':'Product',
+    name: p.name + ' ' + p.line,
+    category:'Eau de Parfum',
+    description: DICT.de['a1.label'],
+    brand: { '@type':'Brand', name: p.name }
+  };
+  if (has(CFG.site.ogImage)) node.image = [CFG.site.ogImage];
+  if (has(p.gtin)) node.gtin13 = p.gtin;
+  if (has(p.sku))  node.sku = p.sku;
+  if (has(p.volume)) node.size = p.volume;
+  if (st.price !== null){
+    var offer = {
+      '@type':'Offer', price: st.price.toFixed(2), priceCurrency: p.currency,
+      availability: st.saleOpen ? 'https://schema.org/InStock' : 'https://schema.org/PreOrder',
+      itemCondition:'https://schema.org/NewCondition'
+    };
+    if (has(CFG.site.canonical)) offer.url = CFG.site.canonical;
+    if (st.active && isFinite(st.until)) offer.priceValidUntil = new Date(st.until).toISOString().slice(0,10);
+    if (has(p.priceRetail)){
+      offer.priceSpecification = [{
+        '@type':'UnitPriceSpecification', priceType:'https://schema.org/ListPrice',
+        price: p.priceRetail.toFixed(2), priceCurrency: p.currency,
+        valueAddedTaxIncluded: !!p.taxIncluded
+      }];
+    }
+    node.offers = offer;
+  }
+  var el = $('#ld');
+  if (!el){ el = document.createElement('script'); el.type = 'application/ld+json'; el.id = 'ld'; document.head.appendChild(el); }
+  el.textContent = JSON.stringify(node, null, 2);
+}
+
+/* --------------------------------------------------------------------------
+   6 · RETAIL — unconfirmed partners appear nowhere the customer could
+   mistake for a promise. In draft mode they are listed, greyed and marked.
+   -------------------------------------------------------------------------- */
+function confirmedRetail(role){
+  return CFG.retail.filter(function(r){ return r.role === role && r.confirmed === true; });
+}
+function paintRetail(){
+  ['maker','shop'].forEach(function(role){
+    var host = $(role === 'maker' ? '#makers' : '#shops');
+    host.innerHTML = '';
+    var live = confirmedRetail(role);
+    var show = CFG.draft ? CFG.retail.filter(function(r){ return r.role === role; }) : live;
+    show.forEach(function(r){
+      var on = r.confirmed === true, tag;
+      if (on && has(r.url)){ tag = document.createElement('a'); tag.href = r.url; tag.rel = 'noopener'; }
+      else { tag = document.createElement('span'); }
+      tag.className = 'shop' + (on ? '' : ' un');
+      var inner = '';
+      if (on && has(r.logo)) inner += '<img src="' + esc(r.logo) + '" alt="' + esc(r.name) + '" loading="lazy" decoding="async">';
+      inner += on ? esc(r.name) : '<s>' + esc(r.name) + '</s><em>' + esc(T('a6.unconfirmed')) + '</em>';
+      tag.innerHTML = inner;
+      host.appendChild(tag);
+    });
+    if (role === 'shop') $('#shopsNone').hidden = live.length > 0;
+  });
+}
+
+/* --------------------------------------------------------------------------
+   7 · DRAFT MODE — the open-points ledger, generated from CFG
+   -------------------------------------------------------------------------- */
+function openPoints(){
+  var p = CFG.product, l = CFG.legal, c = CFG.commerce, o = [];
+  function add(cond, txt){ if (cond) o.push(txt); }
+  add(!has(c.checkoutUrl),        'Checkout-Link fehlt — Kaufbutton bleibt deaktiviert');
+  add(!has(p.shippingNote),       'Versandkosten und Lieferzeit nicht hinterlegt (PAngV)');
+  add(!has(c.newsletterEndpoint), 'Newsletter-Endpunkt fehlt — Adressen werden nicht gespeichert');
+  add(!has(p.inci),               'INCI-Liste fehlt (VO (EG) 1223/2009)');
+  add(!has(p.allergens),          'Deklarationspflichtige Duftstoffe fehlen');
+  add(!has(p.batch),              'Chargennummer fehlt');
+  add(!has(p.pao),                'Haltbarkeit nach Öffnung (PAO) fehlt');
+  add(!has(p.warnings),           'Warnhinweise fehlen');
+  add(!has(p.responsible && p.responsible.name), 'Verantwortliche Person in der EU fehlt');
+  add(!has(l.company) || !has(l.street) || !has(l.city), 'Impressum: Anbieter und Anschrift fehlen');
+  add(!has(l.email),              'Kontakt-E-Mail fehlt (§ 5 DDG)');
+  add(!has(l.vat),                'USt-IdNr. fehlt');
+  add(!has(l.register) || !has(l.court), 'Registereintrag und Registergericht fehlen');
+  add(!has(l.returnAddress),      'Rücksendeanschrift für den Widerruf fehlt');
+  add(!has(l.privacyOfficer),     'Datenschutz: Verantwortlicher / Ansprechpartner fehlt');
+  add(!has(l.hosting),            'Datenschutz: Hosting-Dienstleister nicht benannt');
+  add(true,                       'Datenschutz und Widerruf sind Gerüste — anwaltlich prüfen lassen');
+  add(CFG.retail.some(function(r){ return !r.confirmed; }), 'Händler nicht bestätigt — Freigabe für Nennung und Logo einholen');
+  add(CFG.retail.every(function(r){ return !has(r.logo); }), 'Händlerlogos liegen nicht vor — in Originalfarben einbinden, nicht weiß einfärben');
+  add(true,                       'Duftnoten sind ein Entwurf — von der Parfumeurin bestätigen lassen');
+  add(true,                       'Eckdaten (' + [p.volume, p.concentration, p.wear, p.edition].join(' · ') + ') bestätigen lassen');
+  add(/^__|^$/.test(String(CFG.site.canonical)), 'Canonical-URL noch nicht gesetzt');
+  add(!/^https?:/.test(String(CFG.site.ogImage)), 'og:image braucht eine absolute URL');
+  add(true,                       'Streichpreis nach § 11 PAngV: nach Aktionsende muss online wirklich ' +
+                                  (money(p.priceRetail) || '—') + ' verlangt werden, sonst „Einführungspreis" ohne Streichpreis');
+  add(true,                       'Vor dem Aktionsstart zeigt die Seite den regulären Preis — ob stattdessen der Einführungspreis angekündigt wird, ist eine Marketing-Entscheidung');
+  add(true,                       'UVP-Formulierung: Händlerpreise dürfen nach § 1 GWB nicht vorgeschrieben werden');
+  add(true,                       'Google Fonts und cdnjs laden von fremden Servern — vor dem Livegang selbst hosten');
+  add(true,                       'Zusätzliche UI-Texte (Skip-Link, Fallback-Hinweis, Rechtsüberschriften) redaktionell prüfen');
+  add(true,                       'Diese Seite wurde noch nie auf einem echten Gerät gesichtet — Kamerafahrt, Timing und Bildrate brauchen eine Justierrunde');
+  return o;
+}
+function paintDraft(){
+  var host = $('#draft');
+  if (!CFG.draft){ host.hidden = true; return; }
+  var pts = openPoints();
+  host.hidden = false;
+  $('#draftT').textContent = fill(T('draft.n'), { n: pts.length });
+  $('#draftL').innerHTML = pts.map(function(t){ return '<li>' + esc(t) + '</li>'; }).join('');
+}
+
+/* --------------------------------------------------------------------------
+   8 · LEGAL OVERLAY
+   A scaffold of the points the law asks for. No invented legal prose —
+   every unfilled point stays visibly open.
+   -------------------------------------------------------------------------- */
+var LEGAL_TABS = ['imprint','privacy','revoke','product'];
+
+function sect(title, body){ return '<h3>' + esc(title) + '</h3>' + body; }
+function para(html){ return '<p>' + html + '</p>'; }
+function addressHTML(o, why){
+  var l = CFG.legal, parts = [];
+  parts.push(has(l.street) ? esc(l.street) : gapHTML(why + ' — Straße'));
+  parts.push((has(l.zip) ? esc(l.zip) : gapHTML(why + ' — PLZ')) + ' ' +
+             (has(l.city) ? esc(l.city) : gapHTML(why + ' — Ort')));
+  parts.push(valOr(l.country, why + ' — Land'));
+  return parts.join('<br>');
+}
+
+function legalHTML(tab){
+  var l = CFG.legal, p = CFG.product, c = CFG.commerce, out = '';
+  out += '<div class="warn"><p>' + esc(T('lg.review')) + '</p></div>';
+
+  if (tab === 'imprint'){
+    out += sect(T('imp.provider'), para(valOr(l.company, 'Anbieter / Firmierung fehlt')));
+    out += sect(T('imp.address'),  para(addressHTML(l, 'Anschrift')));
+    out += sect(T('imp.rep'),      para(valOr(l.rep, 'Vertretungsberechtigte Person fehlt')));
+    out += sect(T('imp.contact'),  para(valOr(l.email, 'Kontakt-E-Mail fehlt (§ 5 DDG)') + '<br>' +
+                                        valOr(l.phone, 'Telefonnummer fehlt')));
+    out += sect(T('imp.register'), para(valOr(l.register, 'Registernummer fehlt') + '<br>' +
+                                        valOr(l.court, 'Registergericht fehlt')));
+    out += sect(T('imp.vat'),      para(valOr(l.vat, 'USt-IdNr. nach § 27 a UStG fehlt')));
+    out += sect(T('imp.odr'),      para(esc(T('imp.odrtext'))));
+  }
+
+  if (tab === 'privacy'){
+    out += sect(T('prv.controller'), para(valOr(l.company, 'Verantwortlicher fehlt') + '<br>' +
+      addressHTML(l, 'Anschrift') + '<br>' +
+      valOr(l.privacyOfficer, 'Ansprechpartner Datenschutz fehlt') + '<br>' +
+      valOr(l.email, 'Kontakt-E-Mail fehlt')));
+    out += sect(T('prv.tech'),
+      para(esc(T('prv.tech1'))) + para(esc(T('prv.tech2'))) + para(esc(T('prv.tech3'))));
+    out += sect(T('prv.nl'), para(esc(T('prv.nltext')) +
+      (has(c.newsletterProvider) ? ' ' + esc(c.newsletterProvider) : ' ' + gapHTML('Versanddienstleister nicht benannt'))));
+    out += sect(T('prv.rights'), para(esc(T('prv.rightstext'))));
+    out += sect(T('prv.keep'),   para(esc(T('prv.keeptext'))));
+    out += sect(T('prv.host'),   para(valOr(l.hosting, 'Hosting-Dienstleister nicht benannt')));
+  }
+
+  if (tab === 'revoke'){
+    out += sect(T('rev.period'), para(gapHTML('Widerrufsfrist und Fristbeginn müssen anwaltlich formuliert werden')));
+    out += sect(T('rev.how'),    para(gapHTML('Erklärungsweg und Muster-Widerrufsformular fehlen') + '<br>' +
+                                      valOr(l.email, 'Kontakt-E-Mail fehlt')));
+    out += sect(T('rev.effect'), para(gapHTML('Folgen des Widerrufs, Rückzahlung und Rücksendekosten fehlen')));
+    out += sect(T('rev.end'),    para(esc(T('rev.endtext'))));
+    out += sect(T('rev.address'),para(valOr(l.returnAddress, 'Rücksendeanschrift fehlt')));
+  }
+
+  if (tab === 'product'){
+    out += para(esc(T('prd.note')));
+    out += sect(T('prd.inci'),   para(has(p.inci) ? esc(p.inci.join(', ')) : gapHTML('INCI-Liste fehlt')));
+    out += sect(T('prd.allerg'), para(has(p.allergens) ? esc(p.allergens.join(', ')) : gapHTML('Deklarationspflichtige Duftstoffe fehlen')));
+    out += sect(T('prd.batch'),  para(valOr(p.batch, 'Chargennummer fehlt')));
+    out += sect(T('prd.pao'),    para(valOr(p.pao, 'Haltbarkeit nach Öffnung fehlt')));
+    out += sect(T('prd.resp'),   para(valOr(p.responsible && p.responsible.name, 'Verantwortliche Person in der EU fehlt') + '<br>' +
+      valOr(p.responsible && p.responsible.street, 'Anschrift der verantwortlichen Person fehlt') + '<br>' +
+      ((has(p.responsible && p.responsible.zip) ? esc(p.responsible.zip) : gapHTML('PLZ fehlt')) + ' ' +
+       (has(p.responsible && p.responsible.city) ? esc(p.responsible.city) : gapHTML('Ort fehlt'))) + '<br>' +
+      valOr(p.responsible && p.responsible.country, 'Land fehlt')));
+    out += sect(T('prd.warn'),   para(has(p.warnings) ? '<ul><li>' + p.warnings.map(esc).join('</li><li>') + '</li></ul>' : gapHTML('Warnhinweise fehlen')));
+  }
+  return out;
+}
+
+var ovOpen = false, ovLast = null, ovTab = 'imprint';
+function paintLegalTabs(){
+  var host = $('#ovTabs');
+  host.innerHTML = LEGAL_TABS.map(function(t){
+    return '<button type="button" role="tab" data-tab="' + t + '" id="tab-' + t + '" ' +
+           'aria-selected="' + (t === ovTab) + '">' + esc(T('lg.' + t)) + '</button>';
+  }).join('');
+}
+function paintLegalBody(){
+  $('#ovBody').innerHTML = '<h3 id="ovT" style="margin-top:0">' + esc(T('lg.' + ovTab)) + '</h3>' + legalHTML(ovTab);
+}
+function openLegal(tab){
+  ovTab = LEGAL_TABS.indexOf(tab) >= 0 ? tab : 'imprint';
+  ovLast = document.activeElement;
+  var ov = $('#ov');
+  ov.hidden = false; ov.classList.add('open');
+  document.body.classList.add('lock');
+  paintLegalTabs(); paintLegalBody();
+  ovOpen = true;
+  $('#ovX').focus();
+}
+function closeLegal(){
+  if (!ovOpen) return;
+  var ov = $('#ov');
+  ov.classList.remove('open'); ov.hidden = true;
+  document.body.classList.remove('lock');
+  ovOpen = false;
+  if (ovLast && ovLast.focus) ovLast.focus();
+}
+
+/* --------------------------------------------------------------------------
+   9 · COUNTDOWN
+   -------------------------------------------------------------------------- */
+var RELEASE = CFG.release ? new Date(CFG.release).getTime() : null;
+function tickCountdown(){
+  if (RELEASE === null) return;
+  var left = Math.max(0, RELEASE - Date.now());
+  var s = Math.floor(left / 1000);
+  var d = Math.floor(s / 86400); s -= d * 86400;
+  var h = Math.floor(s / 3600);  s -= h * 3600;
+  var m = Math.floor(s / 60);    s -= m * 60;
+  var set = function(k, v){ var el = $('[data-cd="' + k + '"]'); if (el) el.textContent = (v < 10 ? '0' : '') + v; };
+  set('d', d); set('h', h); set('m', m); set('s', s);
+}
+
+/* --------------------------------------------------------------------------
+   10 · NEWSLETTER — no <form>, no storage without an endpoint
+   -------------------------------------------------------------------------- */
+var MAIL_RE = /^[^\s@]+@[^\s@.]+(\.[^\s@.]+)+$/;
+function submitMail(){
+  var input = $('#nlMail'), msg = $('#nlMsg'), val = (input.value || '').trim();
+  msg.className = 'nlmsg';
+  if (!MAIL_RE.test(val)){
+    msg.className = 'nlmsg err'; msg.textContent = T('a8.err'); input.focus(); return;
+  }
+  if (!has(CFG.commerce.newsletterEndpoint)){
+    msg.className = 'nlmsg'; msg.textContent = T('a8.local'); return;
+  }
+  msg.textContent = T('a8.sending');
+  fetch(CFG.commerce.newsletterEndpoint, {
+    method:'POST', headers:{ 'Content-Type':'application/json' },
+    body: JSON.stringify({ email: val, lang: LANG, source:'noire-couloir' })
+  }).then(function(r){
+    if (!r.ok) throw new Error(r.status);
+    msg.className = 'nlmsg ok'; msg.textContent = T('a8.ok'); input.value = '';
+  }).catch(function(){
+    msg.className = 'nlmsg err'; msg.textContent = T('a8.fail');
+  });
+}
+
+/* --------------------------------------------------------------------------
+   11 · APPLY LANGUAGE
+   -------------------------------------------------------------------------- */
+function paintSpecs(){
+  var p = CFG.product, why = 'Eckdaten sind ein Entwurf und noch nicht bestätigt';
+  $('#sVol').innerHTML  = claim(p.volume, why);
+  $('#sCon').innerHTML  = claim(p.concentration, why);
+  $('#sWear').innerHTML = claim(p.wear, why);
+  $('#sEd').innerHTML   = has(p.edition) ? claim(String(p.edition), why) : gapHTML('Auflage nicht festgelegt');
+}
+function paintConsent(){
+  var host = $('#consent'), raw = T('a8.consent');
+  var parts = String(raw).split('{p}');
+  host.textContent = '';
+  host.appendChild(document.createTextNode(parts[0]));
+  var b = document.createElement('button');
+  b.type = 'button'; b.setAttribute('data-legal','privacy'); b.textContent = T('lg.privacy');
+  host.appendChild(b);
+  if (parts.length > 1) host.appendChild(document.createTextNode(parts[1]));
+}
+function paintRail(){
+  var host = $('#rail');
+  host.innerHTML = '';
+  for (var i = 1; i <= 8; i++){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('data-goto', 'a' + i);
+    b.innerHTML = '<em>' + esc(T('ch.' + i)) + '</em><i></i>';
+    host.appendChild(b);
+  }
+}
+function applyI18n(){
+  HTML.lang = LANG;
+  $$('[data-t]').forEach(function(el){ el.textContent = T(el.getAttribute('data-t')); });
+  $$('[data-th]').forEach(function(el){ el.innerHTML = T(el.getAttribute('data-th')); });
+  $$('[data-tp]').forEach(function(el){ el.setAttribute('placeholder', T(el.getAttribute('data-tp'))); });
+  if (CFG.draft){
+    $$('.note p[data-th]').forEach(function(el){
+      var why = 'Duftnote ist ein Entwurf und muss von der Parfumeurin bestätigt werden';
+      el.setAttribute('data-claim', why); el.setAttribute('title', why);
+    });
+  }
+  $$('.langs [data-lang]').forEach(function(b){
+    b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === LANG));
+  });
+  $('#ovX').setAttribute('aria-label', T('lg.' + ovTab));
+  paintSpecs(); paintConsent(); paintRail(); paintRetail(); paintPrice(); paintJSONLD(); paintDraft();
+  tickCountdown();
+  if (ovOpen){ paintLegalTabs(); paintLegalBody(); }
+  if (window.__noireRelabel) window.__noireRelabel();
+  if (window.__noireReveals) window.__noireReveals();
+}
+function setLang(l){
+  if (!DICT[l] || l === LANG) return;
+  LANG = l;
+  applyI18n();
+}
+
+/* --------------------------------------------------------------------------
+   12 · CURVES — one interpolator for the flight and everything hung off it
+   -------------------------------------------------------------------------- */
+function smoothstep(e0, e1, x){
+  if (e1 <= e0) return x < e0 ? 0 : 1;          /* edge0 < edge1, always */
+  var t = clamp((x - e0) / (e1 - e0), 0, 1);
+  return t * t * (3 - 2 * t);
+}
+/* pts = [[g,value], …] ascending in g */
+function curve(pts, g){
+  var n = pts.length;
+  if (g <= pts[0][0]) return pts[0][1];
+  if (g >= pts[n-1][0]) return pts[n-1][1];
+  for (var i = 1; i < n; i++){
+    if (g <= pts[i][0]){
+      var a = pts[i-1], b = pts[i];
+      var t = smoothstep(a[0], b[0], g);
+      return a[1] + (b[1] - a[1]) * t;
+    }
+  }
+  return pts[n-1][1];
+}
+
+/* --------------------------------------------------------------------------
+   13 · SCROLL ENGINE
+   Eight acts, one running variable g in [0,8]. GSAP scrubs it with a lag —
+   the camera trails the scroll instead of sticking to it. Without GSAP the
+   same value is measured by hand.
+   -------------------------------------------------------------------------- */
+var ACTS = $$('.act');
+var P = ACTS.map(function(){ return { v: 0 }; });
+var G = 0;
+var HAS_GSAP = !!(window.gsap && window.ScrollTrigger);
+var TWEENS = [];
+
+function sumG(){
+  var s = 0;
+  for (var i = 0; i < P.length; i++) s += P[i].v;
+  G = s;
+}
+function pushP(i, v){
+  P[i].v = v;
+  ACTS[i].style.setProperty('--p', v.toFixed(4));
+  sumG();
+}
+
+function buildScrubs(){
+  if (!HAS_GSAP) return;
+  ACTS.forEach(function(el, i){
+    var tw = gsap.to(P[i], {
+      v: 1, ease: 'none',
+      scrollTrigger: { trigger: el, start: 'top top', end: 'bottom bottom', scrub: 1.2 },
+      onUpdate: function(){ pushP(i, P[i].v); }
+    });
+    TWEENS.push(tw);
+  });
+}
+
+/* manual measurement — identical semantics, no library */
+function measureManual(){
+  var vh = window.innerHeight;
+  for (var i = 0; i < ACTS.length; i++){
+    var r = ACTS[i].getBoundingClientRect();
+    var span = r.height - vh;
+    var p = span > 0 ? clamp(-r.top / span, 0, 1) : (r.top <= 0 ? 1 : 0);
+    pushP(i, p);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   14 · REVEALS
+   -------------------------------------------------------------------------- */
+function splitChars(el){
+  if (el.__split) return el.__chars;
+  var src = el.innerHTML;
+  var tmp = document.createElement('div');
+  tmp.innerHTML = src;
+  var out = document.createDocumentFragment();
+  var chars = [];
+  (function walk(node, target){
+    Array.prototype.slice.call(node.childNodes).forEach(function(n){
+      if (n.nodeType === 3){
+        /* one wrapper per word, one span per letter: the letters animate,
+           the wrapper keeps the word from breaking across two lines */
+        n.nodeValue.split(/(\s+)/).forEach(function(chunk){
+          if (chunk === '') return;
+          if (/^\s+$/.test(chunk)){ target.appendChild(document.createTextNode(' ')); return; }
+          var w = document.createElement('span');
+          w.className = 'w';
+          chunk.split('').forEach(function(c){
+            var s = document.createElement('span');
+            s.className = 'ch'; s.textContent = c;
+            chars.push(s); w.appendChild(s);
+          });
+          target.appendChild(w);
+        });
+      } else if (n.nodeType === 1){
+        var clone = document.createElement(n.tagName.toLowerCase());
+        target.appendChild(clone);
+        walk(n, clone);
+      }
+    });
+  })(tmp, out);
+  el.innerHTML = '';
+  el.appendChild(out);
+  el.__split = true; el.__chars = chars;
+  return chars;
+}
+function unsplit(el){
+  if (!el.__split) return;
+  el.__split = false; el.__chars = null;
+}
+
+var RV = [], UP = [];
+/* An act is 300vh tall but its stage is pinned for only 200vh, so a reveal
+   quoted as "30% of the act" is 20% of the section. Without this the letters
+   of a headline are still assembling when the act is already over. */
+var STICK = 2 / 3;
+function atP(p){ return 'top+=' + (p * 100 * STICK).toFixed(3) + '% top'; }
+function killTweens(){
+  TWEENS.forEach(function(t){
+    if (t.scrollTrigger) t.scrollTrigger.kill();
+    t.kill();
+  });
+  TWEENS.length = 0;
+  if (window.gsap){
+    RV.forEach(function(r){ gsap.set(r.chars, { clearProps: 'all' }); });
+    UP.forEach(function(u){ gsap.set(u.el, { clearProps: 'all' }); });
+  }
+}
+function buildReveals(){
+  RV = []; UP = [];
+  ACTS.forEach(function(act){
+    $$('.rv', act).forEach(function(el){
+      unsplit(el);
+      var chars = splitChars(el);
+      RV.push({ act: act, el: el, chars: chars });
+    });
+    $$('.up', act).forEach(function(el){ UP.push({ act: act, el: el }); });
+  });
+
+  var still = HTML.classList.contains('still');
+  if (still){
+    RV.forEach(function(r){ r.chars.forEach(function(c){ c.style.cssText = ''; }); });
+    UP.forEach(function(u){ u.el.style.cssText = u.el.style.cssText.replace(/opacity[^;]*;?|transform[^;]*;?/g, ''); });
+    return;
+  }
+
+  if (HAS_GSAP){
+    RV.forEach(function(r){
+      var tw = gsap.fromTo(r.chars,
+        { opacity: 0, yPercent: 52, filter: 'blur(12px)' },
+        { opacity: 1, yPercent: 0, filter: 'blur(0px)', ease: 'none',
+          stagger: { each: 0.012, from: 'start' },
+          scrollTrigger: { trigger: r.act, start: atP(0.30), end: atP(0.72), scrub: true } });
+      TWEENS.push(tw);
+    });
+    UP.forEach(function(u){
+      var tw = gsap.fromTo(u.el,
+        { y: 40, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.3, ease: 'power3.out',
+          scrollTrigger: { trigger: u.act, start: atP(0.22), toggleActions: 'play none none reverse' } });
+      TWEENS.push(tw);
+    });
+  }
+}
+function manualReveals(){
+  if (HAS_GSAP || HTML.classList.contains('still')) return;
+  for (var i = 0; i < ACTS.length; i++){
+    var p = P[i].v;
+    var rp = clamp((p - 0.15) / 0.21, 0, 1);
+    for (var j = 0; j < RV.length; j++){
+      if (RV[j].act !== ACTS[i]) continue;
+      var cs = RV[j].chars, n = cs.length;
+      for (var k = 0; k < n; k++){
+        var t = clamp(rp * 1.35 - (k / Math.max(1, n)) * 0.35, 0, 1);
+        var s = cs[k].style;
+        s.opacity = t;
+        s.transform = 'translateY(' + ((1 - t) * 52) + '%)';
+        s.filter = t > 0.99 ? 'none' : 'blur(' + ((1 - t) * 12).toFixed(2) + 'px)';
+      }
+    }
+    var up = clamp((p - 0.10) / 0.14, 0, 1);
+    for (var m = 0; m < UP.length; m++){
+      if (UP[m].act !== ACTS[i]) continue;
+      UP[m].el.style.opacity = up;
+      UP[m].el.style.transform = 'translateY(' + ((1 - up) * 40) + 'px)';
+    }
+  }
+}
+var BOOTED = false;
+window.__noireReveals = function(){
+  if (!BOOTED) return;            /* boot builds once, by hand, at the end */
+  killTweens();
+  buildReveals();
+  if (HAS_GSAP){ buildScrubs(); ScrollTrigger.refresh(); }
+};
+
+/* --------------------------------------------------------------------------
+   15 · CHROME
+   -------------------------------------------------------------------------- */
+var MOTION = true, SOUND = false;
+var CH_NAMES = null;
+
+function setMotion(on){
+  MOTION = !!on;
+  HTML.classList.toggle('still', !MOTION);
+  $('#tMotion').setAttribute('aria-pressed', String(MOTION));
+  window.__noireReveals();
+}
+function scrollToAct(id){
+  var el = document.getElementById(id);
+  if (!el) return;
+  var y = el.getBoundingClientRect().top + window.pageYOffset + window.innerHeight * 0.45;
+  window.scrollTo({ top: y, behavior: HTML.classList.contains('still') ? 'auto' : 'smooth' });
+}
+/* a read-out for tuning on real hardware */
+window.__probe = function(){
+  return { g: G, acts: P.map(function(o){ return +o.v.toFixed(3); }),
+           gl: HTML.classList.contains('gl'), lang: LANG, motion: MOTION };
+};
+function paintHUD(){
+  var d = clamp(G / 8, 0, 1);
+  $('#hud').style.setProperty('--depth', d.toFixed(4));
+  $('#hudN').textContent = Math.round(d * 186) + ' M';
+  var idx = clamp(Math.floor(G), 0, 7);
+  $$('#rail button').forEach(function(b, i){
+    b.setAttribute('aria-current', String(i === idx));
+  });
+  $('#jump').classList.toggle('on', G > 0.55 && G < 7.05);
+  var notes = $$('.note');
+  var p4 = P[3] ? P[3].v : 0;
+  notes.forEach(function(n, i){ n.classList.toggle('on', p4 > 0.18 + i * 0.20); });
+}
+
+function wireChrome(){
+  document.addEventListener('click', function(e){
+    var t = e.target.closest ? e.target.closest('[data-legal],[data-lang],[data-goto],[data-close]') : null;
+    if (!t) return;
+    if (t.hasAttribute('data-legal')){ e.preventDefault(); openLegal(t.getAttribute('data-legal')); return; }
+    if (t.hasAttribute('data-lang')){ e.preventDefault(); setLang(t.getAttribute('data-lang')); return; }
+    if (t.hasAttribute('data-goto')){ e.preventDefault(); scrollToAct(t.getAttribute('data-goto')); return; }
+    if (t.hasAttribute('data-close')){ e.preventDefault(); closeLegal(); return; }
+  });
+  $('#ovTabs').addEventListener('click', function(e){
+    var b = e.target.closest('[data-tab]');
+    if (!b) return;
+    ovTab = b.getAttribute('data-tab');
+    paintLegalTabs(); paintLegalBody(); $('#ovBody').focus();
+  });
+  $('#ovX').addEventListener('click', closeLegal);
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && ovOpen){ e.preventDefault(); closeLegal(); }
+  });
+  $('#tMotion').addEventListener('click', function(){ setMotion(!MOTION); });
+  $('#tSound').addEventListener('click', function(){ toggleSound(); });
+  $('#nlGo').addEventListener('click', submitMail);
+  $('#nlMail').addEventListener('keydown', function(e){
+    if (e.key === 'Enter'){ e.preventDefault(); submitMail(); }
+  });
+  $('#jump').addEventListener('click', function(e){ e.preventDefault(); scrollToAct('a8'); });
+  $('#draftT').addEventListener('click', function(){
+    var d = $('#draft'), open = d.classList.toggle('open');
+    $('#draftT').setAttribute('aria-expanded', String(open));
+  });
+  $('.brand').addEventListener('click', function(e){
+    e.preventDefault(); window.scrollTo({ top: 0, behavior: HTML.classList.contains('still') ? 'auto' : 'smooth' });
+  });
+}
+
+/* ==========================================================================
+   16 · THE WORLD
+   Three r128 — no examples/js, so every post-processing pass below is
+   hand written. All fog is manual, all light is emissive: there is exactly
+   one lamp in this world and it is red.
+   ========================================================================== */
+var GL = null;
+
+/* one vertex shader for every surface in the corridor */
+var VERT = [
+'varying vec3 vW;',
+'varying vec2 vUv;',
+'varying vec3 vN;',
+'varying vec3 vL;',
+'varying float vD;',
+'void main(){',
+'  vUv = uv;',
+'  vL  = position;',
+'  vec4 wp = modelMatrix * vec4(position, 1.0);',
+'  vW = wp.xyz;',
+'  vN = normalize(mat3(modelMatrix) * normal);',
+'  vec4 mv = modelViewMatrix * vec4(position, 1.0);',
+'  vD = -mv.z;',
+'  gl_Position = projectionMatrix * mv;',
+'}'
+].join('\n');
+
+var FOG_FN = [
+'float fogAmt(float d, float k){ float t = k * d; return exp(-t * t); }'
+].join('\n');
+
+/* ---- floor, walls, ceiling ------------------------------------------- */
+var F_SURFACE = [
+'precision highp float;',
+'uniform vec3 uCol; uniform vec3 uGlow;',
+'uniform float uTime; uniform float uFog; uniform float uInt;',
+'varying vec3 vW; varying float vD;',
+FOG_FN,
+'void main(){',
+'  float seam = abs(fract(vW.z / 4.5) - 0.5);',
+'  float rib  = 1.0 - smoothstep(0.0, 0.055, seam);',
+'  float lowGlow  = exp(-max(0.0, vW.y + 2.7) * 0.85);',
+'  float highGlow = exp(-max(0.0, 2.7 - vW.y) * 1.6) * 0.35;',
+'  float pulse = fract((-vW.z + uTime * 14.0) / 46.0);',
+'  float px = (pulse - 0.5) * 46.0;',
+'  float band = exp(-px * px * 0.010) * 0.55;',
+'  vec3 col = uCol * (0.10 + rib * 0.9)',
+'           + uGlow * (lowGlow * 0.55 + highGlow)',
+'           + uGlow * band * (0.35 + rib * 1.2);',
+'  col *= uInt;',
+'  col *= fogAmt(vD, uFog);',
+'  gl_FragColor = vec4(col, 1.0);',
+'}'
+].join('\n');
+
+/* ---- the 42 light rings and the portal -------------------------------- */
+var F_RING = [
+'precision highp float;',
+'uniform vec3 uCol; uniform float uTime; uniform float uFog; uniform float uInt;',
+'varying vec3 vW; varying float vD;',
+FOG_FN,
+'void main(){',
+'  float pulse = fract((-vW.z + uTime * 26.0) / 60.0);',
+'  float px = (pulse - 0.5) * 60.0;',
+'  float wave = exp(-px * px * 0.010);',
+'  float a = (0.30 + wave * 1.7) * uInt;',
+'  vec3 col = uCol * a * fogAmt(vD, uFog);',
+'  gl_FragColor = vec4(col, 1.0);',
+'}'
+].join('\n');
+
+/* ---- the four full length light strips -------------------------------- */
+var F_STRIP = [
+'precision highp float;',
+'uniform vec3 uCol; uniform float uTime; uniform float uFog; uniform float uInt;',
+'varying vec2 vUv; varying vec3 vW; varying float vD;',
+FOG_FN,
+'void main(){',
+'  float y = (vUv.y - 0.5) * 2.0;',
+'  float core = exp(-y * y * 26.0);',
+'  float pulse = fract((-vW.z + uTime * 20.0) / 52.0);',
+'  float px = (pulse - 0.5) * 52.0;',
+'  float wave = exp(-px * px * 0.012);',
+'  vec3 col = uCol * core * (0.55 + wave * 1.5) * uInt * fogAmt(vD, uFog);',
+'  gl_FragColor = vec4(col, 1.0);',
+'}'
+].join('\n');
+
+/* ---- poster / plaque frames: edge only -------------------------------- */
+var F_FRAME = [
+'precision highp float;',
+'uniform vec3 uCol; uniform float uFog; uniform float uInt;',
+'varying vec2 vUv; varying float vD;',
+FOG_FN,
+'void main(){',
+'  float e = min(min(vUv.x, 1.0 - vUv.x), min(vUv.y, 1.0 - vUv.y));',
+'  float a = (1.0 - smoothstep(0.004, 0.03, e)) + exp(-e * 14.0) * 0.22;',
+'  vec3 col = uCol * a * uInt * fogAmt(vD, uFog);',
+'  gl_FragColor = vec4(col, 1.0);',
+'}'
+].join('\n');
+
+/* ---- anything with a picture on it: posters, plaques, the wordmark ----- */
+var F_ART = [
+'precision highp float;',
+'uniform sampler2D uMap; uniform float uFog; uniform float uInt; uniform vec3 uTint;',
+'varying vec2 vUv; varying float vD;',
+FOG_FN,
+'void main(){',
+'  vec4 t = texture2D(uMap, vUv);',
+'  vec3 col = t.rgb * t.a * uTint * uInt * fogAmt(vD, uFog);',
+'  gl_FragColor = vec4(col, 1.0);',
+'}'
+].join('\n');
+
+/* ---- the flacon: black glass, one red edge ---------------------------- */
+var F_GLASS = [
+'precision highp float;',
+'uniform vec3 uColA; uniform vec3 uColB;',
+'uniform float uRim; uniform float uGlass; uniform float uFog; uniform float uFade;',
+'uniform vec3 uLKey; uniform vec3 uLFill;',
+'varying vec3 vW; varying vec3 vN; varying float vD;',
+FOG_FN,
+'vec3 envSample(vec3 d){',
+'  float floorish = 1.0 - smoothstep(-0.55, 0.0, d.y);',
+'  vec3 c = uColA * (exp(-abs(d.y) * 4.5) * 0.34 + floorish * 0.30);',
+'  c += uColB * 0.05;',
+'  float lamp = pow(max(dot(normalize(vec3(0.0, 0.12, -1.0)), d), 0.0), 24.0);',
+'  c += vec3(1.0, 0.52, 0.48) * lamp * 1.5;',
+'  return c;',
+'}',
+'void main(){',
+'  vec3 N = normalize(vN);',
+'  vec3 V = normalize(cameraPosition - vW);',
+'  if (dot(N, V) < 0.0) N = -N;',
+'  float fres = pow(1.0 - clamp(dot(N, V), 0.0, 1.0), 3.2);',
+'  float rimA = pow(max(dot(N, uLKey),  0.0), 1.7) * fres;',
+'  float rimB = pow(max(dot(N, uLFill), 0.0), 2.2) * fres;',
+'  float spec = pow(max(dot(N, normalize(uLKey + V)), 0.0), 120.0);',
+'  vec3 reflDir = reflect(-V, N);',
+'  vec3 refrDir = refract(-V, N, 0.665);',
+'  if (dot(refrDir, refrDir) < 0.0001) refrDir = reflDir;',   /* total internal reflection */
+'  vec3 col = uColA * rimA * uRim',
+'           + uColB * rimB * uRim * 0.9',
+'           + uColA * spec * 2.4',
+'           + envSample(refrDir) * (1.0 - fres) * 0.55 * uGlass',
+'           + envSample(reflDir) * fres * 0.85 * uGlass;',
+'  float mirror = mix(1.0, smoothstep(-13.5, -2.7, vW.y) * 0.32, uFade);',
+'  col *= mirror;',
+'  col *= fogAmt(vD, uFog);',
+'  gl_FragColor = vec4(col, 1.0);',
+'}'
+].join('\n');
+
+/* ---- what is inside the bottle ---------------------------------------- */
+var F_LIQUID = [
+'precision highp float;',
+'uniform vec3 uCol; uniform float uFill; uniform float uInt; uniform float uFog; uniform float uFade;',
+'varying vec3 vL; varying vec3 vN; varying vec3 vW; varying float vD;',
+FOG_FN,
+'void main(){',
+'  vec3 N = normalize(vN);',
+'  vec3 V = normalize(cameraPosition - vW);',
+'  float fres = pow(1.0 - clamp(abs(dot(N, V)), 0.0, 1.0), 3.0);',
+'  float surface  = 1.0 - smoothstep(uFill - 0.02, uFill + 0.03, vL.y);',
+'  float meniscus = exp(-abs(vL.y - uFill) * 42.0) * 0.9;',
+'  float depth    = clamp((uFill - vL.y) * 0.9 + 0.25, 0.0, 1.0);',
+'  float a = (depth * 0.5 + fres * 0.28 + meniscus) * surface * uInt;',
+'  float mirror = mix(1.0, smoothstep(-13.5, -2.7, vW.y) * 0.32, uFade);',
+'  vec3 col = uCol * a * mirror * fogAmt(vD, uFog);',
+'  gl_FragColor = vec4(col, 1.0);',
+'}'
+].join('\n');
+
+/* ---- the shaft of light behind the flacon ----------------------------- */
+var F_COLUMN = [
+'precision highp float;',
+'uniform vec3 uCol; uniform float uTime; uniform float uInt; uniform float uFog;',
+'varying vec2 vUv; varying float vD;',
+FOG_FN,
+'void main(){',
+'  float x = (vUv.x - 0.5) * 2.0;',
+'  float core = exp(-x * x * 700.0);',
+'  float halo = exp(-x * x * 22.0) * 0.3;',
+'  float glow = exp(-x * x * 3.0) * 0.08;',
+'  float fall = smoothstep(0.0, 0.22, vUv.y) * (1.0 - smoothstep(0.62, 1.0, vUv.y));',
+'  float flick = 0.93 + 0.07 * sin(uTime * 2.3 + vUv.y * 9.0) * sin(uTime * 0.7);',
+'  vec3 col = uCol * (core + halo + glow) * fall * flick * uInt * fogAmt(vD, uFog);',
+'  gl_FragColor = vec4(col, 1.0);',
+'}'
+].join('\n');
+
+/* ---- the pool of light it stands in ----------------------------------- */
+var F_POOL = [
+'precision highp float;',
+'uniform vec3 uCol; uniform float uInt; uniform float uFog; uniform float uTime;',
+'varying vec2 vUv; varying float vD;',
+FOG_FN,
+'void main(){',
+'  vec2 d = vUv - 0.5;',
+'  float r = length(d) * 2.0;',
+'  float a = exp(-r * r * 7.0) * 0.9 + exp(-r * r * 1.6) * 0.16;',
+'  float breathe = 0.92 + 0.08 * sin(uTime * 0.6);',
+'  vec3 col = uCol * a * breathe * uInt * fogAmt(vD, uFog);',
+'  gl_FragColor = vec4(col, 1.0);',
+'}'
+].join('\n');
+
+/* ---- dust ------------------------------------------------------------- */
+var V_DUST = [
+'uniform float uSize; uniform float uPix;',
+'attribute float aSeed;',
+'varying float vD; varying float vSeed;',
+'void main(){',
+'  vSeed = aSeed;',
+'  vec4 mv = modelViewMatrix * vec4(position, 1.0);',
+'  vD = -mv.z;',
+'  gl_PointSize = uSize * uPix * (34.0 / max(1.0, vD));',
+'  gl_Position = projectionMatrix * mv;',
+'}'
+].join('\n');
+var F_DUST = [
+'precision highp float;',
+'uniform vec3 uCol; uniform float uFog; uniform float uInt;',
+'varying float vD; varying float vSeed;',
+FOG_FN,
+'void main(){',
+'  vec2 c = gl_PointCoord - 0.5;',
+'  float r = dot(c, c) * 4.0;',
+'  float a = exp(-r * 5.0);',
+'  vec3 col = uCol * a * uInt * (0.35 + vSeed * 0.9) * fogAmt(vD, uFog);',
+'  gl_FragColor = vec4(col, 1.0);',
+'}'
+].join('\n');
+
+/* --------------------------------------------------------------------------
+   17 · WORLD CONSTANTS
+   -------------------------------------------------------------------------- */
+var CW = 3.6, CH = 2.7;                    /* corridor half width / half height */
+var Z0 = 24, Z1 = -150;                    /* corridor from / to               */
+var CORLEN = Z0 - Z1;                      /* 174                              */
+var HALL_END = -196, FLOOR_Y = -2.7;
+var FLACON_Z = -178, FLACON_S = 3.7;
+var FOG = 0.0135;
+var RING_N = 42, RING_GAP = CORLEN / RING_N;
+
+/* Result of the tuning pass on real hardware. Every formula in the brief is
+   untouched — these are the intensity knobs it leaves to the build. Without
+   them the soft highlight roll-off in the composite is driven so hard that
+   saturated red climbs past its asymptote and the flacon turns milky white
+   instead of black lacquer with one red edge. */
+var EX = {
+  wall: 0.52, ceil: 0.55, ring: 0.46, strip: 0.40, frame: 0.55,
+  glass: 0.15, rim: 1.75, liquid: 0.22, column: 0.42, pool: 0.34, dust: 0.55,
+  bloom: 0.46, flare: 0.50, art: 0.85
+};
+
+/* Built only once three is on the page — without it the fallback must
+   still come up, so nothing here may touch THREE at parse time. */
+var COL_HEX = { void:'#050203', blood:'#6f0810', ember:'#d6111c',
+                flare:'#ff4b4b', rose:'#ff2f52', deep:'#8e0510' };
+var COL = null;
+function initColours(){
+  if (COL) return COL;
+  COL = {};
+  for (var k in COL_HEX) COL[k] = new THREE.Color(COL_HEX[k]);
+  return COL;
+}
+
+/* the whole world takes its light colour from the fragrance pyramid */
+function worldColour(g, out){
+  var a, b, t;
+  if (g < 3.05)      { a = COL.ember; b = COL.ember; t = 0; }
+  else if (g < 3.45) { a = COL.ember; b = COL.flare; t = smoothstep(3.05, 3.45, g); }
+  else if (g < 3.80) { a = COL.flare; b = COL.rose;  t = smoothstep(3.45, 3.80, g); }
+  else if (g < 4.40) { a = COL.rose;  b = COL.deep;  t = smoothstep(3.80, 4.40, g); }
+  else               { a = COL.deep;  b = COL.ember; t = smoothstep(4.40, 5.20, g); }
+  out.copy(a).lerp(b, t);
+  return out;
+}
+
+function detectWebGL(){
+  try {
+    var c = document.createElement('canvas');
+    return !!(window.WebGLRenderingContext &&
+      (c.getContext('webgl') || c.getContext('experimental-webgl')));
+  } catch (e) { return false; }
+}
+
+/* --------------------------------------------------------------------------
+   18 · SCENE
+   -------------------------------------------------------------------------- */
+function buildWorld(){
+  initColours();
+  var W = {};
+  var scene = W.scene = new THREE.Scene();
+  var lightCol = new THREE.Color().copy(COL.ember);
+  W.lightCol = lightCol;
+  W.wallMats = []; W.ringMats = []; W.artMats = []; W.frameMats = [];
+  W.wallMounted = [];
+  W.canvasTex = [];
+
+  function mat(frag, uni, opts){
+    opts = opts || {};
+    var m = new THREE.ShaderMaterial({
+      vertexShader: opts.vert || VERT,
+      fragmentShader: frag,
+      uniforms: uni,
+      transparent: !!opts.additive,
+      blending: opts.additive ? THREE.AdditiveBlending : THREE.NormalBlending,
+      depthWrite: opts.additive ? false : (opts.depthWrite !== false),
+      depthTest: opts.depthTest !== false,
+      side: opts.side || THREE.FrontSide,
+      fog: false
+    });
+    if (opts.order !== undefined) m.__order = opts.order;
+    return m;
+  }
+  W.mat = mat;
+
+  /* ---- 1 · floor, walls, ceiling ------------------------------------- */
+  function surfaceMat(int){
+    var m = mat(F_SURFACE, {
+      uCol:  { value: new THREE.Color().copy(COL.blood) },
+      uGlow: { value: lightCol },
+      uTime: { value: 0 }, uFog: { value: FOG }, uInt: { value: int }
+    }, { side: THREE.DoubleSide });
+    m.__baseInt = int;
+    W.wallMats.push(m);
+    return m;
+  }
+  var floorMat = surfaceMat(EX.wall);
+  var floor = new THREE.Mesh(new THREE.PlaneGeometry(30, 240, 1, 96), floorMat);
+  floor.rotation.x = -Math.PI / 2;
+  floor.position.set(0, FLOOR_Y, (Z0 + HALL_END) / 2);
+  scene.add(floor);
+
+  var wallGeo = new THREE.PlaneGeometry(CORLEN, CH * 2, 96, 1);
+  var wallL = new THREE.Mesh(wallGeo, surfaceMat(EX.wall));
+  wallL.position.set(-CW, 0, Z1 + CORLEN / 2); wallL.rotation.y = Math.PI / 2;
+  scene.add(wallL);
+  var wallR = new THREE.Mesh(wallGeo, surfaceMat(EX.wall));
+  wallR.position.set(CW, 0, Z1 + CORLEN / 2); wallR.rotation.y = -Math.PI / 2;
+  scene.add(wallR);
+
+  var ceil = new THREE.Mesh(new THREE.PlaneGeometry(CW * 2, CORLEN, 1, 96), surfaceMat(EX.wall * EX.ceil));
+  ceil.rotation.x = Math.PI / 2;
+  ceil.position.set(0, CH, Z1 + CORLEN / 2);
+  scene.add(ceil);
+
+  /* ---- 2 · 42 light rings, one material for all of them ---------------- */
+  function ringGeo(t){
+    var s = new THREE.Shape();
+    s.moveTo(-CW, -CH); s.lineTo(CW, -CH); s.lineTo(CW, CH); s.lineTo(-CW, CH); s.closePath();
+    var h = new THREE.Path();
+    h.moveTo(-CW + t, -CH + t); h.lineTo(-CW + t, CH - t);
+    h.lineTo(CW - t, CH - t);   h.lineTo(CW - t, -CH + t); h.closePath();
+    s.holes.push(h);
+    return new THREE.ShapeGeometry(s);
+  }
+  var rGeo = ringGeo(0.17);
+  var ringMat = mat(F_RING, {
+    uCol: { value: lightCol }, uTime: { value: 0 },
+    uFog: { value: FOG }, uInt: { value: 1 }
+  }, { additive: true, side: THREE.DoubleSide });
+  W.ringMats.push(ringMat);
+  W.rings = [];
+  for (var i = 0; i < RING_N; i++){
+    var r = new THREE.Mesh(rGeo, ringMat);
+    r.position.z = Z0 - (i + 0.5) * RING_GAP;
+    r.renderOrder = 2;
+    scene.add(r); W.rings.push(r);
+  }
+
+  /* ---- 3 · the portal ------------------------------------------------- */
+  var portalMat = mat(F_RING, {
+    uCol: { value: lightCol }, uTime: { value: 0 },
+    uFog: { value: FOG * 0.55 }, uInt: { value: 1.6 }
+  }, { additive: true, side: THREE.DoubleSide });
+  W.portalMat = portalMat;
+  var portal = new THREE.Mesh(rGeo, portalMat);
+  portal.position.z = Z1; portal.scale.set(1.24, 1.24, 1); portal.renderOrder = 3;
+  scene.add(portal);
+
+  /* ---- 4 · four light strips over the full length ---------------------- */
+  var stripMat = mat(F_STRIP, {
+    uCol: { value: lightCol }, uTime: { value: 0 },
+    uFog: { value: FOG }, uInt: { value: 1 }
+  }, { additive: true, side: THREE.DoubleSide });
+  W.stripMat = stripMat;
+  var stripGeo = new THREE.PlaneGeometry(CORLEN, 0.5, 64, 1);
+  [[-1, -CH + 0.16], [-1, CH - 0.16], [1, -CH + 0.16], [1, CH - 0.16]].forEach(function(p){
+    var s = new THREE.Mesh(stripGeo, stripMat);
+    s.position.set(p[0] * (CW - 0.05), p[1], Z1 + CORLEN / 2);
+    s.rotation.y = p[0] < 0 ? Math.PI / 2 : -Math.PI / 2;
+    s.renderOrder = 2;
+    scene.add(s);
+  });
+
+  /* ---- 5 · nine light shafts across the corridor ----------------------- */
+  var shaftGeo = new THREE.PlaneGeometry(CW * 2.1, 0.34, 8, 1);
+  for (var s9 = 0; s9 < 9; s9++){
+    var sh = new THREE.Mesh(shaftGeo, stripMat);
+    sh.position.set(0, CH - 0.34, Z0 - 8 - s9 * 17);
+    sh.rotation.z = (s9 % 2 ? 1 : -1) * 0.22;
+    sh.rotation.x = Math.PI * 0.5 - 0.28;
+    sh.renderOrder = 2;
+    scene.add(sh);
+  }
+
+  /* ---- texture plumbing ------------------------------------------------ */
+  var LOADER = new THREE.TextureLoader();
+  W.pending = 0;
+  function tex(url, onDone){
+    W.pending++;
+    var t = LOADER.load(url, function(){ W.pending--; if (onDone) onDone(); },
+                        undefined, function(){ W.pending--; });
+    t.minFilter = THREE.LinearFilter;         /* NPOT safe on WebGL1 */
+    t.magFilter = THREE.LinearFilter;
+    t.generateMipmaps = false;
+    t.wrapS = t.wrapT = THREE.ClampToEdgeWrapping;
+    return t;
+  }
+  function artMat(map, int, tint){
+    var m = mat(F_ART, {
+      uMap:  { value: map }, uFog: { value: FOG },
+      uInt:  { value: int === undefined ? 1 : int },
+      uTint: { value: tint || new THREE.Color(1, 1, 1) }
+    }, { additive: true, side: THREE.DoubleSide });
+    W.artMats.push(m);
+    return m;
+  }
+  W.artMat = artMat; W.tex = tex;
+
+  function frameMat(int){
+    var m = mat(F_FRAME, {
+      uCol: { value: lightCol }, uFog: { value: FOG },
+      uInt: { value: int === undefined ? 1 : int }
+    }, { additive: true, side: THREE.DoubleSide });
+    W.frameMats.push(m);
+    return m;
+  }
+
+  /* Wall furniture keeps its landscape pose and a portrait pose; the
+     portrait one steps inwards and turns towards the camera. */
+  function mountWall(obj, side, z, y){
+    var baseX = side * (CW - 0.06);
+    var baseR = side < 0 ? Math.PI / 2 : -Math.PI / 2;
+    obj.position.set(baseX, y || 0, z);
+    obj.rotation.y = baseR;
+    obj.userData.wall = { x: baseX, rot: baseR, side: side };
+    W.wallMounted.push(obj);
+    scene.add(obj);
+    return obj;
+  }
+  W.mountWall = mountWall;
+
+  /* ---- 6 · the wordmark, flown through at z = −52 ---------------------- */
+  var markMat = artMat(tex('__A_MARK__'), 0);
+  var mark = new THREE.Mesh(new THREE.PlaneGeometry(6.4, 2.15), markMat);
+  mark.position.set(0, 0.1, -52); mark.renderOrder = 4;
+  scene.add(mark);
+  W.mark = mark; W.markMat = markMat;
+
+  /* ---- 7 · three fragrance plaques ------------------------------------- */
+  function noteCanvas(idx){
+    var c = document.createElement('canvas');
+    c.width = 640; c.height = 320;
+    c.__draw = function(){
+      var x = c.getContext('2d');
+      x.clearRect(0, 0, 640, 320);
+      x.textAlign = 'center';
+      x.fillStyle = '#8d7f81';
+      x.font = '400 22px Jost, Futura, Helvetica, Arial, sans-serif';
+      var when = T('a4.w' + idx).toUpperCase(), sp = 6, w = 0, k;
+      for (k = 0; k < when.length; k++) w += x.measureText(when[k]).width + sp;
+      var cx = 320 - w / 2;
+      for (k = 0; k < when.length; k++){
+        x.fillText(when[k], cx + x.measureText(when[k]).width / 2, 96);
+        cx += x.measureText(when[k]).width + sp;
+      }
+      x.fillStyle = '#ece4e2';
+      x.font = 'italic 300 92px "Cormorant Garamond", Didot, Georgia, serif';
+      x.fillText(T('a4.n' + idx), 320, 190);
+      x.fillStyle = '#d6111c';
+      x.fillRect(200, 232, 240, 2);
+      if (c.__tex) c.__tex.needsUpdate = true;
+    };
+    c.__draw();
+    W.canvasTex.push(c);
+    var t = new THREE.CanvasTexture(c);
+    t.minFilter = THREE.LinearFilter; t.magFilter = THREE.LinearFilter;
+    t.generateMipmaps = false;
+    c.__tex = t;
+    return t;
+  }
+  W.plaques = [];
+  [-74, -84, -94].forEach(function(z, n){
+    var side = n % 2 === 0 ? -1 : 1;
+    var g = new THREE.Group();
+    var m = artMat(noteCanvas(n + 1), 0.15);
+    var p = new THREE.Mesh(new THREE.PlaneGeometry(3.0, 1.5), m);
+    p.renderOrder = 4; g.add(p);
+    var lite = new THREE.Mesh(new THREE.PlaneGeometry(3.0, 0.22), frameMat(0.5));
+    lite.position.y = -1.0; lite.renderOrder = 3; g.add(lite);
+    mountWall(g, side, z, 0.35);
+    W.plaques.push({ group: g, mat: m, idx: n });
+  });
+
+  /* ---- 8 · three posters ----------------------------------------------- */
+  W.posters = [];
+  [['__A_WALL1__', -108, -1], ['__A_WALL2__', -118, 1], ['__A_WALL3__', -128, -1]]
+  .forEach(function(p){
+    var g = new THREE.Group();
+    var m = artMat(tex(p[0]), 1.0);
+    var pic = new THREE.Mesh(new THREE.PlaneGeometry(2.05, 3.22), m);
+    pic.renderOrder = 4; g.add(pic);
+    var fr = new THREE.Mesh(new THREE.PlaneGeometry(2.28, 3.45), frameMat(0.6));
+    fr.position.z = -0.01; fr.renderOrder = 3; g.add(fr);
+    mountWall(g, p[2], p[1], 0.15);
+    W.posters.push({ group: g, mat: m, frame: fr });
+  });
+
+  /* ---- 9 · the retail wall — confirmed partners only ------------------- */
+  W.retailGroup = new THREE.Group();
+  scene.add(W.retailGroup);
+  W.retailPlaque = null;
+  function retailCanvas(){
+    var c = document.createElement('canvas');
+    c.width = 640; c.height = 320;
+    c.__draw = function(){
+      var x = c.getContext('2d'), k, cx;
+      x.clearRect(0, 0, 640, 320);
+      x.textAlign = 'center';
+      x.fillStyle = '#ece4e2';
+      x.font = '300 56px "Cormorant Garamond", Didot, Georgia, serif';
+      x.fillText(T('a6.sold'), 320, 130);
+      x.fillStyle = '#d6111c'; x.fillRect(220, 162, 200, 2);
+      if (confirmedRetail('shop').length === 0){
+        x.fillStyle = '#8d7f81';
+        x.font = '400 21px Jost, Futura, Helvetica, Arial, sans-serif';
+        var words = T('a6.none').split(' '), line = '', lines = [];
+        for (k = 0; k < words.length; k++){
+          var test = line ? line + ' ' + words[k] : words[k];
+          if (x.measureText(test).width > 540){ lines.push(line); line = words[k]; }
+          else line = test;
+        }
+        lines.push(line);
+        for (k = 0; k < lines.length; k++) x.fillText(lines[k], 320, 212 + k * 30);
+      }
+      if (c.__tex) c.__tex.needsUpdate = true;
+    };
+    c.__draw();
+    W.canvasTex.push(c);
+    var t = new THREE.CanvasTexture(c);
+    t.minFilter = THREE.LinearFilter; t.magFilter = THREE.LinearFilter; t.generateMipmaps = false;
+    c.__tex = t;
+    return t;
+  }
+  var rpMat = artMat(retailCanvas(), 0.9);
+  var rp = new THREE.Mesh(new THREE.PlaneGeometry(3.2, 1.6), rpMat);
+  rp.renderOrder = 4;
+  var rpG = new THREE.Group(); rpG.add(rp);
+  mountWall(rpG, -1, -140, 0.4);
+  W.retailPlaque = { group: rpG, mat: rpMat };
+
+  W.buildRetailWall = function(){
+    while (W.retailGroup.children.length){
+      var ch = W.retailGroup.children.pop();
+      W.retailGroup.remove(ch);
+    }
+    var shops = confirmedRetail('shop').filter(function(r){ return has(r.logo); });
+    shops.forEach(function(r, n){
+      var g = new THREE.Group();
+      var m = artMat(tex(r.logo), 1.0);
+      var w = r.w || 2.0;
+      var pl = new THREE.Mesh(new THREE.PlaneGeometry(w, w * 0.55), m);
+      pl.renderOrder = 4; g.add(pl);
+      g.position.set(CW - 0.06, 0.2, -138 - n * 3.6);
+      g.rotation.y = -Math.PI / 2;
+      g.userData.wall = { x: CW - 0.06, rot: -Math.PI / 2, side: 1 };
+      W.wallMounted.push(g);
+      W.retailGroup.add(g);
+    });
+  };
+  W.buildRetailWall();
+
+  return W;
+}
+
+/* --------------------------------------------------------------------------
+   19 · THE FLACON — procedural, no model file
+   The bevel is the whole point: it is what catches the red rim.
+   -------------------------------------------------------------------------- */
+function roundedRect(w, h, r, y0){
+  var s = new THREE.Shape();
+  var x0 = -w / 2, x1 = w / 2, ya = y0, yb = y0 + h;
+  s.moveTo(x0 + r, ya);
+  s.lineTo(x1 - r, ya); s.quadraticCurveTo(x1, ya, x1, ya + r);
+  s.lineTo(x1, yb - r); s.quadraticCurveTo(x1, yb, x1 - r, yb);
+  s.lineTo(x0 + r, yb); s.quadraticCurveTo(x0, yb, x0, yb - r);
+  s.lineTo(x0, ya + r); s.quadraticCurveTo(x0, ya, x0 + r, ya);
+  return s;
+}
+
+function engraveTexture(W){
+  var c = document.createElement('canvas');
+  c.width = 1024; c.height = 512;
+  c.__draw = function(){
+    var x = c.getContext('2d');
+    x.clearRect(0, 0, 1024, 512);
+    x.textAlign = 'center'; x.textBaseline = 'alphabetic';
+    function spaced(txt, font, size, track, y, colour){
+      x.font = font; x.fillStyle = colour;
+      var w = 0, i;
+      for (i = 0; i < txt.length; i++) w += x.measureText(txt[i]).width + track;
+      w -= track;
+      var cx = 512 - w / 2;
+      for (i = 0; i < txt.length; i++){
+        var cw = x.measureText(txt[i]).width;
+        x.fillText(txt[i], cx + cw / 2, y);
+        cx += cw + track;
+      }
+    }
+    spaced('NOIRÉ', '300 190px "Cormorant Garamond", Didot, Georgia, serif', 190, 26, 260, '#ffd9d9');
+    spaced('EAU DE PARFUM', '400 38px Jost, Futura, Helvetica, Arial, sans-serif', 38, 17, 350, '#e08b8b');
+    if (c.__tex) c.__tex.needsUpdate = true;
+  };
+  c.__draw();
+  W.canvasTex.push(c);
+  var t = new THREE.CanvasTexture(c);
+  t.minFilter = THREE.LinearFilter; t.magFilter = THREE.LinearFilter; t.generateMipmaps = false;
+  c.__tex = t;
+  return t;
+}
+
+function makeFlacon(W, fade, engTex){
+  var side = fade > 0 ? THREE.DoubleSide : THREE.FrontSide;
+  var glass = W.mat(F_GLASS, {
+    uColA:  { value: W.lightCol },
+    uColB:  { value: new THREE.Color().copy(COL.blood) },
+    uRim:   { value: 1.0 }, uGlass: { value: 0.0 },
+    uFog:   { value: FOG * 0.5 }, uFade: { value: fade },
+    uLKey:  { value: new THREE.Vector3(0.34, 0.52, 0.78).normalize() },
+    uLFill: { value: new THREE.Vector3(-0.72, 0.24, 0.65).normalize() }
+  }, { side: side });
+
+  var liquid = W.mat(F_LIQUID, {
+    uCol:  { value: W.lightCol }, uFill: { value: 0.30 },
+    uInt:  { value: 1.0 }, uFog: { value: FOG * 0.5 }, uFade: { value: fade }
+  }, { additive: true, depthTest: false, side: THREE.DoubleSide });
+
+  var eng = W.mat(F_ART, {
+    uMap: { value: engTex }, uFog: { value: FOG * 0.5 },
+    uInt: { value: 0.0 }, uTint: { value: new THREE.Color(1, 1, 1) }
+  }, { additive: true, side: THREE.DoubleSide });
+
+  var g = new THREE.Group();
+
+  /* body */
+  var body = new THREE.ExtrudeGeometry(roundedRect(1.34, 1.86, 0.13, -1.105), {
+    depth: 0.52, bevelEnabled: true, bevelThickness: 0.055, bevelSize: 0.055,
+    bevelSegments: 5, curveSegments: 14, steps: 1
+  });
+  body.translate(0, 0, -0.26);
+  body.computeVertexNormals();
+  g.add(new THREE.Mesh(body, glass));
+
+  /* shoulder, neck, three collar rings */
+  var sh = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.46, 0.2, 26), glass);
+  sh.position.y = 0.87; g.add(sh);
+  var nk = new THREE.Mesh(new THREE.CylinderGeometry(0.185, 0.2, 0.3, 26), glass);
+  nk.position.y = 1.02; g.add(nk);
+  for (var n = 0; n < 3; n++){
+    var tr = new THREE.Mesh(new THREE.TorusGeometry(0.19, 0.032, 8, 26), glass);
+    tr.rotation.x = Math.PI / 2; tr.position.y = 0.99 + n * 0.088;
+    g.add(tr);
+  }
+
+  /* stopper — its own group so it can lift later */
+  var cap = new THREE.Group();
+  var body8 = new THREE.Mesh(new THREE.CylinderGeometry(0.44, 0.47, 0.42, 8), glass);
+  body8.position.y = 1.38; cap.add(body8);
+  var plate = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.44, 0.04, 8), glass);
+  plate.position.y = 1.605; cap.add(plate);
+  g.add(cap);
+
+  /* what is in it */
+  var liq = new THREE.ExtrudeGeometry(roundedRect(1.16, 1.66, 0.11, -1.045), {
+    depth: 0.36, bevelEnabled: false, curveSegments: 12, steps: 1
+  });
+  liq.translate(0, 0, -0.18);
+  liq.computeVertexNormals();
+  var liqM = new THREE.Mesh(liq, liquid);
+  liqM.renderOrder = 4;
+  g.add(liqM);
+
+  /* the name, cut in rather than printed on */
+  var engM = new THREE.Mesh(new THREE.PlaneGeometry(1.02, 0.51), eng);
+  engM.position.set(0, -0.06, 0.272);   /* just proud of the flat face at 0.26 */
+  engM.renderOrder = 5;
+  g.add(engM);
+
+  return { group: g, cap: cap, glass: glass, liquid: liquid, eng: eng };
+}
+
+/* --------------------------------------------------------------------------
+   20 · THE HALL
+   -------------------------------------------------------------------------- */
+function buildHall(W){
+  var scene = W.scene, S = FLACON_S;
+  var engTex = engraveTexture(W);
+
+  W.flacon = makeFlacon(W, 0.0, engTex);
+  W.flacon.group.position.set(0, FLOOR_Y + 1.105 * S, FLACON_Z);
+  W.flacon.group.scale.setScalar(S);
+  scene.add(W.flacon.group);
+
+  W.mirror = makeFlacon(W, 1.0, engTex);
+  W.mirror.group.position.set(0, 2 * FLOOR_Y - (FLOOR_Y + 1.105 * S), FLACON_Z);
+  W.mirror.group.scale.set(S, -S, S);
+  scene.add(W.mirror.group);
+
+  /* the shaft of light behind it — two crossed planes */
+  W.columnMat = W.mat(F_COLUMN, {
+    uCol:  { value: W.lightCol }, uTime: { value: 0 },
+    uInt:  { value: 1.0 }, uFog: { value: FOG * 0.4 }
+  }, { additive: true, side: THREE.DoubleSide });
+  var colGeo = new THREE.PlaneGeometry(9, 34, 1, 24);
+  [0, Math.PI / 2].forEach(function(rot){
+    var c = new THREE.Mesh(colGeo, W.columnMat);
+    c.position.set(0, FLOOR_Y + 16.4, FLACON_Z - 6.5);
+    c.rotation.y = rot; c.renderOrder = 1;
+    scene.add(c);
+  });
+
+  /* and the pool it stands in */
+  W.poolMat = W.mat(F_POOL, {
+    uCol: { value: W.lightCol }, uInt: { value: 1.0 },
+    uFog: { value: FOG * 0.5 }, uTime: { value: 0 }
+  }, { additive: true, side: THREE.DoubleSide });
+  var pool = new THREE.Mesh(new THREE.PlaneGeometry(46, 46), W.poolMat);
+  pool.rotation.x = -Math.PI / 2;
+  pool.position.set(0, FLOOR_Y + 0.02, FLACON_Z);
+  pool.renderOrder = 1;
+  scene.add(pool);
+
+  /* ---- dust: it never moves, the parallax is the flight ---------------- */
+  var MOBILE = Math.min(window.innerWidth, window.innerHeight) < 760 ||
+               /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  var N = MOBILE ? 500 : 1500;
+  var pos = new Float32Array(N * 3), seed = new Float32Array(N);
+  for (var i = 0; i < N; i++){
+    pos[i*3]     = (Math.random() * 2 - 1) * (CW - 0.25);
+    pos[i*3 + 1] = (Math.random() * 2 - 1) * (CH - 0.2);
+    pos[i*3 + 2] = Z0 - Math.random() * (Z0 - HALL_END);
+    seed[i] = Math.random();
+  }
+  var dg = new THREE.BufferGeometry();
+  dg.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  dg.setAttribute('aSeed', new THREE.BufferAttribute(seed, 1));
+  dg.setDrawRange(0, N);
+  W.dustMat = new THREE.ShaderMaterial({
+    vertexShader: V_DUST, fragmentShader: F_DUST,
+    uniforms: {
+      uCol:  { value: W.lightCol }, uFog: { value: FOG * 0.8 },
+      uInt:  { value: 1.0 }, uSize: { value: 1.0 },
+      uPix:  { value: 1.0 }
+    },
+    transparent: true, blending: THREE.AdditiveBlending,
+    depthWrite: false, fog: false
+  });
+  W.dust = new THREE.Points(dg, W.dustMat);
+  W.dust.renderOrder = 1;
+  W.dustCount = N;
+  scene.add(W.dust);
+
+  /* language switch redraws every canvas texture in the room */
+  window.__noireRelabel = function(){
+    W.canvasTex.forEach(function(c){ if (c.__draw) c.__draw(); });
+    if (W.buildRetailWall) W.buildRetailWall();
+  };
+  return W;
+}
+
+/* --------------------------------------------------------------------------
+   21 · POST — hand built. r128 ships no EffectComposer.
+   scene → bright pass → bloom (¼) → anamorphic streak (⅛) → composite
+   -------------------------------------------------------------------------- */
+var FS_VERT = [
+'varying vec2 vUv;',
+'void main(){ vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }'
+].join('\n');
+
+var FS_BRIGHT = [
+'precision highp float;',
+'uniform sampler2D uTex; uniform float uThr; uniform float uSoft;',
+'varying vec2 vUv;',
+'void main(){',
+'  vec3 c = texture2D(uTex, vUv).rgb;',
+'  float l = max(c.r, max(c.g, c.b));',
+'  float k = smoothstep(uThr, uThr + uSoft, l);',
+'  gl_FragColor = vec4(c * k, 1.0);',
+'}'
+].join('\n');
+
+var FS_BLUR = [
+'precision highp float;',
+'uniform sampler2D uTex; uniform vec2 uDir; uniform vec2 uTexel; uniform float uStep;',
+'varying vec2 vUv;',
+'void main(){',
+'  vec2 o = uDir * uTexel * uStep;',
+'  vec3 c = texture2D(uTex, vUv).rgb * 0.2270270;',
+'  c += texture2D(uTex, vUv + o * 1.0).rgb * 0.1945946;',
+'  c += texture2D(uTex, vUv - o * 1.0).rgb * 0.1945946;',
+'  c += texture2D(uTex, vUv + o * 2.0).rgb * 0.1216216;',
+'  c += texture2D(uTex, vUv - o * 2.0).rgb * 0.1216216;',
+'  c += texture2D(uTex, vUv + o * 3.0).rgb * 0.0540540;',
+'  c += texture2D(uTex, vUv - o * 3.0).rgb * 0.0540540;',
+'  c += texture2D(uTex, vUv + o * 4.0).rgb * 0.0162162;',
+'  c += texture2D(uTex, vUv - o * 4.0).rgb * 0.0162162;',
+'  gl_FragColor = vec4(c, 1.0);',
+'}'
+].join('\n');
+
+var FS_COMP = [
+'precision highp float;',
+'uniform sampler2D uScene; uniform sampler2D uBloom; uniform sampler2D uStreak;',
+'uniform float uStr; uniform float uFlare; uniform float uSpeed; uniform float uVig;',
+'uniform float uTime; uniform vec2 uRes; uniform float uGrain;',
+'varying vec2 vUv;',
+'float hash(vec2 p){ return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453); }',
+'void main(){',
+'  vec2 d = vUv - 0.5;',
+'  float r2 = dot(d, d);',
+'  vec2 ab = d * r2 * (0.030 + uSpeed * 0.14);',
+'  vec3 c;',
+'  c.r = texture2D(uScene, vUv + ab).r;',
+'  c.g = texture2D(uScene, vUv).g;',
+'  c.b = texture2D(uScene, vUv - ab).b;',
+'  if (uSpeed > 0.001){',
+'    vec3 sm = vec3(0.0);',
+'    for (int i = 1; i <= 4; i++){',
+'      sm += texture2D(uScene, vUv - d * (float(i) / 4.0) * uSpeed * 0.16).rgb;',
+'    }',
+'    c = mix(c, sm * 0.25, clamp(uSpeed * 0.55, 0.0, 0.55));',
+'  }',
+'  c += texture2D(uBloom,  vUv).rgb * uStr   * vec3(1.05, 0.93, 0.95);',
+'  c += texture2D(uStreak, vUv).rgb * uFlare * vec3(1.00, 0.20, 0.26);',
+'  c = c / (1.0 + c * 0.32);',
+'  c *= 1.0 - smoothstep(0.30, 1.30, length(d) * 1.42) * uVig;',
+'  c += (hash(vUv * uRes + uTime * 60.0) - 0.5) * uGrain;',
+'  gl_FragColor = vec4(c, 1.0);',
+'}'
+].join('\n');
+
+/* --------------------------------------------------------------------------
+   22 · CAMERA FLIGHT
+   -------------------------------------------------------------------------- */
+var K = {
+  z: [[0,24],[1,-4],[2,-34],[3,-62],[4,-98],[5,-132],[6,-150],[6.6,-158],[7,-163],[7.45,-161],[8,-155]],
+  x: [[0,0],[1,0.2],[2,-0.9],[3,0.9],[3.6,-1],[4.3,1.1],[5,-1.2],[5.7,1.3],[6.3,0.6],[6.8,-3.4],[7.3,1.6],[7.7,-2.2],[8,0.9]],
+  y: [[0,0.1],[2,-0.15],[3,0.25],[4,-0.2],[5,0.3],[6,0.1],[6.6,0.9],[7.2,-0.4],[8,0.6]],
+  wall:   [[0,0.5],[1,1],[4,1.15],[6,0.9],[8,0.7]],
+  ring:   [[0,0.35],[0.6,1.25],[3,1],[5,1.1],[6,0.7],[8,0.4]],
+  portal: [[5,1.6],[5.9,4.2],[6.4,2.2],[8,1.2]],
+  mark:   [[1.2,0],[1.9,1],[2.55,1],[2.9,0]],
+  markS:  [[1.2,0.86],[2.9,1.14]],
+  frame:  [[4,0.6],[5,1.5],[5.8,1.5],[6.4,0.5]],
+  spin:   [[5.5,-0.5],[6.4,0.1],[7,0.75],[8,1.9]],
+  lift:   [[6.9,0],[7.35,0.2],[7.7,0.2],[8,0.05]],
+  eng:    [[6.4,0],[7.1,0.95],[8,0.8]],
+  glass:  [[5.8,0],[6.8,1]],
+  bloom:  [[0,1],[1,1.25],[3,1.35],[5,1.3],[6.2,1.6],[7.2,1.35],[8,1.2]],
+  flare:  [[0,0.35],[1,0.7],[3,0.6],[5.6,0.55],[6.3,1.15],[7,0.8],[8,0.65]],
+  scope:  [[0,0],[0.2,1],[1.8,1],[2.2,0],[6,0],[6.5,1],[7.4,1],[7.8,0]]
+};
+
+/* --------------------------------------------------------------------------
+   23 · RENDERER, LOOP, QUALITY
+   -------------------------------------------------------------------------- */
+function startGL(){
+  var canvas = $('#gl');
+  var renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: false, alpha: false,
+                                         powerPreference: 'high-performance', stencil: false, depth: true });
+  } catch (e) { return null; }
+
+  var isWebGL2 = !!(renderer.capabilities && renderer.capabilities.isWebGL2);
+  var gl = renderer.getContext();
+  var canFloat = isWebGL2 && !!gl.getExtension('EXT_color_buffer_float');
+  var RT_TYPE = canFloat ? THREE.HalfFloatType : THREE.UnsignedByteType;
+
+  var MOBILE = Math.min(window.innerWidth, window.innerHeight) < 760 ||
+               /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  var DPR_CAP = MOBILE ? 1.3 : 1.55;
+
+  renderer.setClearColor(0x050203, 1);
+  renderer.autoClear = true;
+
+  var W = buildWorld();
+  buildHall(W);
+  var scene = W.scene;
+
+  var cam = new THREE.PerspectiveCamera(54, 1, 0.1, 320);
+  cam.position.set(0, 0.1, 24);
+
+  /* full screen quad shared by every pass */
+  var fsScene = new THREE.Scene();
+  var fsCam = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+  var fsQuad = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), null);
+  fsQuad.frustumCulled = false;
+  fsScene.add(fsQuad);
+
+  function pass(frag, uni){
+    return new THREE.ShaderMaterial({ vertexShader: FS_VERT, fragmentShader: frag,
+                                      uniforms: uni, depthTest: false, depthWrite: false });
+  }
+  var mBright = pass(FS_BRIGHT, { uTex:{value:null}, uThr:{value:0.36}, uSoft:{value:0.26} });
+  var mBlur   = pass(FS_BLUR,   { uTex:{value:null}, uDir:{value:new THREE.Vector2(1,0)},
+                                  uTexel:{value:new THREE.Vector2(1,1)}, uStep:{value:1} });
+  var mComp   = pass(FS_COMP,   {
+    uScene:{value:null}, uBloom:{value:null}, uStreak:{value:null},
+    uStr:{value:1}, uFlare:{value:0.35}, uSpeed:{value:0}, uVig:{value:0.85},
+    uTime:{value:0}, uRes:{value:new THREE.Vector2(1,1)}, uGrain:{value:0.030}
+  });
+
+  function makeRT(w, h){
+    return new THREE.WebGLRenderTarget(Math.max(2, w | 0), Math.max(2, h | 0), {
+      minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter,
+      format: THREE.RGBAFormat, type: RT_TYPE, depthBuffer: true, stencilBuffer: false
+    });
+  }
+  var rtScene = makeRT(2, 2), rtBright = makeRT(2, 2),
+      rtBloomA = makeRT(2, 2), rtBloomB = makeRT(2, 2),
+      rtStreakA = makeRT(2, 2), rtStreakB = makeRT(2, 2);
+  var black = new THREE.DataTexture(new Uint8Array([0,0,0,255]), 1, 1, THREE.RGBAFormat);
+  black.needsUpdate = true;
+
+  /* ---- quality ladder ------------------------------------------------- */
+  var Q = { level: 3, times: [], idx: 0, cool: 0, ups: 0 };
+  var qDPR = 1, qBloomPasses = 2, qStreak = true, qParticles = 1;
+  function applyQuality(){
+    var l = Q.level;
+    qStreak       = l >= 2;
+    qBloomPasses  = l >= 2 ? 2 : 1;
+    qDPR          = l >= 2 ? 1 : (l === 1 ? 0.85 : 0.85 * 0.7);
+    qParticles    = l >= 2 ? 1 : (l === 1 ? 0.5 : 0.25);
+    W.dust.geometry.setDrawRange(0, Math.max(60, Math.round(W.dustCount * qParticles)));
+    resize();
+  }
+
+  var VW = 1, VH = 1, PIX = 1;
+  function resize(){
+    var w = window.innerWidth, h = window.innerHeight;
+    PIX = Math.min(window.devicePixelRatio || 1, DPR_CAP) * qDPR;
+    renderer.setPixelRatio(1);
+    renderer.setSize(w, h, false);
+    VW = Math.max(2, Math.round(w * PIX));
+    VH = Math.max(2, Math.round(h * PIX));
+    canvas.width = VW; canvas.height = VH;
+    canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
+    renderer.setViewport(0, 0, VW, VH);
+
+    rtScene.setSize(VW, VH);
+    rtBright.setSize(VW >> 2, VH >> 2);
+    rtBloomA.setSize(VW >> 2, VH >> 2);
+    rtBloomB.setSize(VW >> 2, VH >> 2);
+    rtStreakA.setSize(VW >> 3, VH >> 3);
+    rtStreakB.setSize(VW >> 3, VH >> 3);
+
+    var aspect = w / h;
+    cam.aspect = aspect;
+    cam.fov = aspect >= 1 ? 54 : Math.min(76, 54 + (1 - aspect) * 40);
+    cam.updateProjectionMatrix();
+    mComp.uniforms.uRes.value.set(VW, VH);
+    W.dustMat.uniforms.uPix.value = PIX;
+    applyPortrait(aspect);
+    if (HAS_GSAP) ScrollTrigger.refresh();
+  }
+
+  /* ---- portrait: you must still see the walls -------------------------- */
+  function applyPortrait(aspect){
+    var portrait = aspect < 1;
+    W.wallMounted.forEach(function(o){
+      var wd = o.userData.wall;
+      if (!wd) return;
+      o.position.x = portrait ? wd.x - wd.side * 1.15 : wd.x;
+      o.rotation.y = portrait ? wd.rot * 0.62 : wd.rot;
+      o.scale.setScalar(portrait ? 0.92 : 1);
+    });
+    W.mark.scale.setScalar(portrait ? 0.72 : 1);
+    W.__portrait = portrait;
+  }
+
+  /* ---- flight state ---------------------------------------------------- */
+  var mouse = { x: 0, y: 0, tx: 0, ty: 0 };
+  window.addEventListener('pointermove', function(e){
+    mouse.tx = (e.clientX / window.innerWidth - 0.5) * 2;
+    mouse.ty = (e.clientY / window.innerHeight - 0.5) * 2;
+  }, { passive: true });
+
+  var look = new THREE.Vector3();
+  var lookCorridor = new THREE.Vector3();
+  var lookFlacon = new THREE.Vector3(0, 2.0, FLACON_Z);
+  var prevZ = 24, speed = 0, speedS = 0;
+  var t0 = performance.now();
+  var clock = 0;
+
+  function frame(now){
+    requestAnimationFrame(frame);
+    var dt = Math.min(0.05, (now - t0) / 1000) || 0.016;
+    t0 = now;
+    clock += dt;
+
+    if (!HAS_GSAP) measureManual();
+    manualReveals();
+
+    var g = clamp(G, 0, 8);
+    var still = HTML.classList.contains('still');
+
+    /* ---- position ---- */
+    var cz = curve(K.z, g);
+    var cx = curve(K.x, g) * (W.__portrait ? 0.45 : 1);
+    var cy = curve(K.y, g);
+
+    var t = clock;
+    var shakeX = still ? 0 : (Math.sin(t * 0.31) * 0.14 + Math.sin(t * 0.77) * 0.05);
+    var shakeY = still ? 0 : Math.sin(t * 0.44) * 0.07;
+    var roll   = still ? 0 : (Math.sin(t * 0.23) * 0.011 - Math.cos(t * 0.31) * 0.022);
+
+    mouse.x += (mouse.tx - mouse.x) * 0.04;
+    mouse.y += (mouse.ty - mouse.y) * 0.04;
+    var mx = still ? 0 : mouse.x * 0.5;
+
+    cam.position.set(cx + shakeX + mx, cy + shakeY, cz);
+
+    /* ---- aim ---- */
+    lookCorridor.set(cx * 0.35, cy * 0.4, cz - 34);
+    var toFlacon = smoothstep(6.1, 6.9, g);
+    look.copy(lookCorridor).lerp(lookFlacon, toFlacon);
+    cam.lookAt(look);
+    cam.rotation.z += roll;
+
+    /* ---- speed drives blur, aberration, dust size and the drive tone ---- */
+    var raw = Math.abs(cz - prevZ) / Math.max(0.001, dt);
+    prevZ = cz;
+    speed = clamp(raw / 90, 0, 1);
+    speedS += (speed - speedS) * 0.08;
+    var spdOut = still ? 0 : speedS;
+
+    /* ---- world colour follows the pyramid ---- */
+    worldColour(g, W.lightCol);
+
+    /* ---- g driven uniforms ---- */
+    var wallI = curve(K.wall, g);
+    W.wallMats.forEach(function(m){
+      m.uniforms.uInt.value = m.__baseInt * wallI;
+      m.uniforms.uTime.value = clock;
+    });
+    W.ringMats.forEach(function(m){
+      m.uniforms.uInt.value = curve(K.ring, g) * EX.ring;
+      m.uniforms.uTime.value = clock;
+    });
+    W.portalMat.uniforms.uInt.value = curve(K.portal, g) * EX.ring;
+    W.portalMat.uniforms.uTime.value = clock;
+    W.stripMat.uniforms.uTime.value = clock;
+    W.stripMat.uniforms.uInt.value = curve(K.ring, g) * EX.strip;
+    W.frameMats.forEach(function(m){ m.uniforms.uInt.value = curve(K.frame, g) * EX.frame; });
+
+    W.markMat.uniforms.uInt.value = curve(K.mark, g) * 1.25;
+    W.mark.scale.setScalar((W.__portrait ? 0.72 : 1) * curve(K.markS, g));
+
+    W.plaques.forEach(function(p){
+      var lit = smoothstep(-70 - p.idx * 10, -78 - p.idx * 10, cz);
+      p.mat.uniforms.uInt.value = (0.15 + lit * 1.25) * EX.art;
+    });
+    W.posters.forEach(function(p){ p.mat.uniforms.uInt.value = 1.5 + curve(K.frame, g) * 0.9; });
+
+    W.columnMat.uniforms.uTime.value = clock;
+    W.columnMat.uniforms.uInt.value = (0.35 + smoothstep(5.4, 6.6, g) * 1.15) * EX.column;
+    W.poolMat.uniforms.uTime.value = clock;
+    W.poolMat.uniforms.uInt.value = (0.4 + smoothstep(5.6, 6.8, g) * 1.0) * EX.pool;
+    W.dustMat.uniforms.uSize.value = 1.0 + spdOut * 2.2;
+    W.dustMat.uniforms.uInt.value = (0.55 + spdOut * 0.5) * EX.dust;
+
+    /* ---- the flacon ---- */
+    var spin = curve(K.spin, g), lift = curve(K.lift, g),
+        engI = curve(K.eng, g), glassI = curve(K.glass, g);
+    [W.flacon, W.mirror].forEach(function(f){
+      f.group.rotation.y = spin;
+      f.cap.position.y = lift;
+      f.glass.uniforms.uGlass.value = glassI * EX.glass;
+      f.glass.uniforms.uRim.value = (0.85 + glassI * 0.5) * EX.rim;
+      f.eng.uniforms.uInt.value = engI * 1.7;
+      f.liquid.uniforms.uInt.value = (0.5 + glassI * 0.9) * EX.liquid;
+    });
+
+    /* ---- chrome ---- */
+    var scope = still ? 0 : curve(K.scope, g);
+    $('#bars').style.setProperty('--scope', scope.toFixed(3));
+    paintHUD();
+
+    /* ---- draw ---- */
+    mComp.uniforms.uStr.value = curve(K.bloom, g) * EX.bloom;
+    mComp.uniforms.uFlare.value = qStreak ? curve(K.flare, g) * EX.flare : 0;
+    mComp.uniforms.uSpeed.value = spdOut;
+    mComp.uniforms.uTime.value = clock;
+
+    renderer.setRenderTarget(rtScene);
+    renderer.clear();
+    renderer.render(scene, cam);
+
+    fsQuad.material = mBright;
+    mBright.uniforms.uTex.value = rtScene.texture;
+    renderer.setRenderTarget(rtBright);
+    renderer.render(fsScene, fsCam);
+
+    fsQuad.material = mBlur;
+    var bw = Math.max(2, VW >> 2), bh = Math.max(2, VH >> 2);
+    mBlur.uniforms.uTexel.value.set(1 / bw, 1 / bh);
+    var src = rtBright;
+    for (var b = 0; b < qBloomPasses; b++){
+      var step = b === 0 ? 1 : 2;
+      mBlur.uniforms.uStep.value = step;
+      mBlur.uniforms.uDir.value.set(1, 0);
+      mBlur.uniforms.uTex.value = src.texture;
+      renderer.setRenderTarget(rtBloomA);
+      renderer.render(fsScene, fsCam);
+      mBlur.uniforms.uDir.value.set(0, 1);
+      mBlur.uniforms.uTex.value = rtBloomA.texture;
+      renderer.setRenderTarget(rtBloomB);
+      renderer.render(fsScene, fsCam);
+      src = rtBloomB;
+    }
+    var bloomTex = src.texture;
+
+    var streakTex = black;
+    if (qStreak){
+      var sw = Math.max(2, VW >> 3), sh = Math.max(2, VH >> 3);
+      mBlur.uniforms.uTexel.value.set(1 / sw, 1 / sh);
+      mBlur.uniforms.uDir.value.set(1, 0);
+      var ssrc = rtBright, dstA = rtStreakA, dstB = rtStreakB, steps = [2, 6, 15];
+      for (var s = 0; s < 3; s++){
+        mBlur.uniforms.uStep.value = steps[s];
+        mBlur.uniforms.uTex.value = ssrc.texture;
+        renderer.setRenderTarget(dstA);
+        renderer.render(fsScene, fsCam);
+        ssrc = dstA;
+        var swap = dstA; dstA = dstB; dstB = swap;
+      }
+      streakTex = ssrc.texture;
+    }
+
+    fsQuad.material = mComp;
+    mComp.uniforms.uScene.value = rtScene.texture;
+    mComp.uniforms.uBloom.value = bloomTex;
+    mComp.uniforms.uStreak.value = streakTex;
+    renderer.setRenderTarget(null);
+    renderer.render(fsScene, fsCam);
+
+    /* ---- audio follows the flight ---- */
+    audioTick(g, spdOut);
+
+    /* ---- quality: average 45 frames, then step, with a cool down ---- */
+    Q.times.push(dt * 1000);
+    if (Q.times.length >= 45){
+      var sum = 0;
+      for (var q = 0; q < Q.times.length; q++) sum += Q.times[q];
+      var avg = sum / Q.times.length;
+      Q.times.length = 0;
+      if (Q.cool > 0) Q.cool -= 45;
+      else if (avg > 26 && Q.level > 0){ Q.level--; Q.cool = 150; applyQuality(); }
+      else if (avg < 15.5 && Q.level < 3 && Q.ups < 2){ Q.level++; Q.ups++; Q.cool = 300; applyQuality(); }
+    }
+  }
+
+  window.addEventListener('resize', resize, { passive: true });
+  window.addEventListener('orientationchange', function(){ setTimeout(resize, 220); });
+  applyQuality();
+  resize();
+  requestAnimationFrame(frame);
+  GL = { renderer: renderer, world: W, camera: cam };
+  return GL;
+}
+
+/* --------------------------------------------------------------------------
+   24 · SOUND — synthetic, off by default, context only on a real click
+   -------------------------------------------------------------------------- */
+var AC = null, AUD = null;
+function buildAudio(){
+  var Ctx = window.AudioContext || window.webkitAudioContext;
+  if (!Ctx) return null;
+  var ac = new Ctx();
+  var out = ac.createGain(); out.gain.value = 0; out.connect(ac.destination);
+
+  /* drone: two sines a fraction apart, a triangle an octave up */
+  var lp = ac.createBiquadFilter();
+  lp.type = 'lowpass'; lp.frequency.value = 240; lp.Q.value = 3;
+  lp.connect(out);
+  var droneGain = ac.createGain(); droneGain.gain.value = 0.5; droneGain.connect(lp);
+  [[42, 'sine', 1], [42.6, 'sine', 0.9], [84.2, 'triangle', 0.28]].forEach(function(o){
+    var osc = ac.createOscillator(); osc.type = o[1]; osc.frequency.value = o[0];
+    var g = ac.createGain(); g.gain.value = o[2];
+    osc.connect(g); g.connect(droneGain); osc.start();
+  });
+  var lfo = ac.createOscillator(); lfo.type = 'sine'; lfo.frequency.value = 0.07;
+  var lfoG = ac.createGain(); lfoG.gain.value = 60;
+  lfo.connect(lfoG); lfoG.connect(lp.frequency); lfo.start();
+
+  /* drive: a looping noise bed through a band pass */
+  var len = Math.floor(ac.sampleRate * 2);
+  var buf = ac.createBuffer(1, len, ac.sampleRate);
+  var ch = buf.getChannelData(0);
+  for (var i = 0; i < len; i++) ch[i] = (Math.random() * 2 - 1) * 0.5;
+  var noise = ac.createBufferSource(); noise.buffer = buf; noise.loop = true;
+  var bp = ac.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = 700; bp.Q.value = 0.9;
+  var driveGain = ac.createGain(); driveGain.gain.value = 0;
+  noise.connect(bp); bp.connect(driveGain); driveGain.connect(out);
+  noise.start();
+
+  return { ac: ac, out: out, drive: driveGain, driveF: bp, noiseBuf: buf,
+           armPortal: true, armSpray: true };
+}
+function toggleSound(){
+  if (!AUD){
+    AUD = buildAudio();
+    if (!AUD){ $('#tSound').setAttribute('aria-pressed', 'false'); return; }
+    AC = AUD.ac;
+  }
+  if (AC.state === 'suspended') AC.resume();
+  SOUND = !SOUND;
+  $('#tSound').setAttribute('aria-pressed', String(SOUND));
+  AUD.out.gain.setTargetAtTime(SOUND ? 0.22 : 0, AC.currentTime, 0.4);
+}
+function boom(){
+  var ac = AUD.ac, t = ac.currentTime;
+  var o = ac.createOscillator(); o.type = 'sine';
+  o.frequency.setValueAtTime(120, t);
+  o.frequency.exponentialRampToValueAtTime(28, t + 1.5);
+  var g = ac.createGain();
+  g.gain.setValueAtTime(0.0001, t);
+  g.gain.linearRampToValueAtTime(0.9, t + 0.02);
+  g.gain.exponentialRampToValueAtTime(0.0001, t + 2.2);
+  o.connect(g); g.connect(AUD.out);
+  o.start(t); o.stop(t + 2.3);
+}
+function spray(){
+  var ac = AUD.ac, t = ac.currentTime;
+  var s = ac.createBufferSource(); s.buffer = AUD.noiseBuf; s.loop = true;
+  var hp = ac.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 2200;
+  var g = ac.createGain();
+  g.gain.setValueAtTime(0.0001, t);
+  g.gain.linearRampToValueAtTime(0.5, t + 0.03);
+  g.gain.exponentialRampToValueAtTime(0.0001, t + 0.5);
+  s.connect(hp); hp.connect(g); g.connect(AUD.out);
+  s.start(t); s.stop(t + 0.55);
+}
+function audioTick(g, spd){
+  if (!AUD || !SOUND) return;
+  var t = AUD.ac.currentTime;
+  AUD.drive.gain.setTargetAtTime(spd * 0.30, t, 0.12);
+  AUD.driveF.frequency.setTargetAtTime(430 + spd * 1500, t, 0.18);
+  if (g > 5.92){ if (AUD.armPortal){ AUD.armPortal = false; boom(); } }
+  else AUD.armPortal = true;
+  if (g > 7.05){ if (AUD.armSpray){ AUD.armSpray = false; spray(); } }
+  else AUD.armSpray = true;
+}
+
+/* --------------------------------------------------------------------------
+   25 · BOOT
+   The loading screen is injected here on purpose: without JavaScript nobody
+   should be staring at a black plate that hides the whole page.
+   -------------------------------------------------------------------------- */
+function showLoader(){
+  var d = document.createElement('div');
+  d.className = 'load'; d.id = 'load'; d.setAttribute('aria-hidden', 'true');
+  d.innerHTML = '<i></i><span>' + esc(T('gate')) + '</span>';
+  document.body.appendChild(d);
+  return d;
+}
+function hideLoader(el){
+  if (!el) return;
+  el.style.setProperty('--l', 1);
+  el.classList.add('done');
+  setTimeout(function(){ if (el.parentNode) el.parentNode.removeChild(el); }, 900);
+}
+
+(function boot(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  applyI18n();
+  wireChrome();
+  if (reduce) setMotion(false); else setMotion(true);
+
+  buildReveals();
+  buildScrubs();
+  BOOTED = true;
+  measureManual();
+  paintHUD();
+
+  setInterval(tickCountdown, 1000);
+  setInterval(function(){ paintPrice(); paintJSONLD(); }, 60000);
+
+  var ok = detectWebGL() && !!window.THREE;
+  if (ok){
+    HTML.classList.add('gl');
+    var loader = showLoader();
+    var started = null;
+    try { started = startGL(); }
+    catch (e){ HTML.classList.remove('gl'); hideLoader(loader); started = null; }
+    if (started){
+      var t0 = Date.now(), iv = setInterval(function(){
+        var W = started.world;
+        var done = (W.pending <= 0) || (Date.now() - t0 > 6000);
+        var el = document.getElementById('load');
+        if (el) el.style.setProperty('--l', String(clamp((Date.now() - t0) / 2200, 0.05, 1)));
+        if (done){ clearInterval(iv); hideLoader(el); }
+      }, 120);
+    }
+  } else {
+    /* no WebGL: still drive --p, the depth meter and the reveals */
+    (function tick(){
+      requestAnimationFrame(tick);
+      if (!HAS_GSAP) measureManual();
+      manualReveals();
+      paintHUD();
+    })();
+  }
+
+  if (document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){
+      if (window.__noireRelabel) window.__noireRelabel();
+      if (HAS_GSAP) ScrollTrigger.refresh();
+    });
+  }
+})();
+</script>
+</body>
+</html>
