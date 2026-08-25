@@ -132,7 +132,7 @@ def logo(src, base, height=150, square=False):
     return _encode(im, base, cands)
 
 
-def social(src, base, size=(1200, 630), quality=68):
+def social(src, base, size=(1200, 630), quality=62):
     """Open Graph card - centre crop of the key visual."""
     im = opaque(os.path.join(SRC, src))
     tw, th = size

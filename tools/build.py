@@ -6,7 +6,7 @@
 
 Run:  python3 tools/build.py
 """
-import os, re, sys, json, base64, shutil, mimetypes
+import os, re, sys, json, base64, shutil, mimetypes, subprocess, tempfile
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC  = os.path.join(ROOT, 'src', 'index.src.html')
@@ -30,6 +30,70 @@ def datauri(path):
         return 'data:%s;base64,%s' % (mime, base64.b64encode(fh.read()).decode('ascii'))
 
 
+def german_dict(html):
+    """Pull the German copy out of the source so the build can pre-fill it."""
+    start = html.index('var DICT = {')
+    i = html.index('{', start)
+    depth, j = 0, i
+    while j < len(html):
+        if html[j] == '{':
+            depth += 1
+        elif html[j] == '}':
+            depth -= 1
+            if depth == 0:
+                break
+        j += 1
+    obj = html[i:j + 1]
+    code = 'var DICT = %s;\nprocess.stdout.write(JSON.stringify(DICT.de));' % obj
+    with tempfile.NamedTemporaryFile('w', suffix='.js', delete=False, encoding='utf-8') as fh:
+        fh.write(code)
+        path = fh.name
+    try:
+        out = subprocess.run(['node', path], capture_output=True, text=True, timeout=60)
+        if out.returncode != 0:
+            raise SystemExit('cannot read the dictionary: ' + out.stderr.strip())
+        return json.loads(out.stdout)
+    finally:
+        os.unlink(path)
+
+
+def prefill_copy(html, de):
+    """Write the default-language copy straight into the markup.
+
+    Without this the page is a set of empty elements until JavaScript fills
+    them, which is exactly what section 17 says must not happen. Switching
+    language still replaces every one of these at runtime.
+    """
+    filled = {'t': 0, 'th': 0, 'tp': 0}
+
+    def esc(v):
+        return (v.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;'))
+
+    def fill_empty(m):
+        open_tag, tag, attr, key, close = m.group(0), m.group(1), m.group(2), m.group(3), m.group(4)
+        text = de.get(key)
+        if text is None:
+            return open_tag
+        body = text if attr == 'data-th' else esc(text)
+        filled['th' if attr == 'data-th' else 't'] += 1
+        return m.group(0).replace(close, body + close)
+
+    html = re.sub(
+        r'<([a-zA-Z0-9]+)[^>]*\b(data-t|data-th)="([^"]+)"[^>]*>\s*(</\1>)',
+        fill_empty, html)
+
+    def fill_placeholder(m):
+        key = m.group(1)
+        text = de.get(key)
+        if text is None:
+            return m.group(0)
+        filled['tp'] += 1
+        return m.group(0) + ' placeholder="' + esc(text).replace('"', '&quot;') + '"'
+
+    html = re.sub(r'data-tp="([^"]+)"', fill_placeholder, html)
+    return html, filled
+
+
 def strip_canonical(html):
     """No domain configured -> no canonical tag and no og:url claim."""
     out = []
@@ -40,7 +104,10 @@ def strip_canonical(html):
     return '\n'.join(out)
 
 
-def render(html, mapping, canonical):
+def render(html, mapping, canonical, de=None):
+    if de:
+        html, counts = prefill_copy(html, de)
+        render.counts = counts
     if not canonical:
         html = strip_canonical(html)
     for token, value in mapping.items():
@@ -49,7 +116,7 @@ def render(html, mapping, canonical):
     return html
 
 
-def build_preview(src, mf):
+def build_preview(src, mf, de):
     out_dir = os.path.join(DIST, 'preview')
     os.makedirs(out_dir, exist_ok=True)
     mapping = {}
@@ -58,14 +125,14 @@ def build_preview(src, mf):
             mapping['OGURL'] = 'assets/' + name      # a card, not page furniture
         else:
             mapping[token] = datauri(os.path.join(ASSETS, name))
-    html = render(src, mapping, CANONICAL)
+    html = render(src, mapping, CANONICAL, de)
     path = os.path.join(out_dir, 'noire-preview.html')
     with open(path, 'w', encoding='utf-8') as fh:
         fh.write(html)
     return path
 
 
-def build_web(src, mf):
+def build_web(src, mf, de):
     out_dir = os.path.join(DIST, 'web')
     if os.path.isdir(out_dir):
         shutil.rmtree(out_dir)
@@ -74,7 +141,7 @@ def build_web(src, mf):
     for token, name in mf.items():
         shutil.copy2(os.path.join(ASSETS, name), os.path.join(out_dir, 'assets', name))
         mapping['OGURL' if token == 'OG' else token] = 'assets/' + name
-    html = render(src, mapping, CANONICAL)
+    html = render(src, mapping, CANONICAL, de)
     path = os.path.join(out_dir, 'index.html')
     with open(path, 'w', encoding='utf-8') as fh:
         fh.write(html)
@@ -157,21 +224,21 @@ def inline_libs(html):
     return html
 
 
-def build_standalone(src, mf):
+def build_standalone(src, mf, de):
     """Everything in one file, no network: images, libraries, the lot."""
     out_dir = os.path.join(DIST, 'standalone')
     os.makedirs(out_dir, exist_ok=True)
     mapping = {}
     for token, name in mf.items():
         mapping['OGURL' if token == 'OG' else token] = datauri(os.path.join(ASSETS, name))
-    html = inline_libs(render(src, mapping, CANONICAL))
+    html = inline_libs(render(src, mapping, CANONICAL, de))
     path = os.path.join(out_dir, 'noire-standalone.html')
     with open(path, 'w', encoding='utf-8') as fh:
         fh.write(html)
     return path
 
 
-def build_artifact(src, mf):
+def build_artifact(src, mf, de):
     """Same page, reduced to a body fragment for a host that supplies the
     document skeleton itself."""
     out_dir = os.path.join(DIST, 'artifact')
@@ -179,7 +246,7 @@ def build_artifact(src, mf):
     mapping = {}
     for token, name in mf.items():
         mapping['OGURL' if token == 'OG' else token] = datauri(os.path.join(ASSETS, name))
-    html = inline_libs(render(src, mapping, CANONICAL))
+    html = inline_libs(render(src, mapping, CANONICAL, de))
 
     head = html[html.index('<head>') + 6:html.index('</head>')]
     body = html[html.index('<body>') + 6:html.rindex('</body>')]
@@ -203,12 +270,13 @@ def main():
     with open(SRC, encoding='utf-8') as fh:
         src = fh.read()
     mf = manifest()
-    p = build_preview(src, mf)
-    w = build_web(src, mf)
+    de = german_dict(src)
+    p = build_preview(src, mf, de)
+    w = build_web(src, mf, de)
     extras = []
     if os.path.isdir(VENDOR):
-        extras.append(('standalone', build_standalone(src, mf)))
-        extras.append(('artifact  ', build_artifact(src, mf)))
+        extras.append(('standalone', build_standalone(src, mf, de)))
+        extras.append(('artifact  ', build_artifact(src, mf, de)))
 
     def tree_size(path):
         if os.path.isfile(path):
@@ -221,13 +289,25 @@ def main():
         full = os.path.join(w, f)
         print('web       %-34s %7.1f KB' % ('dist/web/' + f, tree_size(full) / 1024.0))
     print('-' * 54)
-    print('%-44s %7.1f KB' % ('production total', tree_size(w) / 1024.0))
+    print('%-44s %7.1f KB' % ('production total, on disk', tree_size(w) / 1024.0))
+    import gzip as _gz
+    wire = 0
+    for r, _, fs in os.walk(w):
+        for f in fs:
+            full = os.path.join(r, f)
+            raw = open(full, 'rb').read()
+            # text is served compressed; webp/jpeg/png already are
+            wire += len(_gz.compress(raw, 9)) if f.endswith(('.html', '.md')) else len(raw)
+    print('%-44s %7.1f KB' % ('production, over the wire (gzip)', wire / 1024.0))
     for label, path in extras:
         print('%s %-34s %7.1f KB' % (label, os.path.relpath(path, ROOT), tree_size(path) / 1024.0))
     leftovers = 0
     for path in [p, os.path.join(w, 'index.html')] + [x[1] for x in extras]:
         with open(path, encoding='utf-8') as fh:
             leftovers += fh.read().count('__A_')
+    c = getattr(render, 'counts', {})
+    print('%-44s %7s' % ('copy written into the markup',
+                         '%d + %d html + %d ph' % (c.get('t', 0), c.get('th', 0), c.get('tp', 0))))
     print('%-44s %7d' % ('leftover placeholder tokens', leftovers))
     return 0 if leftovers == 0 else 1
 

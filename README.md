@@ -1,9 +1,16 @@
 # NOIRÉ — Le Couloir
 
-A 3D scroll site for the fragrance **NOIRÉ — Eau de Parfum**. Not a scroll
-effect on a page: a corridor you fly down, with the campaign hanging on its
-walls, opening into a hall with the flacon. Markup, styles, scene and shaders
-live in one file. No build step at runtime, two CDN scripts, nothing else.
+A site for the fragrance **NOIRÉ — Eau de Parfum**, in two halves.
+
+**Le Couloir** — eight scroll acts you fly down as a corridor, the campaign
+hanging on its walls, opening into a hall with the flacon.
+
+**Das Dossier** — where the flight lands, the page becomes an ordinary long
+one: the essay, the figures, a concentration scale, the composition, how it is
+made, the object, care, and the questions.
+
+Markup, styles, scene and shaders live in one file. No build step at runtime,
+two CDN scripts, nothing else.
 
 ```
 src/index.src.html     the source, with __A_*__ asset placeholders
@@ -12,8 +19,10 @@ assets/                web ready derivatives (built)
 tools/prep_assets.py   originals  -> assets/
 tools/build.py         source     -> dist/
 tools/verify.py        the pre-delivery checks
-tools/smoke.js         renders the built page in Chromium
+tools/smoke.js         renders the flight in Chromium
 tools/smoke-fallback.js  the same page with WebGL switched off
+tools/smoke-dossier.js   figures, the scale, the accordion, GL idling
+tools/smoke-nojs.js      JavaScript off — every word must still be there
 dist/preview/          one file, images inlined — opens by double click
 dist/web/              index.html + assets/ + README — the production upload
 ```
@@ -21,7 +30,7 @@ dist/web/              index.html + assets/ + README — the production upload
 ## Build
 
 ```bash
-python3 tools/prep_assets.py     # 101 KB of images from the originals
+python3 tools/prep_assets.py     # 98 KB of images from the originals
 python3 tools/build.py           # both variants
 python3 tools/verify.py          # syntax, GLSL, i18n, price logic
 ```
@@ -35,9 +44,33 @@ curl -sO https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js
 curl -sO https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js
 curl -sO https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js
 cd .. && python3 tools/build.py   # now also writes dist/standalone and dist/artifact
-node tools/smoke.js dist/standalone/noire-standalone.html
+node tools/smoke.js          dist/standalone/noire-standalone.html
 node tools/smoke-fallback.js dist/standalone/noire-standalone.html
+node tools/smoke-dossier.js  dist/standalone/noire-standalone.html
+node tools/smoke-nojs.js     dist/web/index.html
 ```
+
+## Figures
+
+Every number in the dossier is either held in `CFG` or is arithmetic on
+numbers held in `CFG`, and the tile says which — `500 × 50 ml` under the 25
+litres, `18 % · 25 l` under the 4.5 litres of oil. Nothing is estimated to
+fill a tile. Where a value is missing the tile shows the gap instead.
+
+The one set of numbers from outside `CFG` is the concentration classes on the
+scale, which are industry convention rather than a standard; they sit in
+`CFG.reference` with a ledger item asking for the source. The scale's ordinal
+ramp was checked with the dataviz palette validator against the page's own
+surface (`#84202a → #f04048`, monotone lightness, light end clearing `#050203`);
+the marker is bone rather than a fifth red, so the value that matters is not
+mistaken for another band.
+
+## Size
+
+Roughly 290 KB on disk, **154 KB over the wire** — the markup and script
+gzip to about a third, the images are already compressed. `tools/build.py`
+prints both. The brief's 250 KB target holds for the transferred size; the
+on-disk figure went past it when the dossier's copy was added.
 
 ## The CFG block
 
@@ -67,8 +100,11 @@ fragments, `smoothstep` edge order, `pow()` base signs, uniform defaults, the
 and the price logic at four dates.
 
 Beyond that the page **was** rendered in Chromium (software WebGL) at 1440×900
-and 414×896, with and without WebGL: the flight, the reveals, the language
-switch, the legal overlay, focus handling and the picture fallback all behave.
+and 414×896, with WebGL, without WebGL, and with JavaScript off: the flight,
+the reveals, the counters, the scale, the accordion, the language switch, the
+legal overlay, focus handling and the picture fallback all behave, and nothing
+overflows sideways in portrait.
+
 What that run cannot tell you is how it feels on real hardware — frame rate on
 a mid-range phone, and whether the camera timing reads as cinema or as
 seasickness. Those need one tuning pass on real devices.

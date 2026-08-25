@@ -38,7 +38,7 @@
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
-html{background:var(--void);-webkit-text-size-adjust:100%}
+html{background:var(--void);-webkit-text-size-adjust:100%;scroll-padding-top:clamp(4.5rem,12vh,7rem)}
 body{
   background:var(--void); color:var(--bone);
   font-family:var(--display); font-weight:300;
@@ -223,7 +223,7 @@ main{position:relative; z-index:2}
   opacity:calc(1 - clamp(0,var(--p,0) * 3.4,1));
 }
 #a1 .cue i{display:block; width:1px; height:clamp(30px,6vh,54px); background:linear-gradient(180deg,var(--ember),transparent)}
-#a1 .h1{opacity:clamp(0,calc((var(--p,0) - .04) * 5),1)}
+html.js #a1 .h1{opacity:clamp(0,calc((var(--p,0) - .04) * 5),1)}
 
 /* ---------- act III : countdown ---------- */
 .mark{width:min(30rem,72vw); margin:0 auto clamp(1.6rem,4vh,2.8rem); opacity:.96}
@@ -407,6 +407,205 @@ html.gl .nogl{display:none}
 .load i{display:block; width:1px; height:36vh; background:linear-gradient(180deg,transparent,var(--ember),transparent); transform:scaleY(var(--l,.05)); transform-origin:center; transition:transform .5s}
 .load span{position:absolute; bottom:14vh; font-family:var(--utility); text-transform:uppercase; letter-spacing:.42em; font-size:.5rem; color:var(--ash)}
 
+
+/* ==========================================================================
+   THE DOSSIER — the editorial half, below the flight
+   Same tokens, calmer register: long measure, hairline structure, red kept
+   for accents and the one chart.
+   ========================================================================== */
+#dossier{
+  position:relative; z-index:3; background:var(--void);
+  padding-top:clamp(4rem,14vh,10rem);
+}
+#dossier::before{
+  content:""; position:absolute; left:0; right:0; top:calc(-1 * clamp(10rem,34vh,26rem));
+  height:clamp(10rem,34vh,26rem); pointer-events:none;
+  background:linear-gradient(180deg,transparent,var(--void));
+}
+.ds{padding:clamp(3.4rem,9vh,7rem) 0; border-top:var(--line)}
+.ds:first-child{border-top:0}
+.dw{width:min(72rem,100% - 2 * var(--gut)); margin:0 auto}
+.ds .lbl{color:var(--ember)}
+.ds .h2{max-width:20ch}
+.ds .bd{max-width:64ch; font-size:clamp(1.02rem,.96rem + .4vw,1.3rem); line-height:1.74}
+.ds .lead{font-size:clamp(1.2rem,1.05rem + .8vw,1.72rem); line-height:1.55; color:var(--bone)}
+.cols{display:grid; gap:1.4rem clamp(1.6rem,4vw,3.4rem); margin-top:clamp(1.4rem,4vh,2.4rem)}
+@media (min-width:900px){
+  .cols{grid-template-columns:1fr 1fr}
+  .cols .lead{grid-column:1 / -1; max-width:44ch}
+}
+
+/* ---- figures ------------------------------------------------------------ */
+.figs{
+  display:grid; gap:0; margin-top:clamp(1.6rem,4vh,2.6rem);
+  border-top:var(--line); border-left:var(--line);
+  grid-template-columns:repeat(auto-fit,minmax(min(15rem,100%),1fr));
+}
+/* Cell borders rather than a gap over a tinted container: a grid whose last
+   row is short would otherwise end in a grey block where no tile sits. */
+.fig{
+  border-right:var(--line); border-bottom:var(--line);
+  padding:clamp(1.2rem,3vh,1.9rem) clamp(1rem,2.4vw,1.5rem);
+  display:flex; flex-direction:column; justify-content:flex-end; gap:.7rem;
+}
+.fig--hero{grid-column:1 / -1}
+@media (min-width:760px){.fig--hero{grid-column:span 2}}
+.fig b{
+  font-family:var(--display); font-weight:300; line-height:.92; color:var(--bone);
+  font-size:clamp(2.4rem,1.6rem + 2.6vw,3.6rem);
+}
+.fig--hero b{font-size:clamp(4rem,2rem + 9vw,8.5rem); color:var(--flare)}
+.fig i{font-style:normal; font-family:var(--display); font-size:.44em; color:var(--ash); margin-left:.28em}
+.fig > span{
+  font-family:var(--utility); text-transform:uppercase; letter-spacing:.3em;
+  font-size:.5rem; color:var(--ash); line-height:1.9;
+}
+.fig > em{
+  font-style:normal; font-family:var(--utility); letter-spacing:.16em;
+  font-size:.52rem; color:rgba(141,127,129,.8); font-variant-numeric:tabular-nums;
+}
+/* the value keeps the tile's display face, whatever wraps it */
+.fig b span{font:inherit; letter-spacing:inherit; text-transform:none; color:inherit}
+.fig > span [data-claim]{text-underline-offset:.4em}
+
+/* ---- the concentration scale -------------------------------------------- */
+.scale{margin:clamp(2rem,5vh,3.4rem) 0 1.2rem; padding:0}
+.scale figcaption{margin-bottom:1.1rem}
+.sc-plot{position:relative; height:clamp(58px,9vh,74px)}
+.sc-band{
+  position:absolute; top:0; bottom:0; border:0; padding:0; cursor:default;
+  background:var(--bandc); border-radius:1px;
+  transform-origin:left center; transform:scaleX(var(--grow,1));
+  transition:transform .8s cubic-bezier(.22,1,.36,1) var(--d,0s), filter .3s, box-shadow .3s;
+}
+.sc-band:first-child{border-radius:4px 1px 1px 4px}
+.sc-band:last-child{border-radius:1px 4px 4px 1px}
+.sc-band:hover,.sc-band:focus-visible{filter:brightness(1.35); box-shadow:0 0 0 1px var(--void), 0 0 0 2px rgba(236,228,226,.34)}
+.sc-band u{
+  position:absolute; left:0; top:calc(100% + .7rem); white-space:nowrap; text-decoration:none;
+  font-family:var(--utility); text-transform:uppercase; letter-spacing:.24em;
+  font-size:.5rem; color:var(--ash);
+}
+.sc-band u b{display:block; color:rgba(236,228,226,.62); letter-spacing:.18em; font-weight:400; margin-top:.35em; font-variant-numeric:tabular-nums}
+.sc-mark{position:absolute; top:-1.1rem; bottom:-1.1rem; width:2px; background:var(--bone); border-radius:1px}
+.sc-mark::after{
+  content:attr(data-label); position:absolute; left:50%; bottom:calc(100% + .5rem); transform:translateX(-50%);
+  white-space:nowrap; font-family:var(--utility); text-transform:uppercase;
+  letter-spacing:.26em; font-size:.54rem; color:var(--bone);
+}
+.sc-axis{position:relative; height:2.6rem; margin-top:3.6rem; border-top:var(--line)}
+.sc-axis span{
+  position:absolute; top:.6rem; transform:translateX(-50%);
+  font-family:var(--utility); font-size:.5rem; letter-spacing:.2em; color:var(--ash);
+  font-variant-numeric:tabular-nums; white-space:nowrap;
+}
+.aside{
+  margin:clamp(1.4rem,3.5vh,2.2rem) 0 0; max-width:58ch;
+  font-family:var(--utility); font-size:.72rem; letter-spacing:.04em;
+  line-height:1.9; color:var(--ash);
+}
+.sc-tablewrap{overflow-x:auto; margin-top:1.4rem}
+@media (max-width:720px){
+  .sc-band u{display:none}
+  #scToggle{display:none}
+  .sc-tablewrap[hidden]{display:block}
+  .sc-axis{margin-top:1.1rem}
+}
+.sc-tablewrap table{border-collapse:collapse; width:100%; min-width:17rem}
+.sc-tablewrap th,.sc-tablewrap td{
+  text-align:left; padding:.7rem .9rem; border-bottom:var(--line);
+  font-family:var(--utility); font-size:.62rem; letter-spacing:.1em; color:rgba(236,228,226,.78);
+}
+.sc-tablewrap td:not(:first-child){font-variant-numeric:tabular-nums}
+.sc-tablewrap th{color:var(--ash); text-transform:uppercase; letter-spacing:.26em; font-size:.5rem}
+.sc-tablewrap tr[data-here] td{color:var(--flare)}
+
+/* ---- ordered lists that really are sequences ---------------------------- */
+.levels,.steps,.cares{list-style:none; margin:clamp(1.6rem,4vh,2.6rem) 0 0; padding:0; counter-reset:n}
+.levels li,.steps li,.cares li{
+  counter-increment:n; position:relative; padding:clamp(1.4rem,3.4vh,2.2rem) 0 clamp(1.4rem,3.4vh,2.2rem) clamp(3rem,7vw,5.5rem);
+  border-top:var(--line);
+}
+.levels li::before,.steps li::before,.cares li::before{
+  content:counter(n,decimal-leading-zero); position:absolute; left:0; top:clamp(1.4rem,3.4vh,2.2rem);
+  font-family:var(--utility); font-size:.54rem; letter-spacing:.24em; color:var(--ember);
+  font-variant-numeric:tabular-nums;
+}
+.levels .tny{color:var(--flare); margin:0 0 .5em}
+.levels h3,.steps h3,.cares h3{margin:0 0 .6em}
+.steps .dur{
+  font-family:var(--utility); text-transform:uppercase; letter-spacing:.26em;
+  font-size:.5rem; color:var(--ash); margin:.9em 0 0;
+}
+.cares{display:grid; gap:0}
+@media (min-width:820px){
+  .cares{grid-template-columns:1fr 1fr; column-gap:clamp(2rem,5vw,4rem)}
+  .cares li:nth-child(2){border-top:var(--line)}
+}
+
+/* ---- object rows -------------------------------------------------------- */
+.rows{margin:clamp(1.6rem,4vh,2.6rem) 0 0; display:grid; gap:0}
+.rows div{
+  display:grid; grid-template-columns:minmax(8rem,14rem) 1fr; gap:1rem clamp(1rem,3vw,2rem);
+  padding:clamp(.9rem,2.2vh,1.3rem) 0; border-top:var(--line); align-items:baseline;
+}
+.rows dt{
+  font-family:var(--utility); text-transform:uppercase; letter-spacing:.3em;
+  font-size:.5rem; color:var(--ash); margin:0;
+}
+.rows dd{margin:0; font-family:var(--display); font-size:clamp(1rem,.96rem + .4vw,1.25rem); color:rgba(236,228,226,.86)}
+@media (max-width:560px){.rows div{grid-template-columns:1fr; gap:.4rem}}
+
+/* ---- faq ---------------------------------------------------------------- */
+.faq{margin-top:clamp(1.6rem,4vh,2.6rem)}
+.qa{border-top:var(--line)}
+.qa:last-child{border-bottom:var(--line)}
+.qa>button{
+  appearance:none; background:none; border:0; width:100%; cursor:pointer;
+  display:flex; align-items:baseline; justify-content:space-between; gap:1.4rem;
+  padding:clamp(1.1rem,2.8vh,1.6rem) 0; text-align:left; color:var(--bone);
+  font-family:var(--display); font-weight:300; line-height:1.3;
+  font-size:clamp(1.1rem,1rem + .8vw,1.55rem); transition:color .3s;
+}
+.qa>button:hover{color:var(--flare)}
+.qa>button i{
+  flex:0 0 auto; font-style:normal; width:12px; height:12px; position:relative; margin-top:.45em;
+}
+.qa>button i::before,.qa>button i::after{
+  content:""; position:absolute; inset:50% 0 auto 0; height:1px; background:currentColor;
+}
+.qa>button i::after{transform:rotate(90deg); transition:transform .35s}
+.qa[data-open="true"]>button i::after{transform:rotate(0deg)}
+.qa .ans{overflow:hidden}
+html.js .qa .ans{height:0}
+.qa .ans p{margin:0 0 clamp(1.1rem,2.8vh,1.6rem); max-width:64ch; color:rgba(236,228,226,.76); line-height:1.74}
+
+/* ---- entrances: hidden only once JavaScript is there to bring them back -- */
+html.js .dr{opacity:0; transform:translateY(28px); transition:opacity .9s ease, transform .9s cubic-bezier(.22,1,.36,1)}
+html.js .dr.is-in{opacity:1; transform:none}
+html.still .dr,html.still .dr.is-in{opacity:1!important; transform:none!important; transition:none!important}
+html.js #scale .sc-band{--grow:0}
+html.js #scale.is-in .sc-band{--grow:1}
+html.js #scale .sc-mark{opacity:0; transform:translateY(-14px); transition:opacity .5s ease .55s, transform .5s cubic-bezier(.22,1,.36,1) .55s}
+html.js #scale.is-in .sc-mark{opacity:1; transform:none}
+html.still #scale .sc-band{--grow:1}
+html.still #scale .sc-mark{opacity:1; transform:none}
+
+/* the flight's instruments belong to the flight */
+.hud,.rail-ch,.bars{transition:opacity .5s}
+html.in-dossier .hud,html.in-dossier .rail-ch,html.in-dossier .bars{opacity:0; pointer-events:none}
+html.in-dossier .jump{opacity:1; transform:none; pointer-events:auto}
+html.in-dossier .hdr{background:linear-gradient(180deg,var(--void) 44%,rgba(5,2,3,.86) 74%,transparent)}
+/* the draft badge sits in the reading column at the top of a section — in the
+   dossier it moves out of the way rather than across a heading */
+html.in-dossier .draft{top:auto; bottom:clamp(1rem,3vh,2rem)}
+html.in-dossier .draft ol{position:absolute; bottom:calc(100% + .6rem); left:0}
+@media (max-width:900px){html.in-dossier .jump{transform:translateX(-50%)}}
+.nojs-note{
+  margin:2rem 0 0; padding:1rem 1.2rem; border:1px solid rgba(214,17,28,.34);
+  font-family:var(--utility); font-size:.58rem; letter-spacing:.14em; line-height:2; color:var(--ash);
+}
+
 /* ---------- motion off ---------- */
 html.still .bars i{transform:none!important; --scope:0}
 html.still .ch{opacity:1!important; transform:none!important; filter:none!important}
@@ -451,12 +650,12 @@ html.still .ch{opacity:1!important; transform:none!important; filter:none!import
     <i class="beam nogl-only" aria-hidden="true"></i>
     <div class="wrap">
       <div class="blk blk--c">
-        <p class="lbl up" data-t="a1.label"></p>
-        <h1 class="h1 rv" id="a1h" data-t="a1.h1"></h1>
+        <p class="lbl up" data-t="a1.label">Ein Duft für die Stunden nach Mitternacht</p>
+        <h1 class="h1 rv" id="a1h" data-t="a1.h1">Es kommt.</h1>
       </div>
     </div>
     <div class="cue">
-      <span class="tny" data-t="a1.cue"></span>
+      <span class="tny" data-t="a1.cue">Ins Dunkel fliegen</span>
       <i aria-hidden="true"></i>
     </div>
   </div>
@@ -468,8 +667,8 @@ html.still .ch{opacity:1!important; transform:none!important; filter:none!import
     <div class="veil veil--l" aria-hidden="true"></div>
     <div class="wrap">
       <div class="blk blk--l">
-        <p class="h3 up" data-t="a2.whisper"></p>
-        <h2 class="h2 rv" id="a2h" data-t="a2.ask" style="margin-top:1.2em"></h2>
+        <p class="h3 up" data-t="a2.whisper">Manche Düfte kündigen dich an der Tür an. Dieser wartet, bis du den Raum längst verlassen hast.</p>
+        <h2 class="h2 rv" id="a2h" data-t="a2.ask" style="margin-top:1.2em">Riechst du die Nacht?</h2>
       </div>
     </div>
   </div>
@@ -482,12 +681,12 @@ html.still .ch{opacity:1!important; transform:none!important; filter:none!import
     <div class="wrap">
       <div class="blk blk--c">
         <img class="mark" src="data:image/png;base64,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" alt="NOIRÉ Eau de Parfum" width="1100" height="366" loading="lazy" decoding="async">
-        <h2 class="h3 up" id="a3h" data-t="a3.promise"></h2>
+        <h2 class="h3 up" id="a3h" data-t="a3.promise">Die Nacht gehört dir. Fast.</h2>
         <div class="cd up" id="cd" role="timer" aria-live="off">
-          <div><b data-cd="d">—</b><span data-t="a3.d"></span></div>
-          <div><b data-cd="h">—</b><span data-t="a3.h"></span></div>
-          <div><b data-cd="m">—</b><span data-t="a3.m"></span></div>
-          <div><b data-cd="s">—</b><span data-t="a3.s"></span></div>
+          <div><b data-cd="d">—</b><span data-t="a3.d">Tage</span></div>
+          <div><b data-cd="h">—</b><span data-t="a3.h">Stunden</span></div>
+          <div><b data-cd="m">—</b><span data-t="a3.m">Min.</span></div>
+          <div><b data-cd="s">—</b><span data-t="a3.s">Sek.</span></div>
         </div>
         <p class="date up">15.11.</p>
       </div>
@@ -501,23 +700,23 @@ html.still .ch{opacity:1!important; transform:none!important; filter:none!import
     <div class="veil veil--r" aria-hidden="true"></div>
     <div class="wrap">
       <div class="blk blk--r">
-        <p class="lbl up" data-t="a4.sub"></p>
-        <h2 class="h2 rv" id="a4h" data-t="a4.h2"></h2>
+        <p class="lbl up" data-t="a4.sub">Auf der Haut getragen</p>
+        <h2 class="h2 rv" id="a4h" data-t="a4.h2">Duftpyramide</h2>
         <div class="notes">
           <div class="note" data-note="1">
-            <p class="tny" data-t="a4.w1"></p>
-            <h3 class="h3" data-t="a4.n1"></h3>
-            <p data-th="a4.p1"></p>
+            <p class="tny" data-t="a4.w1">Erste 15 Minuten</p>
+            <h3 class="h3" data-t="a4.n1">Kopfnote</h3>
+            <p data-th="a4.p1">Blutorange, aufgebrochen mit <em>rosa Pfeffer</em>, dahinter die grüne Bitterkeit von Absinth.</p>
           </div>
           <div class="note" data-note="2">
-            <p class="tny" data-t="a4.w2"></p>
-            <h3 class="h3" data-t="a4.n2"></h3>
-            <p data-th="a4.p2"></p>
+            <p class="tny" data-t="a4.w2">Zweite Stunde</p>
+            <h3 class="h3" data-t="a4.n2">Herznote</h3>
+            <p data-th="a4.p2">Bulgarische Rose, verdunkelt von <em>Safran</em> und schwarzer Pflaume.</p>
           </div>
           <div class="note" data-note="3">
-            <p class="tny" data-t="a4.w3"></p>
-            <h3 class="h3" data-t="a4.n3"></h3>
-            <p data-th="a4.p3"></p>
+            <p class="tny" data-t="a4.w3">Bis zum Morgen</p>
+            <h3 class="h3" data-t="a4.n3">Basisnote</h3>
+            <p data-th="a4.p3">Oud, getragenes Leder, <em>schwarze Vanille</em>, Ambra.</p>
           </div>
         </div>
       </div>
@@ -531,13 +730,13 @@ html.still .ch{opacity:1!important; transform:none!important; filter:none!import
     <div class="veil veil--l" aria-hidden="true"></div>
     <div class="wrap">
       <div class="blk blk--l" style="width:min(46rem,100%)">
-        <p class="lbl up" data-t="a5.label"></p>
-        <h2 class="h2 rv" id="a5h" data-th="a5.h2"></h2>
-        <p class="tny up" data-t="a5.wall"></p>
+        <p class="lbl up" data-t="a5.label">Der Teaser, in drei Teilen</p>
+        <h2 class="h2 rv" id="a5h" data-th="a5.h2">Drei Plakate,<br>eine Ankündigung.</h2>
+        <p class="tny up" data-t="a5.wall">An den Wänden links und rechts</p>
         <div class="pl nogl-only">
-          <figure><img src="data:image/webp;base64,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" alt="" width="460" height="724" loading="lazy" decoding="async"><figcaption class="tny" data-t="a5.p1"></figcaption></figure>
-          <figure><img src="data:image/webp;base64,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" alt="" width="460" height="712" loading="lazy" decoding="async"><figcaption class="tny" data-t="a5.p2"></figcaption></figure>
-          <figure><img src="data:image/webp;base64,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" alt="" width="460" height="730" loading="lazy" decoding="async"><figcaption class="tny" data-t="a5.p3"></figcaption></figure>
+          <figure><img src="data:image/webp;base64,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" alt="" width="460" height="724" loading="lazy" decoding="async"><figcaption class="tny" data-t="a5.p1">Das Licht</figcaption></figure>
+          <figure><img src="data:image/webp;base64,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" alt="" width="460" height="712" loading="lazy" decoding="async"><figcaption class="tny" data-t="a5.p2">Die Form</figcaption></figure>
+          <figure><img src="data:image/webp;base64,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" alt="" width="460" height="730" loading="lazy" decoding="async"><figcaption class="tny" data-t="a5.p3">Der Name</figcaption></figure>
         </div>
       </div>
     </div>
@@ -550,16 +749,16 @@ html.still .ch{opacity:1!important; transform:none!important; filter:none!import
     <div class="veil veil--r" aria-hidden="true"></div>
     <div class="wrap">
       <div class="blk blk--r">
-        <p class="lbl up" data-t="a6.label"></p>
-        <h2 class="h2 rv" id="a6h" data-th="a6.h2"></h2>
+        <p class="lbl up" data-t="a6.label">Hergestellt und erhältlich</p>
+        <h2 class="h2 rv" id="a6h" data-th="a6.h2">Wo die Nacht<br>zu haben ist.</h2>
         <div class="up">
-          <p class="tny" data-t="a6.maker" style="margin-bottom:.8em"></p>
+          <p class="tny" data-t="a6.maker" style="margin-bottom:.8em">Manufaktur</p>
           <div class="shops" id="makers"></div>
         </div>
         <div class="up" style="margin-top:2rem">
-          <p class="tny" data-t="a6.sold" style="margin-bottom:.8em"></p>
+          <p class="tny" data-t="a6.sold" style="margin-bottom:.8em">Erhältlich bei</p>
           <div class="shops" id="shops"></div>
-          <p class="bd mut" id="shopsNone" style="margin-top:1rem" data-t="a6.none"></p>
+          <p class="bd mut" id="shopsNone" style="margin-top:1rem" data-t="a6.none">Verkaufsstellen werden vor dem Start bekannt gegeben.</p>
         </div>
       </div>
     </div>
@@ -572,16 +771,16 @@ html.still .ch{opacity:1!important; transform:none!important; filter:none!import
     <div class="veil veil--l" aria-hidden="true"></div>
     <div class="wrap">
       <div class="blk blk--l">
-        <p class="lbl up" data-t="a7.label"></p>
-        <h2 class="h2 rv" id="a7h" data-th="a7.h2"></h2>
-        <p class="bd up" data-t="a7.p"></p>
+        <p class="lbl up" data-t="a7.label">Das Objekt</p>
+        <h2 class="h2 rv" id="a7h" data-th="a7.h2">Schweres Glas,<br>eine rote Kante.</h2>
+        <p class="bd up" data-t="a7.p">Schwarz lackierter Flakon, facettierter Stopfen, der Name ins Glas geschnitten statt aufgedruckt.</p>
         <dl class="specs up">
-          <div><dt data-t="a7.s1"></dt><dd id="sVol"></dd></div>
-          <div><dt data-t="a7.s2"></dt><dd id="sCon"></dd></div>
-          <div><dt data-t="a7.s3"></dt><dd id="sWear"></dd></div>
-          <div><dt data-t="a7.s4"></dt><dd id="sEd"></dd></div>
+          <div><dt data-t="a7.s1">Volumen</dt><dd id="sVol"></dd></div>
+          <div><dt data-t="a7.s2">Konzentration</dt><dd id="sCon"></dd></div>
+          <div><dt data-t="a7.s3">Auf der Haut</dt><dd id="sWear"></dd></div>
+          <div><dt data-t="a7.s4">Erste Edition</dt><dd id="sEd"></dd></div>
         </dl>
-        <button class="lnk up" type="button" data-legal="product" data-t="a7.more"></button>
+        <button class="lnk up" type="button" data-legal="product" data-t="a7.more">Pflichtangaben und Inhaltsstoffe</button>
       </div>
       <div class="nogl-only" style="position:absolute;inset:0 0 0 auto;width:min(48%,34rem);display:flex;align-items:center;pointer-events:none">
         <figure class="flac">
@@ -599,20 +798,20 @@ html.still .ch{opacity:1!important; transform:none!important; filter:none!import
     <div class="veil veil--c" aria-hidden="true"></div>
     <div class="wrap">
       <div class="blk blk--c">
-        <p class="lbl up" data-t="a8.label"></p>
-        <h2 class="h2 rv" id="a8h" data-th="a8.h2"></h2>
+        <p class="lbl up" data-t="a8.label">Erste Edition</p>
+        <h2 class="h2 rv" id="a8h" data-th="a8.h2">Sei da,<br>um Mitternacht.</h2>
         <p class="deal up" id="deal" hidden></p>
         <div class="price up">
           <b id="pNow">—</b>
           <s id="pWas" hidden></s>
-          <i data-t="a8.vol"></i>
+          <i data-t="a8.vol">Eau de Parfum</i>
         </div>
         <p class="fine up" id="pFine"></p>
         <p class="up"><a class="buy" id="buy" href="#" role="button"></a></p>
         <div class="nl up">
           <div class="nlrow">
-            <input id="nlMail" type="email" inputmode="email" autocomplete="email" spellcheck="false" data-tp="a8.ph" aria-describedby="nlMsg">
-            <button type="button" id="nlGo" data-t="a8.btn"></button>
+            <input id="nlMail" type="email" inputmode="email" autocomplete="email" spellcheck="false" data-tp="a8.ph" placeholder="Deine E-Mail" aria-describedby="nlMsg">
+            <button type="button" id="nlGo" data-t="a8.btn">Auf die Liste</button>
           </div>
           <p class="nlmsg" id="nlMsg" role="status" aria-live="polite"></p>
           <p class="consent" id="consent"></p>
@@ -624,28 +823,139 @@ html.still .ch{opacity:1!important; transform:none!important; filter:none!import
 
 </main>
 
+<div id="dossier">
+
+<section class="ds" id="ds-intro">
+  <div class="dw">
+    <p class="lbl dr" data-t="ds.label">Das Dossier</p>
+    <h2 class="h2 dr" data-th="ds.h2">Alles, was<br>hinter dem Duft steht.</h2>
+    <div class="cols">
+      <p class="bd lead dr" data-t="ds.i1">NOIRÉ ist für die Stunden gebaut, in denen niemand mehr etwas beweisen muss. Nicht für den Auftritt, sondern für das, was nach dem Auftritt bleibt — der Raum, den jemand verlassen hat, und in dem noch etwas steht.</p>
+      <p class="bd dr" data-t="ds.i2">Das ist eine Entscheidung gegen Reichweite. Die meisten Düfte arbeiten an der Tür: Sie sollen ankommen, bevor man selbst ankommt. Dieser arbeitet in einem Radius von einer Armlänge und will Nähe, um überhaupt gelesen zu werden.</p>
+      <p class="bd dr" data-t="ds.i3">Technisch heißt das ein hoher Anteil Parfumöl und wenig Alkohol. Der Kopf verbrennt schnell, das Herz trägt den Abend, die Basis bleibt bis zum Morgen. Wer das Gegenteil sucht — einen Duft, der den Raum füllt, bevor man ihn betritt —, ist hier an der falschen Stelle.</p>
+      <p class="bd dr" data-t="ds.i4">Was jetzt folgt, ist die Auskunft dazu: woraus NOIRÉ besteht, wie es hergestellt wird, was es kostet — und was wir noch nicht wissen. Offene Punkte sind als solche markiert und nicht weggeschrieben.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ds" id="ds-figures">
+  <div class="dw">
+    <p class="lbl dr" data-t="fig.label">In Zahlen</p>
+    <h2 class="h2 dr" data-th="fig.h2">Was drin ist,<br>und wie viel davon.</h2>
+    <div class="figs" id="figs"></div>
+    <noscript><p class="nojs-note">Die Zahlen dieses Abschnitts werden aus der Produktkonfiguration berechnet und brauchen dafür JavaScript. Alle übrigen Angaben stehen ohne aus.</p></noscript>
+    <p class="aside dr" data-t="fig.note">Jeder Wert stammt aus der Produktkonfiguration. Abgeleitete Größen führen ihre Rechnung mit.</p>
+  </div>
+</section>
+
+<section class="ds" id="ds-scale">
+  <div class="dw">
+    <p class="lbl dr" data-t="sc.label">Einordnung</p>
+    <h2 class="h2 dr" data-th="sc.h2">Wo NOIRÉ<br>auf der Skala liegt.</h2>
+    <p class="bd dr" data-t="sc.p">Die Klasse eines Duftes ergibt sich aus dem Anteil an Parfumöl. Die Bereiche überlappen und sind Branchenkonvention, keine Norm — jedes Haus legt sie etwas anders aus. Der Wert sagt nichts über Qualität, nur über Dichte und Dauer.</p>
+    <figure class="scale dr" id="scale">
+      <figcaption class="tny" data-t="sc.axis">Anteil Parfumöl</figcaption>
+      <div class="sc-plot" id="scPlot"></div>
+      <div class="sc-axis" id="scAxis"></div>
+    </figure>
+    <button class="lnk dr" type="button" id="scToggle" aria-expanded="false" aria-controls="scTable" data-t="sc.table">Als Tabelle lesen</button>
+    <div class="sc-tablewrap" id="scTable" hidden></div>
+    <p class="aside dr" data-t="sc.src">Bereiche nach branchenüblicher Einteilung. Quelle vor dem Livegang belegen.</p>
+  </div>
+</section>
+
+<section class="ds" id="ds-comp">
+  <div class="dw">
+    <p class="lbl dr" data-t="cp.label">Die Komposition</p>
+    <h2 class="h2 dr" data-th="cp.h2">Drei Ebenen,<br>eine Richtung.</h2>
+    <p class="bd dr" data-t="cp.p">Ein Duft ist keine Mischung, sondern eine Abfolge. Was zuerst da ist, ist selten das, was bleibt — und die Ebenen sind keine Kapitel, sie überlagern sich. Was unten als Verlauf steht, ist die Reihenfolge, in der die Bestandteile die Führung übernehmen.</p>
+    <ol class="levels">
+      <li class="lvl dr">
+        <p class="tny" data-t="a4.w1">Erste 15 Minuten</p>
+        <h3 class="h3" data-t="a4.n1">Kopfnote</h3>
+        <p class="bd" data-th="a4.p1">Blutorange, aufgebrochen mit <em>rosa Pfeffer</em>, dahinter die grüne Bitterkeit von Absinth.</p>
+        <p class="bd mut" data-t="cp.d1">Blutorange öffnet hell und säuerlich und ist nach einer Viertelstunde vorbei. Rosa Pfeffer hält sie kurz und gibt ihr eine trockene Kante; darunter liegt die grüne Bitterkeit von Absinth, die schon auf das Herz zeigt. Diese Ebene ist der Anlass, nicht das Thema.</p>
+      </li>
+      <li class="lvl dr">
+        <p class="tny" data-t="a4.w2">Zweite Stunde</p>
+        <h3 class="h3" data-t="a4.n2">Herznote</h3>
+        <p class="bd" data-th="a4.p2">Bulgarische Rose, verdunkelt von <em>Safran</em> und schwarzer Pflaume.</p>
+        <p class="bd mut" data-t="cp.d2">Bulgarische Rose ist die klassische Herznote — hier aber nicht als Blume, sondern verdunkelt. Safran legt eine ledrige, fast metallische Schärfe darüber, schwarze Pflaume gibt Süße ohne Zucker. Ab hier hat der Duft seine Temperatur gefunden.</p>
+      </li>
+      <li class="lvl dr">
+        <p class="tny" data-t="a4.w3">Bis zum Morgen</p>
+        <h3 class="h3" data-t="a4.n3">Basisnote</h3>
+        <p class="bd" data-th="a4.p3">Oud, getragenes Leder, <em>schwarze Vanille</em>, Ambra.</p>
+        <p class="bd mut" data-t="cp.d3">Oud und getragenes Leder sind die Bestandteile, die am längsten bleiben und am wenigsten verzeihen. Schwarze Vanille nimmt ihnen die Härte, Ambra bindet alles und drückt es an die Haut. Das ist die Ebene, die am nächsten Morgen noch im Hemd hängt.</p>
+      </li>
+    </ol>
+    <p class="aside dr" data-t="cp.after">Die Angaben zur Komposition sind ein Entwurf und müssen von der Parfumeurin bestätigt werden, bevor sie öffentlich stehen.</p>
+  </div>
+</section>
+
+<section class="ds" id="ds-craft">
+  <div class="dw">
+    <p class="lbl dr" data-t="cr.label">Die Herstellung</p>
+    <h2 class="h2 dr" data-th="cr.h2">Was zwischen Ansatz<br>und Abfüllung passiert.</h2>
+    <p class="bd dr" data-t="cr.p">Die Schritte sind in der Parfümerie seit langem dieselben. Was ein Haus vom anderen unterscheidet, sind die Zeiten — und die stehen hier noch nicht fest.</p>
+    <ol class="steps" id="steps"></ol>
+  </div>
+</section>
+
+<section class="ds" id="ds-object">
+  <div class="dw">
+    <p class="lbl dr" data-t="ob.label">Der Flakon</p>
+    <h2 class="h2 dr" data-th="ob.h2">Ein Objekt,<br>das liegen bleibt.</h2>
+    <p class="bd dr" data-t="ob.p">Der Name ist ins Glas geschnitten, nicht aufgedruckt. Das ist teurer und der Grund, warum die Schrift im Licht kippt statt zu verblassen: Aufdruck geht nach Monaten in der Tasche ab, eine Gravur nicht.</p>
+    <dl class="rows" id="objRows"></dl>
+  </div>
+</section>
+
+<section class="ds" id="ds-care">
+  <div class="dw">
+    <p class="lbl dr" data-t="ca.label">Tragen und aufbewahren</p>
+    <h2 class="h2 dr" data-th="ca.h2">Vier Dinge, die<br>den Unterschied machen.</h2>
+    <ol class="cares">
+      <li class="dr"><h3 class="h3" data-t="ca.t1">Auf warme Stellen</h3><p class="bd" data-t="ca.p1">Handgelenk, Halsbeuge, hinter dem Ohr. Wärme trägt den Duft nach oben; auf kalter Haut gibt er kaum etwas ab.</p></li>
+      <li class="dr"><h3 class="h3" data-t="ca.t2">Nicht verreiben</h3><p class="bd" data-t="ca.p2">Aneinandergeriebene Handgelenke zerschlagen die Kopfnote und verkürzen den ganzen Verlauf. Auftragen und trocknen lassen.</p></li>
+      <li class="dr"><h3 class="h3" data-t="ca.t3">Dunkel und kühl lagern</h3><p class="bd" data-t="ca.p3">Licht und Wärme bauen Duftstoffe ab. Der Karton ist kein Zubehör, sondern der beste Lagerort — das Fensterbrett der schlechteste.</p></li>
+      <li class="dr"><h3 class="h3" data-t="ca.t4">Auf der Haut entscheiden</h3><p class="bd" data-t="ca.p4">Hautfeuchtigkeit, pH-Wert und Temperatur verändern den Verlauf. Zwei Menschen tragen nie ganz denselben Duft; deshalb lohnt der Test am eigenen Arm mehr als jede Beschreibung.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="ds" id="ds-faq">
+  <div class="dw">
+    <p class="lbl dr" data-t="fq.label">Häufige Fragen</p>
+    <h2 class="h2 dr" data-th="fq.h2">Was Sie sonst<br>noch wissen wollen.</h2>
+    <div class="faq" id="faq"></div>
+  </div>
+</section>
+
+</div>
+
 <div class="nogl">
-  <p class="nogl-note" data-t="fb.note"></p>
+  <p class="nogl-note" data-t="fb.note">Ohne WebGL wird die Kampagne als Bildstrecke gezeigt. Alle Inhalte sind vollständig lesbar.</p>
 </div>
 
 <footer class="ftr">
-  <p class="tny" style="margin:0">NOIRÉ · <span data-t="brand.line"></span></p>
+  <p class="tny" style="margin:0">NOIRÉ · <span data-t="brand.line">Eau de Parfum</span></p>
   <nav aria-label="Rechtliches">
-    <button type="button" data-legal="imprint" data-t="lg.imprint"></button>
-    <button type="button" data-legal="privacy" data-t="lg.privacy"></button>
-    <button type="button" data-legal="revoke" data-t="lg.revoke"></button>
-    <button type="button" data-legal="product" data-t="lg.product"></button>
+    <button type="button" data-legal="imprint" data-t="lg.imprint">Impressum</button>
+    <button type="button" data-legal="privacy" data-t="lg.privacy">Datenschutz</button>
+    <button type="button" data-legal="revoke" data-t="lg.revoke">Widerruf</button>
+    <button type="button" data-legal="product" data-t="lg.product">Produktangaben</button>
   </nav>
 </footer>
 
 <div class="hud" id="hud" aria-hidden="true">
-  <b data-t="hud"></b>
+  <b data-t="hud">Tiefe</b>
   <span class="rail"><i></i></span>
   <u id="hudN">0 M</u>
 </div>
 
 <nav class="rail-ch" id="rail" aria-label="Kapitel"></nav>
-<a class="jump" id="jump" href="#a8" data-t="jump"></a>
+<a class="jump" id="jump" href="#a8" data-t="jump">Direkt zum Kauf</a>
 
 <div class="ov" id="ov" role="dialog" aria-modal="true" aria-labelledby="ovT" hidden>
   <div class="sc" data-close></div>
@@ -681,9 +991,21 @@ var CFG = {
     price: 39.99, priceRetail: 39.99,
     launch: { percent: 50, price: 19.99, from: '2026-11-15T00:00:00', until: '2027-02-15T23:59:59' },
     currency: 'EUR', taxIncluded: true, shippingNote: null,
-    volume: '50 ml', concentration: '18 %', wear: '8–12 h', edition: 500,
+    volume: '50 ml', volumeMl: 50,
+    concentration: '18 %', concentrationPct: 18,
+    wear: '8–12 h', edition: 500,
     gtin: null, sku: null,
     inci: [], allergens: [], batch: null, pao: null, warnings: [],
+    /* The dossier reads these. Every null renders as a visible gap rather
+       than a number somebody made up. */
+    notes: 10,                 /* named ingredients across the three levels */
+    levels: 3,
+    craft: {
+      maceration: null, filtration: null, rest: null, filling: null,
+      site: null, glassOrigin: null, bottleHeight: null, bottleWeight: null,
+      vegan: null, crueltyFree: null, refillable: null
+    },
+    samples: null,             /* a sample programme, if there is one */
     responsible: { name: null, street: null, zip: null, city: null, country: null }
   },
   commerce: { checkoutUrl: '', newsletterEndpoint: '', newsletterProvider: null },
@@ -698,7 +1020,19 @@ var CFG = {
     email: null, phone: null, vat: null, register: null, court: null,
     privacyOfficer: null, hosting: null, returnAddress: null
   },
-  site: { canonical: '', ogImage: 'assets/og.jpg' }
+  site: { canonical: '', ogImage: 'assets/og.jpg' },
+  /* Industry convention, not a standard — the ranges overlap and houses read
+     them differently. Shown as context for where 18 % sits, with the source
+     still to be cited. */
+  reference: {
+    concentrationClasses: [
+      { key: 'cologne',  from: 2,  to: 5  },
+      { key: 'toilette', from: 5,  to: 15 },
+      { key: 'parfum',   from: 15, to: 20 },
+      { key: 'extrait',  from: 20, to: 40 }
+    ],
+    scaleMax: 40
+  }
 };
 
 /* --------------------------------------------------------------------------
@@ -762,6 +1096,74 @@ de: {
   'ch.1':'Der Eingang', 'ch.2':'Der Duft', 'ch.3':'Der Name', 'ch.4':'Die Pyramide',
   'ch.5':'Die Galerie', 'ch.6':'Die Händler', 'ch.7':'Die Halle', 'ch.8':'Der Kauf',
   'fb.note':'Ohne WebGL wird die Kampagne als Bildstrecke gezeigt. Alle Inhalte sind vollständig lesbar.',
+  'ds.label':'Das Dossier', 'ds.h2':'Alles, was<br>hinter dem Duft steht.',
+  'ds.cue':'Weiterlesen',
+  'ds.i1':'NOIRÉ ist für die Stunden gebaut, in denen niemand mehr etwas beweisen muss. Nicht für den Auftritt, sondern für das, was nach dem Auftritt bleibt — der Raum, den jemand verlassen hat, und in dem noch etwas steht.',
+  'ds.i2':'Das ist eine Entscheidung gegen Reichweite. Die meisten Düfte arbeiten an der Tür: Sie sollen ankommen, bevor man selbst ankommt. Dieser arbeitet in einem Radius von einer Armlänge und will Nähe, um überhaupt gelesen zu werden.',
+  'ds.i3':'Technisch heißt das ein hoher Anteil Parfumöl und wenig Alkohol. Der Kopf verbrennt schnell, das Herz trägt den Abend, die Basis bleibt bis zum Morgen. Wer das Gegenteil sucht — einen Duft, der den Raum füllt, bevor man ihn betritt —, ist hier an der falschen Stelle.',
+  'ds.i4':'Was jetzt folgt, ist die Auskunft dazu: woraus NOIRÉ besteht, wie es hergestellt wird, was es kostet — und was wir noch nicht wissen. Offene Punkte sind als solche markiert und nicht weggeschrieben.',
+
+  'fig.label':'In Zahlen', 'fig.h2':'Was drin ist,<br>und wie viel davon.',
+  'fig.note':'Jeder Wert stammt aus der Produktkonfiguration. Abgeleitete Größen führen ihre Rechnung mit.',
+  'fig.edition':'Flakons in der ersten Edition', 'fig.volume':'Inhalt je Flakon',
+  'fig.total':'Gesamtabfüllung der Edition', 'fig.oil':'Davon reines Parfumöl',
+  'fig.conc':'Anteil Parfumöl', 'fig.wear':'Auf der Haut',
+  'fig.levels':'Duftebenen', 'fig.ing':'Genannte Ingredienzen',
+  'fig.window':'Tage Einführungsangebot', 'fig.left':'Tage bis zum Verkaufsstart',
+  'fig.calc':'Rechnung',
+
+  'sc.label':'Einordnung', 'sc.h2':'Wo NOIRÉ<br>auf der Skala liegt.',
+  'sc.p':'Die Klasse eines Duftes ergibt sich aus dem Anteil an Parfumöl. Die Bereiche überlappen und sind Branchenkonvention, keine Norm — jedes Haus legt sie etwas anders aus. Der Wert sagt nichts über Qualität, nur über Dichte und Dauer.',
+  'sc.cologne':'Eau de Cologne', 'sc.toilette':'Eau de Toilette',
+  'sc.parfum':'Eau de Parfum', 'sc.extrait':'Extrait de Parfum',
+  'sc.axis':'Anteil Parfumöl', 'sc.here':'NOIRÉ · {v}',
+  'sc.src':'Bereiche nach branchenüblicher Einteilung. Quelle vor dem Livegang belegen.',
+  'sc.table':'Als Tabelle lesen',
+
+  'cp.label':'Die Komposition', 'cp.h2':'Drei Ebenen,<br>eine Richtung.',
+  'cp.p':'Ein Duft ist keine Mischung, sondern eine Abfolge. Was zuerst da ist, ist selten das, was bleibt — und die Ebenen sind keine Kapitel, sie überlagern sich. Was unten als Verlauf steht, ist die Reihenfolge, in der die Bestandteile die Führung übernehmen.',
+  'cp.d1':'Blutorange öffnet hell und säuerlich und ist nach einer Viertelstunde vorbei. Rosa Pfeffer hält sie kurz und gibt ihr eine trockene Kante; darunter liegt die grüne Bitterkeit von Absinth, die schon auf das Herz zeigt. Diese Ebene ist der Anlass, nicht das Thema.',
+  'cp.d2':'Bulgarische Rose ist die klassische Herznote — hier aber nicht als Blume, sondern verdunkelt. Safran legt eine ledrige, fast metallische Schärfe darüber, schwarze Pflaume gibt Süße ohne Zucker. Ab hier hat der Duft seine Temperatur gefunden.',
+  'cp.d3':'Oud und getragenes Leder sind die Bestandteile, die am längsten bleiben und am wenigsten verzeihen. Schwarze Vanille nimmt ihnen die Härte, Ambra bindet alles und drückt es an die Haut. Das ist die Ebene, die am nächsten Morgen noch im Hemd hängt.',
+  'cp.after':'Die Angaben zur Komposition sind ein Entwurf und müssen von der Parfumeurin bestätigt werden, bevor sie öffentlich stehen.',
+
+  'cr.label':'Die Herstellung', 'cr.h2':'Was zwischen Ansatz<br>und Abfüllung passiert.',
+  'cr.p':'Die Schritte sind in der Parfümerie seit langem dieselben. Was ein Haus vom anderen unterscheidet, sind die Zeiten — und die stehen hier noch nicht fest.',
+  'cr.s1':'Ansatz', 'cr.s1p':'Die Öle werden nach Formel in Alkohol gelöst. Ab diesem Punkt ist die Zusammensetzung festgelegt; korrigieren lässt sich nichts mehr.',
+  'cr.s2':'Mazeration', 'cr.s2p':'Der Ansatz ruht dunkel und temperiert. Die Bestandteile binden sich aneinander, der Duft wird runder und verliert die alkoholische Schärfe des ersten Tages.',
+  'cr.s3':'Filtration', 'cr.s3p':'Gekühlt wird herausgefiltert, was sich nicht gelöst hat. Danach ist die Flüssigkeit klar und bleibt es auch im Regal.',
+  'cr.s4':'Reifung', 'cr.s4p':'Eine zweite, kürzere Ruhephase nach der Filtration, bevor abgefüllt wird.',
+  'cr.s5':'Abfüllung', 'cr.s5p':'Abfüllen, verschließen, versiegeln. Jede Charge bekommt ihre Nummer, die später auf dem Flakon steht.',
+  'cr.dur':'Dauer',
+
+  'ob.label':'Der Flakon', 'ob.h2':'Ein Objekt,<br>das liegen bleibt.',
+  'ob.p':'Der Name ist ins Glas geschnitten, nicht aufgedruckt. Das ist teurer und der Grund, warum die Schrift im Licht kippt statt zu verblassen: Aufdruck geht nach Monaten in der Tasche ab, eine Gravur nicht.',
+  'ob.glass':'Glas', 'ob.cap':'Verschluss', 'ob.mark':'Kennzeichnung',
+  'ob.height':'Höhe', 'ob.weight':'Gewicht, gefüllt', 'ob.site':'Abfüllung',
+  'ob.vegan':'Vegan', 'ob.cruelty':'Tierversuchsfrei', 'ob.refill':'Nachfüllbar',
+  'ob.capv':'Facettierter Stopfen, acht Kanten', 'ob.markv':'Gravur statt Aufdruck',
+
+  'ca.label':'Tragen und aufbewahren', 'ca.h2':'Vier Dinge, die<br>den Unterschied machen.',
+  'ca.t1':'Auf warme Stellen', 'ca.p1':'Handgelenk, Halsbeuge, hinter dem Ohr. Wärme trägt den Duft nach oben; auf kalter Haut gibt er kaum etwas ab.',
+  'ca.t2':'Nicht verreiben', 'ca.p2':'Aneinandergeriebene Handgelenke zerschlagen die Kopfnote und verkürzen den ganzen Verlauf. Auftragen und trocknen lassen.',
+  'ca.t3':'Dunkel und kühl lagern', 'ca.p3':'Licht und Wärme bauen Duftstoffe ab. Der Karton ist kein Zubehör, sondern der beste Lagerort — das Fensterbrett der schlechteste.',
+  'ca.t4':'Auf der Haut entscheiden', 'ca.p4':'Hautfeuchtigkeit, pH-Wert und Temperatur verändern den Verlauf. Zwei Menschen tragen nie ganz denselben Duft; deshalb lohnt der Test am eigenen Arm mehr als jede Beschreibung.',
+
+  'fq.label':'Häufige Fragen', 'fq.h2':'Was Sie sonst<br>noch wissen wollen.',
+  'fq.q1':'Was unterscheidet Eau de Parfum von Eau de Toilette?',
+  'fq.a1':'Nur der Anteil an Parfumöl. Ein Eau de Toilette liegt üblicherweise zwischen 5 und 15 Prozent, ein Eau de Parfum zwischen 15 und 20. Höher heißt dichter und länger, nicht besser — und ein hoher Wert kann in einem warmen Raum schnell zu viel sein.',
+  'fq.q2':'Wie lange hält NOIRÉ auf der Haut?',
+  'fq.a2':'Angesetzt sind {w}. Das ist ein Richtwert unter normalen Bedingungen; auf trockener Haut ist es weniger, auf Kleidung deutlich mehr.',
+  'fq.q3':'Ist der Duft für Frauen oder für Männer?',
+  'fq.a3':'Diese Kampagne ordnet ihn keinem Geschlecht zu. Oud, Leder und Rose sind in jeder Nase anders verteilt — die einzige belastbare Auskunft ist ein Test auf der eigenen Haut.',
+  'fq.q4':'Was kostet er, und wie lange gilt das Einführungsangebot?',
+  'fq.a4':'Regulär {p}. Zum Start gibt es im eigenen Onlineshop {v} Prozent Einführungsrabatt, also {l}, gültig bis {d}. Danach schaltet die Seite von selbst auf den regulären Preis zurück.',
+  'fq.q5':'Wo kann ich ihn kaufen?',
+  'fq.q6':'Wie wird versendet?',
+  'fq.q7':'Gibt es Proben?',
+  'fq.more':'Antwort anzeigen',
+  'ob.yes':'Ja', 'ob.no':'Nein',
+  'sc.class':'Klasse',
   'draft.n':'Entwurf · {n} offene Punkte'
 },
 en: {
@@ -821,6 +1223,74 @@ en: {
   'ch.1':'The Entrance', 'ch.2':'The Scent', 'ch.3':'The Name', 'ch.4':'The Pyramid',
   'ch.5':'The Gallery', 'ch.6':'Stockists', 'ch.7':'The Hall', 'ch.8':'The Purchase',
   'fb.note':'Without WebGL the campaign is shown as a sequence of stills. All content remains fully readable.',
+  'ds.label':'The dossier', 'ds.h2':'Everything standing<br>behind the scent.',
+  'ds.cue':'Read on',
+  'ds.i1':'NOIRÉ is built for the hours when nobody has anything left to prove. Not for the entrance, but for what stays behind after it — the room somebody has left, with something still standing in it.',
+  'ds.i2':'That is a decision against reach. Most fragrances work at the door: they are meant to arrive before you do. This one works within an arm’s length and wants closeness before it can be read at all.',
+  'ds.i3':'Technically that means a high share of perfume oil and little alcohol. The top burns off fast, the heart carries the evening, the base stays until morning. Anyone after the opposite — a scent that fills a room before you enter it — is in the wrong place.',
+  'ds.i4':'What follows is the account: what NOIRÉ is made of, how it is made, what it costs — and what we do not know yet. Open points are marked as open, not written away.',
+
+  'fig.label':'In figures', 'fig.h2':'What is in it,<br>and how much of it.',
+  'fig.note':'Every value comes from the product configuration. Derived figures carry their arithmetic with them.',
+  'fig.edition':'Flacons in the first edition', 'fig.volume':'Contents per flacon',
+  'fig.total':'Total fill of the edition', 'fig.oil':'Of that, pure perfume oil',
+  'fig.conc':'Share of perfume oil', 'fig.wear':'On skin',
+  'fig.levels':'Fragrance levels', 'fig.ing':'Named ingredients',
+  'fig.window':'Days of the launch offer', 'fig.left':'Days until sales open',
+  'fig.calc':'Arithmetic',
+
+  'sc.label':'Where it sits', 'sc.h2':'Where NOIRÉ falls<br>on the scale.',
+  'sc.p':'A fragrance class follows from its share of perfume oil. The ranges overlap and are industry convention rather than a standard — every house reads them a little differently. The number says nothing about quality, only about density and duration.',
+  'sc.cologne':'Eau de Cologne', 'sc.toilette':'Eau de Toilette',
+  'sc.parfum':'Eau de Parfum', 'sc.extrait':'Extrait de Parfum',
+  'sc.axis':'Share of perfume oil', 'sc.here':'NOIRÉ · {v}',
+  'sc.src':'Ranges follow common industry practice. Cite the source before going live.',
+  'sc.table':'Read as a table',
+
+  'cp.label':'The composition', 'cp.h2':'Three levels,<br>one direction.',
+  'cp.p':'A fragrance is not a mixture but a sequence. What is there first is rarely what stays — and the levels are not chapters, they overlap. What reads below as a progression is the order in which the parts take the lead.',
+  'cp.d1':'Blood orange opens bright and sour and is over within a quarter of an hour. Pink pepper holds it briefly and gives it a dry edge; underneath lies the green bitterness of absinthe, already pointing at the heart. This level is the occasion, not the subject.',
+  'cp.d2':'Bulgarian rose is the classic heart note — here not as a flower, but darkened. Saffron lays a leathery, almost metallic sharpness over it, black plum gives sweetness without sugar. From here the fragrance has found its temperature.',
+  'cp.d3':'Oud and worn leather are the parts that stay longest and forgive least. Black vanilla takes the hardness out of them, ambergris binds everything and presses it against the skin. This is the level still hanging in the shirt the next morning.',
+  'cp.after':'The composition is a draft and has to be confirmed by the perfumer before it stands in public.',
+
+  'cr.label':'How it is made', 'cr.h2':'What happens between<br>compounding and filling.',
+  'cr.p':'The steps have been the same in perfumery for a long time. What separates one house from another is the timings — and those are not fixed here yet.',
+  'cr.s1':'Compounding', 'cr.s1p':'The oils are dissolved in alcohol to formula. From this point the composition is set; nothing can be corrected afterwards.',
+  'cr.s2':'Maceration', 'cr.s2p':'The batch rests in the dark at an even temperature. The parts bind to one another, the scent rounds out and loses the alcoholic sharpness of the first day.',
+  'cr.s3':'Filtration', 'cr.s3p':'Chilled, whatever has not dissolved is filtered out. After that the liquid is clear and stays clear on the shelf.',
+  'cr.s4':'Resting', 'cr.s4p':'A second, shorter rest after filtration, before filling begins.',
+  'cr.s5':'Filling', 'cr.s5p':'Fill, close, seal. Each batch gets its number, which later appears on the flacon.',
+  'cr.dur':'Duration',
+
+  'ob.label':'The flacon', 'ob.h2':'An object<br>that gets left out.',
+  'ob.p':'The name is cut into the glass rather than printed on it. That costs more, and it is why the lettering tilts in the light instead of fading: print wears off after months in a bag, an engraving does not.',
+  'ob.glass':'Glass', 'ob.cap':'Closure', 'ob.mark':'Marking',
+  'ob.height':'Height', 'ob.weight':'Weight, filled', 'ob.site':'Filled at',
+  'ob.vegan':'Vegan', 'ob.cruelty':'Cruelty free', 'ob.refill':'Refillable',
+  'ob.capv':'Faceted stopper, eight edges', 'ob.markv':'Engraved, not printed',
+
+  'ca.label':'Wearing and keeping it', 'ca.h2':'Four things that<br>make the difference.',
+  'ca.t1':'On warm spots', 'ca.p1':'Wrist, the hollow of the throat, behind the ear. Warmth carries the scent upward; on cold skin it gives off almost nothing.',
+  'ca.t2':'Do not rub it in', 'ca.p2':'Wrists rubbed together break the top note and shorten the whole progression. Apply it and let it dry.',
+  'ca.t3':'Keep it dark and cool', 'ca.p3':'Light and heat break fragrance compounds down. The box is not packaging but the best place to keep it — the windowsill is the worst.',
+  'ca.t4':'Decide on your own skin', 'ca.p4':'Skin moisture, pH and temperature change the progression. No two people wear quite the same fragrance, which is why a test on your own arm is worth more than any description.',
+
+  'fq.label':'Common questions', 'fq.h2':'What else you<br>might want to know.',
+  'fq.q1':'What separates eau de parfum from eau de toilette?',
+  'fq.a1':'Only the share of perfume oil. An eau de toilette usually sits between 5 and 15 per cent, an eau de parfum between 15 and 20. Higher means denser and longer, not better — and a high figure can quickly be too much in a warm room.',
+  'fq.q2':'How long does NOIRÉ last on skin?',
+  'fq.a2':'It is set at {w}. That is a guide figure under normal conditions; on dry skin it is less, on clothing considerably more.',
+  'fq.q3':'Is it for women or for men?',
+  'fq.a3':'This campaign assigns it to no gender. Oud, leather and rose land differently in every nose — the only reliable answer is a test on your own skin.',
+  'fq.q4':'What does it cost, and how long does the launch offer run?',
+  'fq.a4':'{p} regular. At launch there is a {v} per cent introductory discount in our own online shop, so {l}, valid until {d}. After that the page returns to the regular price by itself.',
+  'fq.q5':'Where can I buy it?',
+  'fq.q6':'How is it shipped?',
+  'fq.q7':'Are there samples?',
+  'fq.more':'Show answer',
+  'ob.yes':'Yes', 'ob.no':'No',
+  'sc.class':'Class',
   'draft.n':'Draft · {n} open points'
 },
 fr: {
@@ -880,6 +1350,74 @@ fr: {
   'ch.1':'L’Entrée', 'ch.2':'Le Parfum', 'ch.3':'Le Nom', 'ch.4':'La Pyramide',
   'ch.5':'La Galerie', 'ch.6':'Points de vente', 'ch.7':'La Salle', 'ch.8':'L’Achat',
   'fb.note':'Sans WebGL, la campagne est présentée sous forme d’images fixes. Tous les contenus restent lisibles.',
+  'ds.label':'Le dossier', 'ds.h2':'Tout ce qui se tient<br>derrière le parfum.',
+  'ds.cue':'Lire la suite',
+  'ds.i1':'NOIRÉ est fait pour les heures où plus personne n’a rien à prouver. Pas pour l’entrée, mais pour ce qui reste après elle — la pièce que quelqu’un vient de quitter, et où quelque chose se tient encore.',
+  'ds.i2':'C’est un choix contre la portée. La plupart des parfums travaillent à la porte : ils doivent arriver avant vous. Celui-ci travaille dans un rayon d’une longueur de bras et demande la proximité pour être lu.',
+  'ds.i3':'Techniquement, cela veut dire une forte proportion d’huile parfumée et peu d’alcool. La tête brûle vite, le cœur porte la soirée, le fond reste jusqu’au matin. Qui cherche l’inverse — un parfum qui remplit la pièce avant qu’on y entre — n’est pas au bon endroit.',
+  'ds.i4':'Ce qui suit en est le relevé : de quoi NOIRÉ est fait, comment il est fabriqué, ce qu’il coûte — et ce que nous ne savons pas encore. Les points ouverts sont signalés comme tels, non escamotés.',
+
+  'fig.label':'En chiffres', 'fig.h2':'Ce qu’il contient,<br>et en quelle quantité.',
+  'fig.note':'Chaque valeur vient de la configuration produit. Les grandeurs dérivées portent leur calcul avec elles.',
+  'fig.edition':'Flacons de la première édition', 'fig.volume':'Contenu par flacon',
+  'fig.total':'Remplissage total de l’édition', 'fig.oil':'Dont huile parfumée pure',
+  'fig.conc':'Proportion d’huile parfumée', 'fig.wear':'Sur la peau',
+  'fig.levels':'Niveaux olfactifs', 'fig.ing':'Ingrédients cités',
+  'fig.window':'Jours de l’offre de lancement', 'fig.left':'Jours avant l’ouverture des ventes',
+  'fig.calc':'Calcul',
+
+  'sc.label':'Situation', 'sc.h2':'Où NOIRÉ se place<br>sur l’échelle.',
+  'sc.p':'La classe d’un parfum découle de sa proportion d’huile parfumée. Les plages se recoupent et relèvent de l’usage, non d’une norme — chaque maison les lit un peu autrement. Le chiffre ne dit rien de la qualité, seulement de la densité et de la durée.',
+  'sc.cologne':'Eau de Cologne', 'sc.toilette':'Eau de Toilette',
+  'sc.parfum':'Eau de Parfum', 'sc.extrait':'Extrait de Parfum',
+  'sc.axis':'Proportion d’huile parfumée', 'sc.here':'NOIRÉ · {v}',
+  'sc.src':'Plages selon l’usage courant du secteur. Sourcer avant la mise en ligne.',
+  'sc.table':'Lire en tableau',
+
+  'cp.label':'La composition', 'cp.h2':'Trois niveaux,<br>une direction.',
+  'cp.p':'Un parfum n’est pas un mélange mais une succession. Ce qui est là en premier est rarement ce qui reste — et les niveaux ne sont pas des chapitres, ils se recouvrent. Ce qui se lit plus bas comme un déroulé est l’ordre dans lequel les éléments prennent la main.',
+  'cp.d1':'L’orange sanguine ouvre, claire et acidulée, et s’efface en un quart d’heure. Le poivre rose la retient un instant et lui donne une arête sèche ; dessous s’étend l’amertume verte de l’absinthe, qui désigne déjà le cœur. Ce niveau est l’occasion, pas le sujet.',
+  'cp.d2':'La rose de Bulgarie est la note de cœur classique — ici non comme fleur, mais assombrie. Le safran pose sur elle une acuité cuirée, presque métallique, la prune noire apporte une douceur sans sucre. À partir de là, le parfum a trouvé sa température.',
+  'cp.d3':'L’oud et le cuir usé sont les éléments qui restent le plus longtemps et pardonnent le moins. La vanille noire leur retire leur dureté, l’ambre gris lie l’ensemble et le plaque contre la peau. C’est le niveau qui traîne encore dans la chemise le lendemain matin.',
+  'cp.after':'La composition est un projet et doit être confirmée par la parfumeuse avant d’être publiée.',
+
+  'cr.label':'La fabrication', 'cr.h2':'Ce qui se passe entre<br>le mélange et la mise en flacon.',
+  'cr.p':'Les étapes sont les mêmes en parfumerie depuis longtemps. Ce qui distingue une maison d’une autre, ce sont les durées — et elles ne sont pas encore arrêtées ici.',
+  'cr.s1':'Mélange', 'cr.s1p':'Les huiles sont dissoutes dans l’alcool selon la formule. À partir de là, la composition est fixée ; plus rien ne se corrige.',
+  'cr.s2':'Macération', 'cr.s2p':'Le mélange repose à l’obscurité, à température constante. Les éléments se lient entre eux, le parfum s’arrondit et perd la vivacité alcoolique du premier jour.',
+  'cr.s3':'Filtration', 'cr.s3p':'À froid, on filtre ce qui ne s’est pas dissous. Le liquide est alors limpide et le reste en rayon.',
+  'cr.s4':'Maturation', 'cr.s4p':'Un second repos, plus court, après la filtration, avant la mise en flacon.',
+  'cr.s5':'Mise en flacon', 'cr.s5p':'Remplir, fermer, sceller. Chaque lot reçoit son numéro, qui figurera plus tard sur le flacon.',
+  'cr.dur':'Durée',
+
+  'ob.label':'Le flacon', 'ob.h2':'Un objet<br>qu’on laisse sorti.',
+  'ob.p':'Le nom est taillé dans le verre plutôt qu’imprimé. Cela coûte davantage, et c’est pourquoi les lettres basculent dans la lumière au lieu de pâlir : une impression s’efface après des mois dans un sac, une gravure non.',
+  'ob.glass':'Verre', 'ob.cap':'Bouchon', 'ob.mark':'Marquage',
+  'ob.height':'Hauteur', 'ob.weight':'Poids, plein', 'ob.site':'Lieu de conditionnement',
+  'ob.vegan':'Vegan', 'ob.cruelty':'Sans test animal', 'ob.refill':'Rechargeable',
+  'ob.capv':'Bouchon à facettes, huit arêtes', 'ob.markv':'Gravé, non imprimé',
+
+  'ca.label':'Porter et conserver', 'ca.h2':'Quatre choses qui<br>font la différence.',
+  'ca.t1':'Sur les points chauds', 'ca.p1':'Poignet, creux du cou, derrière l’oreille. La chaleur porte le parfum vers le haut ; sur une peau froide, il ne rend presque rien.',
+  'ca.t2':'Ne pas frotter', 'ca.p2':'Des poignets frottés l’un contre l’autre brisent la note de tête et raccourcissent tout le déroulé. Appliquer et laisser sécher.',
+  'ca.t3':'Conserver au frais et à l’abri', 'ca.p3':'La lumière et la chaleur dégradent les composés odorants. L’étui n’est pas un accessoire mais le meilleur endroit où le garder — le rebord de fenêtre, le pire.',
+  'ca.t4':'Trancher sur sa propre peau', 'ca.p4':'L’hydratation, le pH et la température modifient le déroulé. Deux personnes ne portent jamais tout à fait le même parfum : un essai sur son bras vaut mieux que n’importe quelle description.',
+
+  'fq.label':'Questions fréquentes', 'fq.h2':'Ce que vous voudriez<br>savoir encore.',
+  'fq.q1':'Qu’est-ce qui distingue l’eau de parfum de l’eau de toilette ?',
+  'fq.a1':'Uniquement la proportion d’huile parfumée. Une eau de toilette se situe habituellement entre 5 et 15 pour cent, une eau de parfum entre 15 et 20. Plus haut veut dire plus dense et plus long, pas meilleur — et un chiffre élevé peut vite devenir excessif dans une pièce chaude.',
+  'fq.q2':'Combien de temps NOIRÉ tient-il sur la peau ?',
+  'fq.a2':'Il est prévu pour {w}. C’est un ordre de grandeur dans des conditions normales ; sur peau sèche c’est moins, sur un vêtement nettement plus.',
+  'fq.q3':'Est-il pour les femmes ou pour les hommes ?',
+  'fq.a3':'Cette campagne ne lui assigne aucun genre. L’oud, le cuir et la rose se répartissent autrement dans chaque nez — la seule réponse solide est un essai sur sa propre peau.',
+  'fq.q4':'Combien coûte-t-il, et combien de temps dure l’offre de lancement ?',
+  'fq.a4':'{p} en prix courant. Au lancement, la boutique en ligne applique {v} pour cent de remise d’introduction, soit {l}, jusqu’au {d}. Ensuite, la page revient d’elle-même au prix courant.',
+  'fq.q5':'Où puis-je l’acheter ?',
+  'fq.q6':'Comment est-il expédié ?',
+  'fq.q7':'Existe-t-il des échantillons ?',
+  'fq.more':'Afficher la réponse',
+  'ob.yes':'Oui', 'ob.no':'Non',
+  'sc.class':'Classe',
   'draft.n':'Brouillon · {n} points ouverts'
 }
 };
@@ -1090,6 +1628,17 @@ function openPoints(){
                            ' — die Logos sind dadurch nicht anklickbar');
   add(CFG.retail.every(function(r){ return !has(r.logo); }), 'Händlerlogos liegen nicht vor — in Originalfarben einbinden, nicht weiß einfärben');
   add(true,                       'Duftnoten sind ein Entwurf — von der Parfumeurin bestätigen lassen');
+  var cr = p.craft || {};
+  var durs = [['maceration','Mazeration'],['filtration','Filtration'],['rest','Reifung'],['filling','Abfüllung']]
+    .filter(function(d){ return !has(cr[d[0]]); }).map(function(d){ return d[1]; });
+  add(durs.length > 0,            'Dauer fehlt für ' + durs.join(', '));
+  add(!has(cr.glassOrigin) || !has(cr.site), 'Glasherkunft und Abfüllort nicht hinterlegt');
+  add(!has(cr.bottleHeight) || !has(cr.bottleWeight), 'Flakonmaße und Gewicht nicht gemessen');
+  add(cr.vegan === null || cr.crueltyFree === null || cr.refillable === null,
+                                  'Vegan, tierversuchsfrei und nachfüllbar nicht bestätigt');
+  add(!has(p.samples),            'Kein Probenprogramm hinterlegt — die Frage danach bleibt offen');
+  add(true,                       'Quelle für die Konzentrationsklassen belegen (Branchenkonvention, keine Norm)');
+  add(true,                       'Ingredienzenzahl (' + (p.notes || 0) + ') zählt die Duftnoten und hängt an deren Freigabe');
   add(true,                       'Eckdaten (' + [p.volume, p.concentration, p.wear, p.edition].join(' · ') + ') bestätigen lassen');
   add(/^__|^$/.test(String(CFG.site.canonical)), 'Canonical-URL noch nicht gesetzt');
   add(!/^https?:/.test(String(CFG.site.ogImage)), 'og:image braucht eine absolute URL');
@@ -1227,6 +1776,8 @@ function tickCountdown(){
   var m = Math.floor(s / 60);    s -= m * 60;
   var set = function(k, v){ var el = $('[data-cd="' + k + '"]'); if (el) el.textContent = (v < 10 ? '0' : '') + v; };
   set('d', d); set('h', h); set('m', m); set('s', s);
+  var leftCell = $('[data-fig="left"] .n');
+  if (leftCell && leftCell.classList.contains('done')) leftCell.textContent = num(Math.ceil(left / 86400000));
 }
 
 /* --------------------------------------------------------------------------
@@ -1301,6 +1852,7 @@ function applyI18n(){
   });
   $('#ovX').setAttribute('aria-label', T('lg.' + ovTab));
   paintSpecs(); paintConsent(); paintRail(); paintRetail(); paintPrice(); paintJSONLD(); paintDraft();
+  paintDossier();
   tickCountdown();
   if (ovOpen){ paintLegalTabs(); paintLegalBody(); }
   if (window.__noireRelabel) window.__noireRelabel();
@@ -1310,6 +1862,309 @@ function setLang(l){
   if (!DICT[l] || l === LANG) return;
   LANG = l;
   applyI18n();
+}
+
+
+/* --------------------------------------------------------------------------
+   11b · THE DOSSIER
+   Every number below is either held in CFG or is arithmetic on numbers held
+   in CFG, and says which. Nothing here is estimated to fill a tile.
+   -------------------------------------------------------------------------- */
+function num(v, digits){
+  var d = digits || 0;
+  try {
+    return new Intl.NumberFormat(LOCALE[LANG] || 'de-DE',
+      { minimumFractionDigits: d, maximumFractionDigits: d }).format(v);
+  } catch (e){ return String(v); }
+}
+var DRAFT_SPEC = 'Eckdaten sind ein Entwurf und noch nicht bestätigt';
+
+function figureRows(){
+  var p = CFG.product, L = p.launch, rows = [];
+  var totalL = (has(p.edition) && has(p.volumeMl)) ? p.edition * p.volumeMl / 1000 : null;
+  var oilL   = (totalL !== null && has(p.concentrationPct)) ? totalL * p.concentrationPct / 100 : null;
+  var windowD = (L && L.from && L.until)
+    ? Math.round((new Date(L.until).getTime() - new Date(L.from).getTime()) / 86400000) : null;
+  var leftD = RELEASE !== null ? Math.max(0, Math.ceil((RELEASE - Date.now()) / 86400000)) : null;
+
+  rows.push({ hero: true, key: 'edition', v: p.edition, label: 'fig.edition', why: DRAFT_SPEC });
+  rows.push({ key: 'volume', v: p.volumeMl, unit: 'ml', label: 'fig.volume', why: DRAFT_SPEC });
+  rows.push({ key: 'total', v: totalL, unit: 'l', d: 0, label: 'fig.total',
+              calc: has(p.edition) && has(p.volumeMl) ? num(p.edition) + ' × ' + num(p.volumeMl) + ' ml' : null });
+  rows.push({ key: 'oil', v: oilL, unit: 'l', d: 1, label: 'fig.oil',
+              calc: (oilL !== null) ? p.concentration + ' · ' + num(totalL) + ' l' : null, why: DRAFT_SPEC });
+  rows.push({ key: 'conc', v: p.concentrationPct, unit: '%', label: 'fig.conc', why: DRAFT_SPEC });
+  rows.push({ key: 'wear', text: p.wear, label: 'fig.wear', why: DRAFT_SPEC });
+  rows.push({ key: 'levels', v: p.levels, label: 'fig.levels' });
+  rows.push({ key: 'ing', v: p.notes, label: 'fig.ing',
+              why: 'Aus den Duftnoten gezählt, die selbst noch ein Entwurf sind' });
+  rows.push({ key: 'window', v: windowD, unit: 'd', label: 'fig.window',
+              calc: (L && L.from && L.until) ? shortDate(new Date(L.from).getTime()) + ' – ' + shortDate(new Date(L.until).getTime()) : null });
+  rows.push({ key: 'left', v: leftD, unit: 'd', label: 'fig.left' });
+  return rows;
+}
+
+function paintFigures(){
+  var host = $('#figs');
+  if (!host) return;
+  host.innerHTML = '';
+  figureRows().forEach(function(r){
+    var cell = document.createElement('div');
+    cell.className = 'fig' + (r.hero ? ' fig--hero' : '');
+    cell.setAttribute('data-fig', r.key);
+    var body;
+    if (r.text !== undefined){
+      body = has(r.text) ? esc(r.text) : gapHTML('Wert fehlt in der Produktkonfiguration');
+    } else if (r.v === null || r.v === undefined){
+      body = gapHTML('Wert fehlt in der Produktkonfiguration');
+    } else {
+      var shown = num(r.v, r.d || 0);
+      body = '<span class="n" data-to="' + r.v + '" data-d="' + (r.d || 0) + '">' + shown + '</span>' +
+             (r.unit ? '<i>' + esc(r.unit) + '</i>' : '');
+    }
+    /* the dotted draft marking rides the small label, not the figure — under a
+       9 rem number its underline lands straight on the caption */
+    var label = (r.why && CFG.draft)
+      ? '<span data-claim="' + esc(r.why) + '" title="' + esc(r.why) + '">' + esc(T(r.label)) + '</span>'
+      : esc(T(r.label));
+    cell.innerHTML = '<b>' + body + '</b><span>' + label + '</span>' +
+      (r.calc ? '<em>' + esc(T('fig.calc')) + ' · ' + esc(r.calc) + '</em>' : '');
+    host.appendChild(cell);
+  });
+}
+
+/* ---- the concentration scale ------------------------------------------- */
+/* Ordinal ramp, one hue, monotone lightness, light end clears the surface —
+   checked with the palette validator against #050203. The marker is bone, not
+   a fifth red, so the one value that matters is not another band. */
+var SC_RAMP = ['#84202a', '#a8202c', '#cc2230', '#f04048'];
+
+function paintScale(){
+  var plot = $('#scPlot');
+  if (!plot) return;
+  var p = CFG.product, ref = CFG.reference, max = ref.scaleMax;
+  plot.innerHTML = '';
+  ref.concentrationClasses.forEach(function(c, i){
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'sc-band';
+    b.style.left = (c.from / max * 100) + '%';
+    b.style.width = 'calc(' + ((c.to - c.from) / max * 100) + '% - 2px)';
+    b.style.setProperty('--bandc', SC_RAMP[i] || SC_RAMP[SC_RAMP.length - 1]);
+    b.style.setProperty('--d', (0.06 + i * 0.11).toFixed(2) + 's');
+    var range = c.from + '–' + c.to + ' %';
+    b.setAttribute('aria-label', T('sc.' + c.key) + ', ' + range);
+    b.innerHTML = '<u style="top:calc(100% + ' + (i % 2 ? '2.5rem' : '.7rem') + ')">' +
+                  esc(T('sc.' + c.key)) + '<b>' + esc(range) + '</b></u>';
+    plot.appendChild(b);
+  });
+  if (has(p.concentrationPct)){
+    var m = document.createElement('div');
+    m.className = 'sc-mark';
+    m.style.left = 'calc(' + (p.concentrationPct / max * 100) + '% - 1px)';
+    m.setAttribute('data-label', fill(T('sc.here'), { v: p.concentration }));
+    plot.appendChild(m);
+  }
+  var ax = $('#scAxis');
+  ax.innerHTML = '';
+  for (var t = 0; t <= max; t += 10){
+    var sp = document.createElement('span');
+    sp.style.left = (t / max * 100) + '%';
+    if (t === 0){ sp.style.left = '0'; sp.style.transform = 'none'; }
+    if (t === max){ sp.style.left = 'auto'; sp.style.right = '0'; sp.style.transform = 'none'; }
+    sp.textContent = num(t) + ' %';
+    ax.appendChild(sp);
+  }
+  var rowsHTML = ref.concentrationClasses.map(function(c){
+    var here = has(p.concentrationPct) && p.concentrationPct >= c.from && p.concentrationPct <= c.to;
+    return '<tr' + (here ? ' data-here="1"' : '') + '><td>' + esc(T('sc.' + c.key)) + '</td><td>' +
+           num(c.from) + '–' + num(c.to) + ' %' +
+           (here ? ' · ' + esc(fill(T('sc.here'), { v: p.concentration })) : '') + '</td></tr>';
+  }).join('');
+  $('#scTable').innerHTML =
+    '<table><thead><tr><th>' + esc(T('sc.class')) + '</th><th>' + esc(T('sc.axis')) +
+    '</th></tr></thead><tbody>' + rowsHTML + '</tbody></table>';
+}
+
+/* ---- production steps and object rows ---------------------------------- */
+function paintCraft(){
+  var host = $('#steps');
+  if (!host) return;
+  var c = CFG.product.craft || {};
+  var keys = ['maceration', 'filtration', 'rest', 'filling'];
+  host.innerHTML = '';
+  for (var i = 1; i <= 5; i++){
+    var li = document.createElement('li');
+    li.className = 'dr';
+    var dur = i === 1 ? null : c[keys[i - 2]];
+    li.innerHTML = '<h3 class="h3">' + esc(T('cr.s' + i)) + '</h3>' +
+                   '<p class="bd">' + esc(T('cr.s' + i + 'p')) + '</p>' +
+                   (i === 1 ? '' : '<p class="dur">' + esc(T('cr.dur')) + ' · ' +
+                     (has(dur) ? esc(dur) : gapHTML('Dauer für „' + T('cr.s' + i) + '" nicht hinterlegt')) + '</p>');
+    host.appendChild(li);
+  }
+}
+
+function paintObject(){
+  var host = $('#objRows');
+  if (!host) return;
+  var p = CFG.product, c = p.craft || {};
+  function row(label, value){
+    return '<div><dt>' + esc(T(label)) + '</dt><dd>' + value + '</dd></div>';
+  }
+  function yesno(v, why){
+    if (v === true)  return esc(T('ob.yes'));
+    if (v === false) return esc(T('ob.no'));
+    return gapHTML(why);
+  }
+  host.innerHTML =
+    row('ob.glass',  valOr(c.glassOrigin, 'Glasherkunft nicht hinterlegt')) +
+    row('ob.cap',    esc(T('ob.capv'))) +
+    row('ob.mark',   esc(T('ob.markv'))) +
+    row('ob.height', has(c.bottleHeight) ? esc(c.bottleHeight) : gapHTML('Flakonhöhe nicht gemessen')) +
+    row('ob.weight', has(c.bottleWeight) ? esc(c.bottleWeight) : gapHTML('Gewicht nicht gemessen')) +
+    row('ob.site',   valOr(c.site, 'Abfüllort nicht hinterlegt')) +
+    row('ob.vegan',  yesno(c.vegan, 'Vegan-Status nicht bestätigt')) +
+    row('ob.cruelty', yesno(c.crueltyFree, 'Tierversuchsfreiheit nicht bestätigt')) +
+    row('ob.refill', yesno(c.refillable, 'Nachfüllbarkeit nicht festgelegt'));
+}
+
+/* ---- questions, answered from CFG or left open ------------------------- */
+function faqAnswers(){
+  var p = CFG.product, L = p.launch, st = priceState(Date.now());
+  var shops = confirmedRetail('shop'), makers = confirmedRetail('maker');
+  var where;
+  if (shops.length){
+    where = shops.map(function(r){ return r.name; }).join(', ') + '.';
+    if (makers.length) where += ' ' + T('a6.maker') + ': ' + makers.map(function(r){ return r.name; }).join(', ') + '.';
+    if (!has(CFG.commerce.checkoutUrl)) where += ' ' + gapHTML('Kein eigener Shop-Link hinterlegt');
+  } else {
+    where = esc(T('a6.none'));
+  }
+  return [
+    { q: 'fq.q1', a: esc(T('fq.a1')) },
+    { q: 'fq.q2', a: has(p.wear) ? esc(fill(T('fq.a2'), { w: p.wear })) : gapHTML('Tragedauer nicht hinterlegt') },
+    { q: 'fq.q3', a: esc(T('fq.a3')) },
+    { q: 'fq.q4', a: (st.price !== null && L && has(L.price))
+        ? esc(fill(T('fq.a4'), { p: money(p.price), v: L.percent, l: money(L.price), d: shortDate(new Date(L.until).getTime()) }))
+        : gapHTML('Preis noch nicht hinterlegt') },
+    { q: 'fq.q5', a: where },
+    { q: 'fq.q6', a: has(p.shippingNote) ? esc(p.shippingNote) : gapHTML('Versandart, Kosten und Lieferzeit fehlen') },
+    { q: 'fq.q7', a: has(p.samples) ? esc(p.samples) : gapHTML('Kein Probenprogramm hinterlegt') }
+  ];
+}
+
+function paintFaq(){
+  var host = $('#faq');
+  if (!host) return;
+  var open = {};
+  $$('.qa[data-open="true"]', host).forEach(function(el){ open[el.getAttribute('data-q')] = true; });
+  host.innerHTML = '';
+  faqAnswers().forEach(function(item, i){
+    var wrap = document.createElement('div');
+    wrap.className = 'qa';
+    wrap.setAttribute('data-q', item.q);
+    wrap.setAttribute('data-open', open[item.q] ? 'true' : 'false');
+    var id = 'qa-' + i;
+    wrap.innerHTML =
+      '<button type="button" aria-expanded="' + (open[item.q] ? 'true' : 'false') + '" aria-controls="' + id + '">' +
+        '<span>' + esc(T(item.q)) + '</span><i aria-hidden="true"></i></button>' +
+      '<div class="ans" id="' + id + '" role="region"><p>' + item.a + '</p></div>';
+    host.appendChild(wrap);
+    if (open[item.q]) wrap.querySelector('.ans').style.height = 'auto';
+  });
+}
+
+function toggleQA(wrap){
+  var open = wrap.getAttribute('data-open') === 'true';
+  var panel = wrap.querySelector('.ans');
+  var btn = wrap.querySelector('button');
+  wrap.setAttribute('data-open', String(!open));
+  btn.setAttribute('aria-expanded', String(!open));
+  if (HTML.classList.contains('still')){
+    panel.style.height = open ? '0px' : 'auto';
+    return;
+  }
+  var target = panel.scrollHeight;
+  if (open){
+    panel.style.height = target + 'px';
+    requestAnimationFrame(function(){
+      panel.style.transition = 'height .42s cubic-bezier(.22,1,.36,1)';
+      panel.style.height = '0px';
+    });
+  } else {
+    panel.style.transition = 'height .42s cubic-bezier(.22,1,.36,1)';
+    panel.style.height = target + 'px';
+    var done = function(){
+      panel.style.transition = ''; panel.style.height = 'auto';
+      panel.removeEventListener('transitionend', done);
+    };
+    panel.addEventListener('transitionend', done);
+  }
+}
+
+
+/* ---- reveals, counters and the canvas it covers ------------------------ */
+var DOSS_IO = null;
+
+function countUp(cell){
+  var n = cell.querySelector('.n');
+  if (!n) return;
+  var to = parseFloat(n.getAttribute('data-to'));
+  var d  = parseInt(n.getAttribute('data-d'), 10) || 0;
+  if (!isFinite(to)) return;
+  if (HTML.classList.contains('still')){ n.textContent = num(to, d); return; }
+  var t0 = null, dur = 1100;
+  requestAnimationFrame(function step(now){
+    if (t0 === null) t0 = now;
+    var t = clamp((now - t0) / dur, 0, 1);
+    var e = 1 - Math.pow(1 - t, 3);
+    n.textContent = num(to * e, d);
+    if (t < 1) requestAnimationFrame(step);
+    else { n.textContent = num(to, d); n.classList.add('done'); }
+  });
+}
+
+function observeDossier(){
+  if (!('IntersectionObserver' in window)){
+    $$('.dr').forEach(function(el){ el.classList.add('is-in'); });
+    $$('.fig').forEach(countUp);
+    return;
+  }
+  if (!DOSS_IO){
+    DOSS_IO = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) return;
+        DOSS_IO.unobserve(e.target);
+        e.target.classList.add('is-in');
+        if (e.target.classList.contains('fig')) countUp(e.target);
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.15 });
+  }
+  $$('.dr, .fig').forEach(function(el){
+    if (!el.classList.contains('is-in')) DOSS_IO.observe(el);
+  });
+}
+
+/* The dossier is opaque, so once its top clears the viewport the corridor is
+   not visible at all — and rendering it is pure waste on a long page. */
+var DOSS_EL = null, GL_IDLE = false;
+function dossierCovers(){
+  if (!DOSS_EL) DOSS_EL = document.getElementById('dossier');
+  if (!DOSS_EL) return false;
+  return DOSS_EL.getBoundingClientRect().top <= 0;
+}
+function syncDossierChrome(){
+  var covered = dossierCovers();
+  if (covered !== GL_IDLE){
+    GL_IDLE = covered;
+    HTML.classList.toggle('in-dossier', covered);
+  }
+  return covered;
+}
+
+function paintDossier(){
+  paintFigures(); paintScale(); paintCraft(); paintObject(); paintFaq();
+  observeDossier();
 }
 
 /* --------------------------------------------------------------------------
@@ -1563,6 +2418,15 @@ function wireChrome(){
     paintLegalTabs(); paintLegalBody(); $('#ovBody').focus();
   });
   $('#ovX').addEventListener('click', closeLegal);
+  $('#faq').addEventListener('click', function(e){
+    var b = e.target.closest ? e.target.closest('.qa > button') : null;
+    if (b) toggleQA(b.parentNode);
+  });
+  $('#scToggle').addEventListener('click', function(){
+    var t = $('#scTable'), open = !t.hidden;
+    t.hidden = open;
+    $('#scToggle').setAttribute('aria-expanded', String(!open));
+  });
   document.addEventListener('keydown', function(e){
     if (e.key === 'Escape' && ovOpen){ e.preventDefault(); closeLegal(); }
   });
@@ -2667,6 +3531,7 @@ function startGL(){
     requestAnimationFrame(frame);
     var dt = Math.min(0.05, (now - t0) / 1000) || 0.016;
     t0 = now;
+    if (syncDossierChrome()) return;      /* corridor fully covered — draw nothing */
     clock += dt;
 
     if (!HAS_GSAP) measureManual();
@@ -2946,6 +3811,7 @@ function hideLoader(el){
 (function boot(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  HTML.classList.add('js');
   applyI18n();
   wireChrome();
   if (reduce) setMotion(false); else setMotion(true);
@@ -2979,6 +3845,7 @@ function hideLoader(el){
     /* no WebGL: still drive --p, the depth meter and the reveals */
     (function tick(){
       requestAnimationFrame(tick);
+      if (syncDossierChrome()) return;
       if (!HAS_GSAP) measureManual();
       manualReveals();
       paintHUD();
