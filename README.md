@@ -21,7 +21,7 @@ dist/web/              index.html + assets/ + README — the production upload
 ## Build
 
 ```bash
-python3 tools/prep_assets.py     # 82 KB of images from the originals
+python3 tools/prep_assets.py     # 101 KB of images from the originals
 python3 tools/build.py           # both variants
 python3 tools/verify.py          # syntax, GLSL, i18n, price logic
 ```
@@ -74,6 +74,18 @@ a mid-range phone, and whether the camera timing reads as cinema or as
 seasickness. Those need one tuning pass on real devices.
 
 The fragrance notes and the hard product data are a draft and need to be
-confirmed. The retailer logos were never supplied; all four partners are
-`confirmed: false`, so they appear nowhere a customer could read them as a
-promise.
+confirmed. The four retailer logos are in, cropped to their alpha box at
+150 px (dm 170 px, square) and left in their original colours — the light
+plate they sit on is drawn by the page, as a CSS background on the DOM chip
+and on a canvas for the wall, so one transparent file serves both.
+
+All four partners are still `confirmed: false`, which is a commercial fact
+and not ours to set: until it flips, they appear nowhere a customer could
+read them as a promise. Flipping one entry is all it takes.
+
+One deliberate deviation from the brief: §4 hangs the logo wall on the right
+and §9 puts act VI's copy on the right too, so the marks ended up behind the
+text. The wall moved to the left and the "Erhältlich bei" plaque took the
+covered side — a label loses less by being half read than a partner's mark
+does. The signs also carry a permanent 58 % turn towards the corridor;
+flush with the wall they are edge on at flying speed.

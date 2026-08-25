@@ -263,10 +263,11 @@ html.gl .nogl-only{display:none}
 .blk--r .shops{justify-content:flex-end}
 .shop{
   display:flex; align-items:center; gap:.6rem; background:#efeae8; color:#161012;
-  border-radius:2px; padding:.5rem .85rem; font-family:var(--utility);
+  border-radius:2px; padding:.55rem .9rem; font-family:var(--utility);
   font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; text-decoration:none;
 }
-.shop img{height:22px; width:auto}
+.shop img{height:26px; width:auto}
+.shop img.sq{height:30px}   /* a square mark reads smaller at equal height */
 .shop.un{background:rgba(236,228,226,.07); color:var(--ash); border:var(--line)}
 .shop.un s{text-decoration:none; opacity:.6}
 .shop em{font-style:normal; font-size:.5rem; letter-spacing:.24em; color:var(--ember)}
@@ -688,10 +689,10 @@ var CFG = {
   },
   commerce: { checkoutUrl: '', newsletterEndpoint: '', newsletterProvider: null },
   retail: [
-    { key: 'parfumfabrik', name: 'Parfum Fabrik', role: 'maker', logo: null, url: '', confirmed: false, w: 2.0 },
-    { key: 'dm',           name: 'dm',            role: 'shop',  logo: null, url: '', confirmed: false, mark: true, w: 1.1 },
-    { key: 'rossmann',     name: 'Rossmann',      role: 'shop',  logo: null, url: '', confirmed: false, w: 2.0 },
-    { key: 'mueller',      name: 'Müller',        role: 'shop',  logo: null, url: '', confirmed: false, w: 2.2 }
+    { key: 'parfumfabrik', name: 'Parfum Fabrik', role: 'maker', logo: '__A_LOGOPF__', url: '', confirmed: false, w: 2.0 },
+    { key: 'dm',           name: 'dm',            role: 'shop',  logo: '__A_LOGODM__', url: '', confirmed: false, mark: true, w: 1.1 },
+    { key: 'rossmann',     name: 'Rossmann',      role: 'shop',  logo: '__A_LOGORO__', url: '', confirmed: false, w: 2.0 },
+    { key: 'mueller',      name: 'Müller',        role: 'shop',  logo: '__A_LOGOMU__', url: '', confirmed: false, w: 2.2 }
   ],
   legal: {
     company: null, rep: null, street: null, zip: null, city: null, country: 'Deutschland',
@@ -1046,10 +1047,15 @@ function paintRetail(){
       if (on && has(r.url)){ tag = document.createElement('a'); tag.href = r.url; tag.rel = 'noopener'; }
       else { tag = document.createElement('span'); }
       tag.className = 'shop' + (on ? '' : ' un');
-      var inner = '';
-      if (on && has(r.logo)) inner += '<img src="' + esc(r.logo) + '" alt="' + esc(r.name) + '" loading="lazy" decoding="async">';
-      inner += on ? esc(r.name) : '<s>' + esc(r.name) + '</s><em>' + esc(T('a6.unconfirmed')) + '</em>';
-      tag.innerHTML = inner;
+      if (on && has(r.logo)){
+        /* the mark carries the name; the alt text carries it for everyone else */
+        tag.innerHTML = '<img src="' + esc(r.logo) + '" alt="' + esc(r.name) + '"' +
+                        (r.mark ? ' class="sq"' : '') + ' loading="lazy" decoding="async">';
+      } else if (on){
+        tag.innerHTML = esc(r.name);
+      } else {
+        tag.innerHTML = '<s>' + esc(r.name) + '</s><em>' + esc(T('a6.unconfirmed')) + '</em>';
+      }
       host.appendChild(tag);
     });
     if (role === 'shop') $('#shopsNone').hidden = live.length > 0;
@@ -1689,6 +1695,19 @@ FOG_FN,
 '}'
 ].join('\n');
 
+/* ---- retailer logos: original colours on a light plate, never additive -- */
+var F_LOGO = [
+'precision highp float;',
+'uniform sampler2D uMap; uniform float uFog; uniform float uInt;',
+'varying vec2 vUv; varying float vD;',
+FOG_FN,
+'void main(){',
+'  vec4 t = texture2D(uMap, vUv);',
+'  vec3 col = t.rgb * uInt * fogAmt(vD, uFog);',
+'  gl_FragColor = vec4(col, t.a);',
+'}'
+].join('\n');
+
 /* ---- the flacon: black glass, one red edge ---------------------------- */
 var F_GLASS = [
 'precision highp float;',
@@ -2137,24 +2156,81 @@ function buildWorld(){
   var rp = new THREE.Mesh(new THREE.PlaneGeometry(3.2, 1.6), rpMat);
   rp.renderOrder = 4;
   var rpG = new THREE.Group(); rpG.add(rp);
-  mountWall(rpG, -1, -140, 0.4);
+  mountWall(rpG, 1, -140, 0.4);
   W.retailPlaque = { group: rpG, mat: rpMat };
+
+  /* A partner's mark keeps its own colours on a light plate. The plate is
+     drawn here rather than baked into the asset, so the same transparent
+     file serves the DOM chip and the wall. */
+  W.logoMats = [];
+  function logoPlate(url, onSized){
+    var c = document.createElement('canvas');
+    c.width = 4; c.height = 4;
+    var t = new THREE.CanvasTexture(c);
+    t.minFilter = THREE.LinearFilter; t.magFilter = THREE.LinearFilter;
+    t.generateMipmaps = false;
+    t.wrapS = t.wrapT = THREE.ClampToEdgeWrapping;
+
+    W.pending++;
+    var img = new Image();
+    img.decoding = 'async';
+    img.onload = function(){
+      var h = img.height || 150;
+      var padX = Math.round(h * 0.55), padY = Math.round(h * 0.36);
+      c.width  = img.width + padX * 2;
+      c.height = h + padY * 2;
+      var x = c.getContext('2d');
+      var r = Math.round(c.height * 0.055);
+      x.beginPath();
+      x.moveTo(r, 0);
+      x.lineTo(c.width - r, 0); x.quadraticCurveTo(c.width, 0, c.width, r);
+      x.lineTo(c.width, c.height - r); x.quadraticCurveTo(c.width, c.height, c.width - r, c.height);
+      x.lineTo(r, c.height); x.quadraticCurveTo(0, c.height, 0, c.height - r);
+      x.lineTo(0, r); x.quadraticCurveTo(0, 0, r, 0);
+      x.closePath();
+      x.fillStyle = '#efeae8'; x.fill();
+      x.drawImage(img, padX, padY);
+      t.needsUpdate = true;
+      W.pending--;
+      if (onSized) onSized(c.width / c.height);
+    };
+    img.onerror = function(){ W.pending--; };
+    img.src = url;
+    return t;
+  }
 
   W.buildRetailWall = function(){
     while (W.retailGroup.children.length){
       var ch = W.retailGroup.children.pop();
+      var at = W.wallMounted.indexOf(ch);
+      if (at >= 0) W.wallMounted.splice(at, 1);
       W.retailGroup.remove(ch);
     }
+    W.logoMats.length = 0;
     var shops = confirmedRetail('shop').filter(function(r){ return has(r.logo); });
     shops.forEach(function(r, n){
       var g = new THREE.Group();
-      var m = artMat(tex(r.logo), 1.0);
       var w = r.w || 2.0;
-      var pl = new THREE.Mesh(new THREE.PlaneGeometry(w, w * 0.55), m);
-      pl.renderOrder = 4; g.add(pl);
-      g.position.set(CW - 0.06, 0.2, -138 - n * 3.6);
-      g.rotation.y = -Math.PI / 2;
-      g.userData.wall = { x: CW - 0.06, rot: -Math.PI / 2, side: 1 };
+      var pl = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), null);
+      var m = mat(F_LOGO, {
+        uMap: { value: logoPlate(r.logo, function(aspect){
+                  pl.scale.set(w, w / aspect, 1);
+                }) },
+        uFog: { value: FOG }, uInt: { value: 0.85 }
+      }, { side: THREE.DoubleSide, depthWrite: true });
+      m.transparent = true;
+      pl.material = m;
+      pl.scale.set(w, w * 0.4, 1);
+      pl.renderOrder = 4;
+      W.logoMats.push(m);
+      g.add(pl);
+      /* The brief hangs this on the right wall, but act VI's copy sits on the
+         right as well and would cover it. The wall takes the free side; the
+         "Erhältlich bei" plaque takes the covered one, where a label loses
+         less by being half read than a partner's mark does. */
+      g.position.set(-(CW - 0.06), 0.2, -138 - n * 3.6);
+      g.rotation.y = Math.PI / 2;
+      g.userData.wall = { x: -(CW - 0.06), rot: Math.PI / 2, side: -1, turn: 0.58 };
       W.wallMounted.push(g);
       W.retailGroup.add(g);
     });
@@ -2562,8 +2638,9 @@ function startGL(){
     W.wallMounted.forEach(function(o){
       var wd = o.userData.wall;
       if (!wd) return;
+      var turn = wd.turn === undefined ? 1 : wd.turn;
       o.position.x = portrait ? wd.x - wd.side * 1.15 : wd.x;
-      o.rotation.y = portrait ? wd.rot * 0.62 : wd.rot;
+      o.rotation.y = wd.rot * (portrait ? Math.min(0.62, turn) : turn);
       o.scale.setScalar(portrait ? 0.92 : 1);
     });
     W.mark.scale.setScalar(portrait ? 0.72 : 1);
@@ -2644,6 +2721,7 @@ function startGL(){
     W.stripMat.uniforms.uTime.value = clock;
     W.stripMat.uniforms.uInt.value = curve(K.ring, g) * EX.strip;
     W.frameMats.forEach(function(m){ m.uniforms.uInt.value = curve(K.frame, g) * EX.frame; });
+    W.logoMats.forEach(function(m){ m.uniforms.uInt.value = 0.30 + smoothstep(5.0, 5.9, g) * 0.62; });
 
     W.markMat.uniforms.uInt.value = curve(K.mark, g) * 1.25;
     W.mark.scale.setScalar((W.__portrait ? 0.72 : 1) * curve(K.markS, g));

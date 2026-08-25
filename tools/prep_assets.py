@@ -98,7 +98,41 @@ def _size(im, kw):
     buf = io.BytesIO(); im.save(buf, **kw); return len(buf.getvalue())
 
 
-def social(src, base, size=(1200, 630), quality=76):
+def logo(src, base, height=150, square=False):
+    """Retailer logo: alpha bounding box, fixed height, colours untouched.
+
+    Stays transparent — the light plate it sits on is drawn by the page, in
+    the DOM as a CSS background and in the 3D room on a canvas. Recolouring a
+    partner's logo white breaks almost every brand style guide there is.
+    """
+    im = Image.open(os.path.join(SRC, src)).convert('RGBA')
+    box = im.getchannel('A').getbbox()
+    if box:
+        im = im.crop(box)
+    if square:
+        side = max(im.size)
+        pad = Image.new('RGBA', (side, side), (0, 0, 0, 0))
+        pad.paste(im, ((side - im.width) // 2, (side - im.height) // 2))
+        im = pad
+    w = max(1, round(im.width * height / im.height))
+    im = im.resize((w, height), Image.LANCZOS)
+
+    cands = [
+        ('.webp', dict(format='WEBP', quality=88, method=6)),
+        ('.png',  dict(format='PNG', optimize=True)),
+    ]
+    # Flat brand marks usually survive 48 colours; only keep it if smaller.
+    quant = im.quantize(colors=48, method=Image.FASTOCTREE)
+    buf = io.BytesIO(); quant.save(buf, format='PNG', optimize=True)
+    if len(buf.getvalue()) < min(_size(im, kw) for _, kw in cands):
+        name = base + '.png'
+        with open(os.path.join(OUT, name), 'wb') as fh:
+            fh.write(buf.getvalue())
+        return name, len(buf.getvalue())
+    return _encode(im, base, cands)
+
+
+def social(src, base, size=(1200, 630), quality=68):
     """Open Graph card - centre crop of the key visual."""
     im = opaque(os.path.join(SRC, src))
     tw, th = size
@@ -127,6 +161,10 @@ def main():
         ('FLACONB',  lambda: flacon('teaser-3-engraving.jpg',  'flacon-engraving',  0.185, 820)),
         ('MARK',     lambda: wordmark('wordmark.png',          'wordmark')),
         ('OG',       lambda: social('key-visual.jpg',          'og')),
+        ('LOGOPF',   lambda: logo('logo-parfumfabrik.png', 'logo-parfumfabrik')),
+        ('LOGODM',   lambda: logo('logo-dm.png',           'logo-dm', 170, square=True)),
+        ('LOGORO',   lambda: logo('logo-rossmann.webp',    'logo-rossmann')),
+        ('LOGOMU',   lambda: logo('logo-mueller.png',      'logo-mueller')),
     ]
     for token, fn in jobs:
         name, size = fn()

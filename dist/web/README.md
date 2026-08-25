@@ -41,4 +41,4 @@ reference price (§ 11 PAngV), and retail prices may not be dictated
 The page has never been rendered in a browser. Camera path, timing and frame
 rate are set by calculation and need one tuning pass on real hardware.
 
-Image payload: 81.9 KB across 7 files.
+Image payload: 101.0 KB across 11 files.
