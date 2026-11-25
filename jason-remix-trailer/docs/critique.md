@@ -41,3 +41,8 @@ Fixed this round:
 Remaining (next pass, not blocking): b138-144 is a 2.4 s near-black stretch by design (silence before the drop); the s16 cover stream is busy for 1.6 s; the city (b144-148) is stylised, not Brandenburg itself.
 Checks: no banned defaults; longest gap 4.0 s (b124-134, push + voice); one structural white-out (b164-168, the drop); end card holds 2.4 s.
 Verdict: READY
+
+## Final checks (delivery)
+- Speech check (faster-whisper "small", German, on the final mix): the transcript matches the script word for word, including "Und aus Jason wurde Jason Remix." Three synthetic takes had been misheard ("Ringmix", "Kuhlesen", "Nichts"); they were replaced by takes that are recognised correctly ("Rie-Mix", "Kulißen", "Nächte," in vo_script.json).
+- Master: -14.0 LUFS integrated, true peak -1.1 dBFS (AAC), 85.08 s, 1920x1080, 25 fps, yuv420p, H.264 High, AAC 48 kHz stereo.
+- Delivery file: out/jason-remix-trailer/JASON_REMIX_Trailer_V1_1080p.mp4 (2-pass 6 Mbit/s, 66 MB). The CRF-16 master (400 MB, final.mp4) is not in git; it is rebuilt with the commands in README.md.
