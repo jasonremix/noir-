@@ -1,0 +1,103 @@
+{
+ "Hol mich": {
+  "title": "Hol mich",
+  "artists": [
+   "Jason Remix"
+  ],
+  "releaseDate": {
+   "isoString": "2026-11-13T00:00:00Z"
+  },
+  "cover": "https://image-cdn-fa.spotifycdn.com/image/ab67616d0000b273c0607d48244dcea27daa2eab"
+ },
+ "Feeling": {
+  "title": "Feeling",
+  "artists": [
+   "Jason Remix"
+  ],
+  "releaseDate": {
+   "isoString": "2026-10-23T00:00:00Z"
+  },
+  "cover": "https://image-cdn-fa.spotifycdn.com/image/ab67616d0000b2738389241129da0c4a27a469e3"
+ },
+ "Weite Welt": {
+  "title": "Weite Welt",
+  "artists": [
+   "Jason Remix"
+  ],
+  "releaseDate": {
+   "isoString": "2026-09-25T00:00:00Z"
+  },
+  "cover": "https://image-cdn-fa.spotifycdn.com/image/ab67616d0000b27372fdaa711a846880fa9d5584"
+ },
+ "Zeitgeist": {
+  "title": "Zeitgeist",
+  "artists": [
+   "Jason Remix"
+  ],
+  "releaseDate": {
+   "isoString": "2026-07-29T00:00:00Z"
+  },
+  "cover": "https://image-cdn-fa.spotifycdn.com/image/ab67616d0000b27393eee23f3ae65c14a537a355"
+ },
+ "Eine Insel": {
+  "title": "Eine Insel",
+  "artists": [
+   "Jason Remix"
+  ],
+  "releaseDate": {
+   "isoString": "2026-10-09T00:00:00Z"
+  },
+  "cover": "https://image-cdn-fa.spotifycdn.com/image/ab67616d0000b273cff590ebadef35dec2a47af9"
+ },
+ "Sonnengoettin": {
+  "title": "Sonnengöttin",
+  "artists": [
+   "Jason Remix"
+  ],
+  "releaseDate": {
+   "isoString": "2026-09-25T00:00:00Z"
+  },
+  "cover": "https://image-cdn-fa.spotifycdn.com/image/ab67616d0000b27372fdaa711a846880fa9d5584"
+ },
+ "Monster 2": {
+  "title": "Monster 2 - Special Edition",
+  "artists": [
+   "Jason Remix"
+  ],
+  "releaseDate": {
+   "isoString": "2026-09-11T00:00:00Z"
+  },
+  "cover": "https://image-cdn-fa.spotifycdn.com/image/ab67616d0000b27353b8c7fffd6dd7e3e0a57e66"
+ },
+ "Laura Stern": {
+  "title": "Laura Stern",
+  "artists": [
+   "Jason Remix"
+  ],
+  "releaseDate": {
+   "isoString": "2026-09-25T00:00:00Z"
+  },
+  "cover": "https://image-cdn-fa.spotifycdn.com/image/ab67616d0000b27372fdaa711a846880fa9d5584"
+ },
+ "Die Geisterbahn": {
+  "title": "Die Geisterbahn",
+  "artists": [
+   "Jason Remix"
+  ],
+  "releaseDate": {
+   "isoString": "2024-10-03T00:00:00Z"
+  },
+  "cover": "https://image-cdn-fa.spotifycdn.com/image/ab67616d0000b273a35920a26b684e10cbd7fad0"
+ },
+ "Sommernacht": {
+  "title": "Sommernacht",
+  "artists": [
+   "Jason Remix",
+   "WELLLO"
+  ],
+  "releaseDate": {
+   "isoString": "2026-10-09T00:00:00Z"
+  },
+  "cover": "https://image-cdn-fa.spotifycdn.com/image/ab67616d0000b273e6cb7a84943c3564196e96fa"
+ }
+}

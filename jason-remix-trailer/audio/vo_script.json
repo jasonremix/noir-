@@ -1,0 +1,121 @@
+[
+ {
+  "id": "p01",
+  "beat": 22.5,
+  "text": "Manche Träume beginnen ganz klein.",
+  "tts": "Manche Träume beginnen ganz klein.",
+  "pace": 1.4
+ },
+ {
+  "id": "p02",
+  "beat": 31.0,
+  "text": "In einem Zimmer.",
+  "tts": "In einem Zimmer.",
+  "pace": 1.4
+ },
+ {
+  "id": "p03",
+  "beat": 36.5,
+  "text": "Vor einem Computer.",
+  "tts": "Vor einem Computer.",
+  "pace": 1.4
+ },
+ {
+  "id": "p04",
+  "beat": 42.5,
+  "text": "Mit einer Idee,",
+  "tts": "Mit einer Idee,",
+  "pace": 1.38
+ },
+ {
+  "id": "p05",
+  "beat": 46.5,
+  "text": "die niemand sonst hören kann.",
+  "tts": "die niemand sonst hören kann.",
+  "pace": 1.38
+ },
+ {
+  "id": "p06",
+  "beat": 76.0,
+  "text": "Aus einer Leidenschaft wurde ein Weg.",
+  "tts": "Aus einer Leidenschaft wurde ein Weg.",
+  "pace": 1.32
+ },
+ {
+  "id": "p07",
+  "beat": 84.0,
+  "text": "Aus einer Idee wurde ein Name.",
+  "tts": "Aus einer Idee wurde ein Name.",
+  "pace": 1.32
+ },
+ {
+  "id": "p08",
+  "beat": 90.0,
+  "text": "Und aus Jason …",
+  "tts": "Und aus Dschäjßen,",
+  "pace": 1.42
+ },
+ {
+  "id": "p09",
+  "beat": 94.375,
+  "text": "wurde Jason Remix.",
+  "tts": "wurde Dschäjßen Riemix.",
+  "pace": 1.42
+ },
+ {
+  "id": "p10",
+  "beat": 108.5,
+  "text": "Doch was sieht eigentlich niemand?",
+  "tts": "Doch was sieht eigentlich niemand?",
+  "pace": 1.38
+ },
+ {
+  "id": "p11",
+  "beat": 117.0,
+  "text": "Was passiert hinter den Kulissen?",
+  "tts": "Was passiert hinter den Kulissen?",
+  "pace": 1.38
+ },
+ {
+  "id": "p12",
+  "beat": 123.0,
+  "text": "Wie viele Zweifel …",
+  "tts": "Wie viele Zweifel,",
+  "pace": 1.45
+ },
+ {
+  "id": "p13",
+  "beat": 127.5,
+  "text": "Entscheidungen …",
+  "tts": "Entscheidungen,",
+  "pace": 1.45
+ },
+ {
+  "id": "p14",
+  "beat": 130.5,
+  "text": "und schlaflose Nächte stecken hinter einem Traum?",
+  "tts": "und schlaflose Nächte stecken hinter einem Traum?",
+  "pace": 1.36
+ },
+ {
+  "id": "p15",
+  "beat": 146.0,
+  "text": "Das ist nicht nur die Geschichte eines Musikers.",
+  "tts": "Das ist nicht nur die Geschichte eines Musikers.",
+  "pace": 1.24
+ },
+ {
+  "id": "p16",
+  "beat": 155.0,
+  "text": "Es ist die Geschichte eines Menschen,",
+  "tts": "Es ist die Geschichte eines Menschen,",
+  "pace": 1.24
+ },
+ {
+  "id": "p17",
+  "beat": 161.0,
+  "text": "der seinen eigenen Weg gehen wollte.",
+  "tts": "der seinen eigenen Weg gehen wollte.",
+  "pace": 1.26
+ }
+]

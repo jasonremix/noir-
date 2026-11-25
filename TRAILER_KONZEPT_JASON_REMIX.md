@@ -36,8 +36,8 @@ Es gibt keine erfundenen Interviews, keine nachgestellten „Archivaufnahmen“,
 | Quelle | Ergebnis |
 |---|---|
 | [jasonremix.de](https://jasonremix.de/) (Start, Kontakt, Impressum, Buchung) | Vollständig gelesen. **Wichtigste Primärquelle**, aber Selbstdarstellung. |
-| [Spotify-Künstlerprofil](https://open.spotify.com/artist/1cju97ujLqS7hgwqnHCM1p) | Nur die Top-Tracks waren lesbar (über die Embed-Ansicht). Hörerzahlen, Follower und Release-Jahre lassen sich ohne Login bzw. API nicht abrufen. |
-| [YouTube @jasonremixorginal](https://www.youtube.com/@jasonremixorginal) | Kanal existiert (Seitentitel „Jason Remix“). Videotitel, Abozahlen und Beschreibung wurden nicht ausgeliefert, weil die Seite clientseitig gerendert wird. |
+| [Spotify-Künstlerprofil](https://open.spotify.com/artist/1cju97ujLqS7hgwqnHCM1p) | Top-Tracks, offizielle Cover und Veröffentlichungsdaten sind über die öffentlichen Embed- und Track-Seiten lesbar (Nachtrag 25.11.2026). Hörerzahlen und Follower lassen sich ohne Login bzw. API nicht abrufen. |
+| [YouTube @jasonremixorginal](https://www.youtube.com/@jasonremixorginal) | Über den öffentlichen RSS-Feed (Nachtrag 25.11.2026): Kanal angelegt am 08.12.2022, Titel und Daten der letzten 15 Videos. Abozahlen und Kanalbeschreibung nicht abrufbar. |
 | Google-/Websuche (mehrere Suchanfragen: Name, Echtname, Songtitel, Brandenburg) | **Keine** Presseartikel, Interviews oder Medienberichte gefunden. Die Treffer betrafen andere DJs mit „Jason“ im Namen. |
 | Apple Music, Amazon Music, SoundCloud, TikTok | Werden auf der Website als Plattformen genannt, aber ohne verlinkte URLs. Keine zuordenbaren Treffer gefunden. |
 
@@ -60,6 +60,11 @@ Es gibt keine erfundenen Interviews, keine nachgestellten „Archivaufnahmen“,
 | F11 | Einzige belegte Kooperation: **WELLLO** auf *Sommernacht* | Spotify |
 | F12 | Eigener YouTube-Kanal **@jasonremixorginal** | YouTube, jasonremix.de |
 | F13 | Nimmt Buchungen für Festivals, Clubs, Firmen-, Open-Air- und Privatevents an; Ziel laut Website: sich national und international zu etablieren | jasonremix.de |
+| F14 | Veröffentlichungsdaten: *Die Geisterbahn* 03.10.2024 · *Zeitgeist* 29.07.2026 · *Monster 2 – Special Edition* 11.09.2026 · Album *Laura* (u. a. *Weite Welt*, *Sonnengöttin*, *Laura Stern*) 25.09.2026 · *Eine Insel* und *Sommernacht* 09.10.2026 · *Feeling* 23.10.2026 · *Hol mich* 13.11.2026 | Spotify (Track-Seiten) |
+| F15 | Das Cover von *Laura* nennt es „The Debut Album“; *Feeling*, *Sommernacht* und *Laura* tragen das Label „Summer Records“ | Spotify-Cover |
+| F16 | YouTube-Kanal seit 08.12.2022; aktuell Lyric-Videos eigener Songs (z. B. *Hol mich raus*, *hin & her*, *Sommernacht*) und Uptempo-/Hardtekk-Remixe | YouTube RSS |
+| F17 | Video „Mein Neues Buch“ vom 20.11.2026 | YouTube RSS |
+| F18 | *Sommernacht*: Spotify nennt WELLLO als Mitwirkenden, Cover und YouTube-Titel nennen „VEMO“. Ob das dieselbe Person ist, ist offen | Spotify, YouTube |
 
 ### 1.3 Antworten auf die zehn Recherchefragen
 
@@ -68,9 +73,9 @@ Es gibt keine erfundenen Interviews, keine nachgestellten „Archivaufnahmen“,
 3. **Wie begann die Reise?** Mit zwölf Jahren, mit eigener Produktion am Computer (F4). Das passt exakt zur Trailer-Idee „ein Zimmer, ein Computer, eine Idee“.
 4. **Entwicklung als Produzent und DJ:** Er produziert selbst, macht Sounddesign, Mixing und Mastering selbst (F7) und veröffentlicht seit 2023 professionell (F5). Live-Auftritte erwähnt die Website nur allgemein; konkrete Gigs sind öffentlich **nicht belegt**.
 5. **Songs mit Bedeutung:** Belegt sind die Titel (F8–F10). *Welche* davon ihm persönlich wichtig sind, ist öffentlich nicht dokumentiert und muss im Interview geklärt werden. *Monster* bzw. *Monster 2 – Special Edition* ist der einzige Titel, der in zwei Fassungen existiert. Das deutet auf ein Herzensprojekt hin, ist aber noch zu verifizieren.
-6. **Erfolge und Meilensteine:** Belegbar sind nur der Start mit 12, die professionellen Releases seit 2023, ein eigener Spotify- und YouTube-Auftritt und die Kollaboration mit WELLLO. Es gibt **keine** öffentlich belegten Streamingzahlen, Charts oder Auszeichnungen. Der Trailer nennt deshalb **keine Zahlen**.
+6. **Erfolge und Meilensteine:** Belegbar sind der Start mit 12, die professionellen Releases seit 2023, der YouTube-Kanal seit Dezember 2022, das Debütalbum *Laura* (25.09.2026) mit einer dichten Release-Folge im Herbst 2026 (F14) und die Kollaboration bei *Sommernacht* (F18). Es gibt **keine** öffentlich belegten Streamingzahlen, Charts oder Auszeichnungen. Der Trailer nennt deshalb **keine Zahlen**.
 7. **Herausforderungen und Rückschläge:** Öffentlich **nicht dokumentiert**. Szene 4 bleibt deshalb bewusst als *Frage* formuliert („Wie viele Zweifel …?“) und behauptet keine konkreten Krisen.
-8. **Projekte, Bücher, Kooperationen:** Es wurden **keine Bücher** gefunden. Die einzige Kooperation ist WELLLO; weitere Projekte sind die angekündigten Releases (F9). Falls es Buchprojekte gibt, muss Jason sie belegen.
+8. **Projekte, Bücher, Kooperationen:** Ein YouTube-Video „Mein Neues Buch“ (20.11.2026) deutet auf ein Buchprojekt hin; Titel und Inhalt sind nicht recherchiert und müssen von Jason belegt werden. Die einzige belegte Kooperation ist *Sommernacht* (WELLLO bzw. VEMO, F18); weitere Projekte sind die angekündigten Releases (F9).
 9. **Bedeutung von Brandenburg an der Havel:** Belegt ist nur der Geburtsort. Die *emotionale* Bedeutung (Heimat, Prägung, Orte) ist eine Interviewfrage. Visuell wird Brandenburg an der Havel als echter Ort gezeigt (Havel, Dom, Altstadt, Industriekulisse), ohne damit eine Geschichte zu behaupten.
 10. **Künstlerische Identität:** Belegt ist eine Bewegung von Remix-Produktionen (*Sound of Silence*) hin zu eigenen, deutschsprachig betitelten Tracks (*Wolke 7*, *Distanz*, *Zeitgeist*, *Herzschlag von mir*). Ob das eine bewusste Entwicklung war, muss Jason selbst sagen.
 

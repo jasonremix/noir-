@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>JASON REMIX – DER WEG HINTER DER MUSIK</title>
+<style>
+  /* Zwei Schriften von jasonremix.de: Outfit (Titel) und Inter (kleine Einblendungen). */
+  @font-face { font-family: Display; src: url(fonts/outfit-200.ttf) format('truetype'); font-weight: 200; }
+  @font-face { font-family: Display; src: url(fonts/outfit-300.ttf) format('truetype'); font-weight: 300; }
+  @font-face { font-family: Display; src: url(fonts/outfit-400.ttf) format('truetype'); font-weight: 400; }
+  @font-face { font-family: Display; src: url(fonts/outfit-500.ttf) format('truetype'); font-weight: 500; }
+  @font-face { font-family: Display; src: url(fonts/outfit-600.ttf) format('truetype'); font-weight: 600; }
+  @font-face { font-family: UI; src: url(fonts/inter-200.ttf) format('truetype'); font-weight: 200; }
+  @font-face { font-family: UI; src: url(fonts/inter-300.ttf) format('truetype'); font-weight: 300; }
+  @font-face { font-family: UI; src: url(fonts/inter-400.ttf) format('truetype'); font-weight: 400; }
+  @font-face { font-family: UI; src: url(fonts/inter-500.ttf) format('truetype'); font-weight: 500; }
+  html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
+  body { display: grid; place-items: center; }
+  canvas { display: block; max-width: 100vw; max-height: 100vh; width: auto; height: auto; }
+  #hud { position: fixed; left: 12px; bottom: 10px; font: 12px/1 ui-monospace, monospace; color: #888; }
+  .render #hud { display: none; }
+</style>
+</head>
+<body>
+<canvas id="film"></canvas>
+<div id="hud">Leertaste: Play/Pause · ←/→: Frame · Klick: springen</div>
+<script type="module" src="film.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+# render outputs and reproducible intermediates (rebuild with the commands in jason-remix-trailer/README.md)
+out/*
+!out/jason-remix-trailer/
+out/jason-remix-trailer/*
+!out/jason-remix-trailer/JASON_REMIX_Trailer_V1_1080p.mp4
+!out/jason-remix-trailer/poster.png
+!out/jason-remix-trailer/contact.png
+jason-remix-trailer/audio/*.wav
+jason-remix-trailer/assets/shots/
+jason-remix-trailer/assets/fonts/
+node_modules/
