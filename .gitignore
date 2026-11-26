@@ -1,0 +1,5 @@
+# render intermediates (contact sheets, strips, picture-only encodes); finals are copied to exports/
+out/
+# the full, unreleased master stays out of the repo; only the 15 s excerpt is used
+heldenzeit-teaser/audio/src/
+node_modules/
