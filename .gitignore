@@ -7,3 +7,4 @@ node_modules/
 lass-mich-frei-remix/src/
 lass-mich-frei-remix/out/
 lass-mich-frei-remix/scripts/__pycache__/
+*.whl
