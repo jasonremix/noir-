@@ -3,3 +3,7 @@ out/
 # the full, unreleased master stays out of the repo; only the 15 s excerpt is used
 heldenzeit-teaser/audio/src/
 node_modules/
+# Lass mich frei remix: source audio, stems and renders stay out of the repo
+lass-mich-frei-remix/src/
+lass-mich-frei-remix/out/
+lass-mich-frei-remix/scripts/__pycache__/
